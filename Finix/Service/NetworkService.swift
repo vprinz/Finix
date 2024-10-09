@@ -40,6 +40,20 @@ struct NetworkService {
         return await getExchangeRates(url: url, parameters: parameters, decodeTo: LatestExchangeRates.self)
     }
     
+    func getHistoricalExchangeRates(
+        date: String,
+        baseCurrency: String,
+        currencies: [String]
+    ) async -> Result<HistoricalExchangeRates, NetworkError> {
+        let url = "\(baseUrl)\(APIEndpoint.historical.rawValue)"
+        let parameters = [
+            "date": date,
+            "base_currency": baseCurrency,
+            "currencies": currencies.joined(separator: ",")
+        ]
+        return await getExchangeRates(url: url, parameters: parameters, decodeTo: HistoricalExchangeRates.self)
+    }
+    
     private func getExchangeRates<T: Decodable>(
         url: String,
         parameters: [String: String],
@@ -47,7 +61,6 @@ struct NetworkService {
     ) async -> Result<T, NetworkError> {
         switch createRequest(url: url, parameters: parameters) {
         case .success(let request):
-            print("1 Decoding to type: \(type)")
             let result = await performRequest(request, decodeTo: type)
             switch result {
             case .success(let exhangeRates):
@@ -85,8 +98,6 @@ struct NetworkService {
         decodeTo type: T.Type
     ) async -> Result<T, NetworkError> {
         do {
-            print("2 Decoding to type: \(type)")
-            print(request.url!)
             let (data, _) = try await URLSession.shared.data(for: request)
             let decoder = JSONDecoder()
             let response = try decoder.decode(type, from: data)
@@ -94,7 +105,6 @@ struct NetworkService {
         } catch _ as URLError {
             return .failure(.badUrl)
         } catch let error as DecodingError {
-            print(error)
             return .failure(.decodingError)
         } catch {
             return .failure(.unknown(error))
