@@ -20,7 +20,7 @@ enum NetworkError: Error {
 struct NetworkService {
     
     let apiKey = Bundle.main.infoDictionary?["FREE_CURRENCY_API_KEY"] as? String
-    let baseUrl = "https://api.freecurrencyapi.com/v1/latest"
+    let baseUrl = Bundle.main.infoDictionary?["FREE_CURRENCY_BASE_URL"] as? String
     
     func getLatestExchangeRates(
         baseCurrency: String,
@@ -61,7 +61,7 @@ struct NetworkService {
     private func createRequest(parameters: [String: String]) -> Result<URLRequest, NetworkError> {
         switch validateAPIConfig() {
         case .success():
-            guard var urlComponents = URLComponents(string: baseUrl) else { return .failure(.badUrl) }
+            guard var urlComponents = URLComponents(string: baseUrl!) else { return .failure(.badUrl) }
             var queryItems = [URLQueryItem(name: "apikey", value: apiKey!)]
             for (key, value) in parameters {
                 queryItems.append(URLQueryItem(name: key, value: value))
@@ -76,7 +76,7 @@ struct NetworkService {
     
     private func validateAPIConfig() -> Result<Void, NetworkError> {
         guard apiKey != nil else { return .failure(.missingAPIKey) }
-//        guard baseUrl != nil else { return .failure(.missingBaseURL) }
+        guard baseUrl != nil else { return .failure(.missingBaseURL) }
         
         return .success(())
     }
