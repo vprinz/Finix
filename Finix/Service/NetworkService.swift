@@ -20,7 +20,7 @@ enum NetworkError: Error {
 struct NetworkService {
     
     let apiKey = Bundle.main.infoDictionary?["FREE_CURRENCY_API_KEY"] as? String
-    let baseUrl = Bundle.main.infoDictionary?["FREE_CURRENCY_BASE_URL"] as? String
+    let baseUrl = "https://api.freecurrencyapi.com/v1/latest"
     
     func getLatestExchangeRates(
         baseCurrency: String,
@@ -53,9 +53,9 @@ struct NetworkService {
             let decoder = JSONDecoder()
             let response = try decoder.decode(type, from: data)
             return .success(response)
-        } catch let urlError as URLError {
+        } catch _ as URLError {
             return .failure(.badUrl)
-        } catch let decodingError as DecodingError {
+        } catch _ as DecodingError {
             return .failure(.decodingError)
         } catch {
             return .failure(.unknown(error))
@@ -65,12 +65,16 @@ struct NetworkService {
     private func createRequest(parameters: [String: String]) -> Result<URLRequest, NetworkError> {
         switch validateAPIConfig() {
         case .success():
-            guard var urlComponents = URLComponents(string: baseUrl!) else { return .failure(.badUrl) }
+            guard var urlComponents = URLComponents(string: baseUrl) else { return .failure(.badUrl) }
+            
             var queryItems = [URLQueryItem(name: "apikey", value: apiKey!)]
             for (key, value) in parameters {
                 queryItems.append(URLQueryItem(name: key, value: value))
             }
+            urlComponents.queryItems = queryItems
+            
             guard let urlWithParams = urlComponents.url else { return .failure(.badUrl) }
+            
             let request = URLRequest(url: urlWithParams)
             return .success(request)
         case .failure(let error):
@@ -80,7 +84,7 @@ struct NetworkService {
     
     private func validateAPIConfig() -> Result<Void, NetworkError> {
         guard apiKey != nil else { return .failure(.missingAPIKey) }
-        guard baseUrl != nil else { return .failure(.missingBaseURL) }
+//        guard baseUrl != nil else { return .failure(.missingBaseURL) }
         
         return .success(())
     }

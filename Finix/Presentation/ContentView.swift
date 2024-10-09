@@ -12,7 +12,7 @@ struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var items: [Item]
     
-    var fxService = FXService()
+    var networkService = NetworkService()
 
     var body: some View {
         NavigationSplitView {
@@ -40,8 +40,8 @@ struct ContentView: View {
             Text("Select an item")
         }
         .task {
-            let rate = await fxService.getLatestExchangeRates(baseCurrency: "GBP", currencies: ["ILS"])
-            print(rate)
+            let data = await networkService.getLatestExchangeRates(baseCurrency: "GBP", currencies: ["ILS"])
+            print(data)
         }
     }
 
