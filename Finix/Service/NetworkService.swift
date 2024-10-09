@@ -113,8 +113,6 @@ struct NetworkService {
     
     private func validateAPIConfig() -> Result<Void, NetworkError> {
         guard apiKey != nil else { return .failure(.missingAPIKey) }
-//        guard baseUrl != nil else { return .failure(.missingBaseURL) }
-        
         return .success(())
     }
 }
