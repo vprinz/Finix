@@ -53,8 +53,12 @@ struct NetworkService {
             let decoder = JSONDecoder()
             let response = try decoder.decode(type, from: data)
             return .success(response)
-        } catch {
+        } catch let urlError as URLError {
+            return .failure(.badUrl)
+        } catch let decodingError as DecodingError {
             return .failure(.decodingError)
+        } catch {
+            return .failure(.unknown(error))
         }
     }
     
