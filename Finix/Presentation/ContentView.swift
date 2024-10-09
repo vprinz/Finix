@@ -11,6 +11,8 @@ import SwiftData
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var items: [Item]
+    
+    var fxService = FXService()
 
     var body: some View {
         NavigationSplitView {
@@ -36,6 +38,10 @@ struct ContentView: View {
             }
         } detail: {
             Text("Select an item")
+        }
+        .task {
+            let rate = await fxService.getLatestExchangeRates(baseCurrency: "GBP", currencies: ["ILS"])
+            print(rate)
         }
     }
 
