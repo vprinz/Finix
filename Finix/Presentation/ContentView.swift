@@ -40,8 +40,10 @@ struct ContentView: View {
             Text("Select an item")
         }
         .task {
-            let data = await networkService.getLatestExchangeRates(baseCurrency: "GBP", currencies: ["ILS"])
-            print(data)
+            let latest = await networkService.getLatestExchangeRates(baseCurrency: "GBP", currencies: ["ILS"])
+//            let historical = await networkService.getHistoricalExchangeRates(date: "2024-10-07", baseCurrency: "GBP", currencies: ["ILS"])
+            print(latest)
+//            print(historical)
         }
     }
 
