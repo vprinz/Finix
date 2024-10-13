@@ -1,9 +1,4 @@
-//
-//  NetworkRequest.swift
-//  Finix
-//
 //  Created by Igor Uglev on 13.10.24.
-//
 
 import Foundation
 
