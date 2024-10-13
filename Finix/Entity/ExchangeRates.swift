@@ -2,11 +2,9 @@
 
 import Foundation
 
-
 struct LatestExchangeRates: Decodable {
     let data: [String: Double]
 }
-
 
 struct HistoricalExchangeRates: Decodable {
     let data: [String: [String: Double]]
