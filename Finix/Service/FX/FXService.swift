@@ -16,11 +16,11 @@ protocol FXServiceProtocol {
 
 class FXService: FXServiceProtocol {
     
-    private let networkService: NetworkServiceProtocol
+    private let networkService: NetworkService
     
     private let apiKey: String
     
-    init?(networkService: NetworkServiceProtocol) {
+    init?(networkService: NetworkService) {
         guard let apiKey = Bundle.main.infoDictionary?["FREE_CURRENCY_API_KEY"] as? String else {
             return nil
         }

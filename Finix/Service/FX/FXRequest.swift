@@ -46,13 +46,13 @@ enum FXRequest: NetworkRequest {
         switch self {
         case let .getLatest(model):
             [
-                "apiKey": model.apiKey,
+                "apikey": model.apiKey,
                 "base_currency": model.baseCurrency,
                 "currencies": model.currencies.joined(separator: ",")
             ]
         case let .getHistorical(model):
             [
-                "apiKey": model.apiKey,
+                "apikey": model.apiKey,
                 "date": model.date,
                 "base_currency": model.baseCurrency,
                 "currencies": model.currencies.joined(separator: ",")
