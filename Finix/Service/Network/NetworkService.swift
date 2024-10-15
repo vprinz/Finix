@@ -46,7 +46,13 @@ class NetworkService: NetworkServiceProtocol {
     }
     
     private func buildUrlRequest(from request: NetworkRequest) throws -> URLRequest {
-        guard let url = URL(string: request.url) else { throw NetworkError.invalidUrl }
+        guard var urlComponents = URLComponents(string: request.url) else { throw NetworkError.invalidUrl }
+        
+        if let query = request.query {
+            urlComponents.queryItems = query.map { URLQueryItem(name: $0.key, value: $0.value) }
+        }
+        
+        guard let url = urlComponents.url else { throw NetworkError.invalidUrl }
         
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = request.method.rawValue
