@@ -10,7 +10,7 @@ import SwiftData
 
 
 @Model
-class Wallet {
+final class Wallet {
     @Attribute(.unique) var id: UUID
     var name: String
     var currency: String
