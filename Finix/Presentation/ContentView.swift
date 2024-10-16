@@ -11,7 +11,12 @@ import SwiftData
 struct ContentView: View {
 
     var body: some View {
-        Text("Hello")
+        VStack {
+            Text("Hello")
+        }
+        .onAppear {
+            print(UUID())
+        }
     }
 }
 
