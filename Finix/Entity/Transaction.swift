@@ -12,11 +12,11 @@ final class Transaction {
     var exchangedAmount: Double?
     var exchangedCurrency: Currency?
     var note: String?
-    var date: Date = Date()
-    var isHighlighted: Bool = false
+    var date = Date()
+    var isHighlighted = false
     var wallet: Wallet
     
-    init(id: UUID = UUID(), name: String, amount: Double, currency: Currency, exchangedAmount: Double? = nil, exchangedCurrency: Currency? = nil, note: String? = nil, date: Date, isHighlighted: Bool, wallet: Wallet) {
+    init(id: UUID = UUID(), name: String, amount: Double, currency: Currency, exchangedAmount: Double? = nil, exchangedCurrency: Currency? = nil, note: String? = nil, date: Date = Date(), isHighlighted: Bool = false, wallet: Wallet) {
         self.id = id
         self.name = name
         self.amount = amount
