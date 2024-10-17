@@ -4,17 +4,37 @@ import SwiftUI
 import SwiftData
 
 struct ContentView: View {
+    @Environment(\.modelContext) private var context
+    @Query private var wallets: [Wallet]
 
     var body: some View {
-        VStack {
-            Text("Hello")
+        Button {
+            let walletService = WalletService(modelContext: context)
+            do {
+                let _ = try walletService.create(name: "Cibus", currency: .ils)
+            } catch {
+                print(error)
+            }
+        } label: {
+            Text("Add new Wallet")
         }
-        .onAppear {
-            print(UUID())
+
+        VStack {
+            List {
+                ForEach(wallets) { wallet in
+                    Text(wallet.name)
+                }
+                .onDelete { indextSet in
+                    indextSet.forEach { idx in
+                        print(idx)
+                    }
+                }
+            }
         }
     }
 }
 
 #Preview {
     ContentView()
+        .modelContainer(for: Wallet.self, inMemory: true)
 }
