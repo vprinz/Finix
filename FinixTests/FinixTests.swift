@@ -1,9 +1,4 @@
-//
-//  FinixTests.swift
-//  FinixTests
-//
 //  Created by Valerie N. Prinz on 05/10/2024.
-//
 
 import Testing
 @testable import Finix
