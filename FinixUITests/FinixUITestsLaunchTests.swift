@@ -1,9 +1,4 @@
-//
-//  FinixUITestsLaunchTests.swift
-//  FinixUITests
-//
 //  Created by Valerie N. Prinz on 05/10/2024.
-//
 
 import XCTest
 
