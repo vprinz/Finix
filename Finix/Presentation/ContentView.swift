@@ -1,12 +1,21 @@
 //  Created by Valerie N. Prinz on d+/10/2024.
 
 import SwiftUI
-import SwiftData
 
 struct ContentView: View {
 
     var body: some View {
-        Text("Hello")
+        TabView {
+            Tab("Home", systemImage: "house.fill") {
+                HomeRouter()
+            }
+            Tab("Add", systemImage: "plus.app") {
+                AddExpenseView()
+            }
+            Tab("Account", systemImage: "person.crop.circle.fill") {
+                AccountView()
+            }
+        }
     }
 }
 
