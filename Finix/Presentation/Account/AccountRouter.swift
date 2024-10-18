@@ -24,9 +24,9 @@ struct AccountRouter: View {
     
     var body: some View {
         NavigationStack() {
-            HomeView()
-                .navigationDestination(for: AccountRoute.self) { homeRoute in
-                    homeRoute.view()
+            AccountView()
+                .navigationDestination(for: AccountRoute.self) { accountRoute in
+                    accountRoute.view()
                 }
         }
     }
