@@ -1,34 +1,19 @@
 //  Created by Valerie N. Prinz on 05/10/2024.
 
 import SwiftUI
-import SwiftData
 
 struct ContentView: View {
-    @Environment(\.modelContext) private var context
-    @Query private var wallets: [Wallet]
 
     var body: some View {
-        Button {
-            let walletService = WalletService(modelContext: context)
-            do {
-                let _ = try walletService.create(name: "Cibus", currency: .ils)
-            } catch {
-                print(error)
+        TabView {
+            Tab("Home", systemImage: "house.fill") {
+                HomeRouter()
             }
-        } label: {
-            Text("Add new Wallet")
-        }
-
-        VStack {
-            List {
-                ForEach(wallets) { wallet in
-                    Text(wallet.name)
-                }
-                .onDelete { indextSet in
-                    indextSet.forEach { idx in
-                        print(idx)
-                    }
-                }
+            Tab("Add", systemImage: "plus.app") {
+                AddExpenseView()
+            }
+            Tab("Account", systemImage: "person.crop.circle.fill") {
+                AccountView()
             }
         }
     }
@@ -36,5 +21,4 @@ struct ContentView: View {
 
 #Preview {
     ContentView()
-        .modelContainer(for: Wallet.self, inMemory: true)
 }
