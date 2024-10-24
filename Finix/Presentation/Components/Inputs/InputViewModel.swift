@@ -5,9 +5,9 @@ import SwiftUI
 
 class InputViewModel: ObservableObject {
     @Published var value: String = ""
-    @Published var borderColor: Color = .border
+    @Published var borderColor: Color = .borderStroke
     
     func changeBorderColor(_ isChanged: Bool) {
-        borderColor = isChanged ? .customPrimary : .border
+        borderColor = isChanged ? .customPrimary : .borderStroke
     }
 }

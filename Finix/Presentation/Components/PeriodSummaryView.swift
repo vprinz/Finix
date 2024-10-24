@@ -61,7 +61,7 @@ struct PeriodSummaryView: View {
         }
         .frame(height: 60)
         .background(.white)
-        .border(.border, width: 1)
+        .border(.borderStroke, width: 1)
         .clipShape(.rect(cornerRadius: 12))
     }
 }
