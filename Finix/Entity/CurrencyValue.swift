@@ -5,4 +5,9 @@ import Foundation
 struct CurrencyValue {
     let currency: Currency
     var value: Double
+    
+    func toString() -> String {
+        let formattedCurrency = value.formatted(.currency(code: currency.isoCode))
+        return formattedCurrency
+    }
 }

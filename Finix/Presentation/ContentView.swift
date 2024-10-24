@@ -16,6 +16,10 @@ struct ContentView: View {
                 AccountView()
             }
         }
+        .onAppear {
+            let c: Currency = .try
+            print(c.isoCode)
+        }
     }
 }
 
