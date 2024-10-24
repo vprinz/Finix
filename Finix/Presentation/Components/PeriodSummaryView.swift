@@ -14,8 +14,8 @@ extension PeriodSummaryView {
         
         var title: String {
             switch type {
-            case .expenses: "Expenses"
-            case .incomes: "Incomes"
+            case .expenses: String(localized: "expensesText")
+            case .incomes: String(localized: "incomesText")
             }
         }
         

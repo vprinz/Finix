@@ -1,0 +1,62 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "Account" : {
+
+    },
+    "Add" : {
+
+    },
+    "Add Expense" : {
+
+    },
+    "body" : {
+
+    },
+    "expensesText" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Expenses"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Расходы"
+          }
+        }
+      }
+    },
+    "Home" : {
+
+    },
+    "incomesText" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Incomes"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Доходы"
+          }
+        }
+      }
+    },
+    "Not implemented yet" : {
+
+    },
+    "Not inplemented" : {
+
+    },
+    "Tap to open history" : {
+
+    }
+  },
+  "version" : "1.0"
+}
