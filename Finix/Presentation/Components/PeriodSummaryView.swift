@@ -61,7 +61,7 @@ struct PeriodSummaryView: View {
         }
         .frame(height: 60)
         .background(.white)
-        .border(.borderStroke, width: 1)
+        .border(.borderStroke, width: 1) // TODO: fix bug with displaying border
         .clipShape(.rect(cornerRadius: 12))
     }
 }
