@@ -10,7 +10,6 @@ extension InputView {
         var backgroundColor: Color {
             isDisabled == true ? .disabledBackground : .white
         }
-    
     }
 }
 
@@ -30,6 +29,7 @@ struct InputView: View {
                 }
             )
             .disabled(model.isDisabled)
+            .tint(.customPrimary)
             .padding(12)
         }
         .frame(height: 48)

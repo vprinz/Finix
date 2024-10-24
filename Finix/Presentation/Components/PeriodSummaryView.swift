@@ -61,8 +61,12 @@ struct PeriodSummaryView: View {
         }
         .frame(height: 60)
         .background(.white)
-        .border(.borderStroke, width: 1) // TODO: fix bug with displaying border
         .clipShape(.rect(cornerRadius: 12))
+        .overlay(
+            RoundedRectangle(cornerRadius: 12)
+                .inset(by: 0.5)
+                .stroke(.borderStroke, lineWidth: 1)
+        )
     }
 }
 
@@ -77,5 +81,6 @@ struct PeriodSummaryView: View {
             value: CurrencyValue(currency: .usd, value: 3799.33)
         ))
     }
-    .background(.gray)
+    .padding()
+    .background(.figmaBackground)
 }
