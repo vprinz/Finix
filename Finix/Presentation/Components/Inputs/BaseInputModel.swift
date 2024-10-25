@@ -17,7 +17,7 @@ struct BaseInputModel {
     }
     
     let defaultValue: String
-    let isDisabled: Bool
+    var isDisabled: Bool = false
     var backgroundColorType: BackgroundColorType = .white
     
     var backgroundColor: Color {
