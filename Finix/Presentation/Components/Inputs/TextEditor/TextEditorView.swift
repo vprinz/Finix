@@ -15,7 +15,7 @@ extension TextEditorView {
 
 struct TextEditorView: View {
     var model: Model
-    @StateObject private var viewModel = TextEditorViewModel()
+    @StateObject private var viewModel = BaseInputViewModel()
     @FocusState private var isFocused: Bool
     
     var body: some View {
@@ -26,6 +26,13 @@ struct TextEditorView: View {
                 .textEditorStyle(.plain)
                 .focused($isFocused)
                 .padding(12)
+                .onChange(of: isFocused) { _, newValue in
+                    withAnimation {
+                        viewModel.changeBorderColor(
+                            borderColorType: newValue ? .focused : .plain
+                        )
+                    }
+                }
             
             if viewModel.value.isEmpty && !isFocused {
                 Text("Input") // TODO: add Font extension

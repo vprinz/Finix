@@ -15,7 +15,7 @@ extension TextFieldView {
 
 struct TextFieldView: View {
     let model: Model
-    @StateObject private var viewModel = TextFieldViewModel()
+    @StateObject private var viewModel = BaseInputViewModel()
     
     var body: some View {
         HStack {
@@ -24,7 +24,9 @@ struct TextFieldView: View {
                 text: $viewModel.value,
                 onEditingChanged: { changed in
                     withAnimation {
-                        viewModel.changeBorderColor(changed)
+                        viewModel.changeBorderColor(
+                            borderColorType: changed ? .focused : .plain
+                        )
                     }
                 }
             )
