@@ -5,10 +5,9 @@ import SwiftUI
 
 class TextFieldViewModel: ObservableObject {
     @Published var value: String = ""
-    @Published var borderColor: Color = .borderStroke
-    @Published var text: String = ""
+    @Published var borderColor: Color = Color.borderStroke
     
     func changeBorderColor(_ isChanged: Bool) {
-        borderColor = isChanged ? .customPrimary : .borderStroke
+        borderColor = isChanged ? Color.customPrimary : Color.borderStroke
     }
 }

@@ -8,14 +8,14 @@ extension TextFieldView {
         let isDisabled: Bool
         
         var backgroundColor: Color {
-            isDisabled == true ? .disabledBackground : .white
+            isDisabled == true ? Color.disabledBackground : Color.white
         }
     }
 }
 
 struct TextFieldView: View {
     let model: Model
-    @StateObject var viewModel = TextFieldViewModel()
+    @StateObject private var viewModel = TextFieldViewModel()
     
     var body: some View {
         HStack {
@@ -29,7 +29,7 @@ struct TextFieldView: View {
                 }
             )
             .disabled(model.isDisabled)
-            .tint(.customPrimary)
+            .tint(Color.customPrimary)
             .padding(12)
         }
         .frame(height: 48)
@@ -59,5 +59,5 @@ struct TextFieldView: View {
         ))
     }
     .padding()
-    .background(.figmaBackground)
+    .background(Color.figmaBackground)
 }
