@@ -2,7 +2,7 @@
 
 import SwiftUI
 
-extension InputView {
+extension TextFieldView {
     struct Model {
         let defaultValue: String
         let isDisabled: Bool
@@ -13,9 +13,9 @@ extension InputView {
     }
 }
 
-struct InputView: View {
+struct TextFieldView: View {
     let model: Model
-    @StateObject var viewModel = InputViewModel()
+    @StateObject var viewModel = TextFieldViewModel()
     
     var body: some View {
         HStack {
@@ -45,15 +45,15 @@ struct InputView: View {
 
 #Preview {
     VStack {
-        InputView(model: InputView.Model(
+        TextFieldView(model: TextFieldView.Model(
             defaultValue: "Input",
             isDisabled: false
         ))
-        InputView(model: InputView.Model(
+        TextFieldView(model: TextFieldView.Model(
             defaultValue: "Input",
             isDisabled: false
         ))
-        InputView(model: InputView.Model(
+        TextFieldView(model: TextFieldView.Model(
             defaultValue: "Input",
             isDisabled: true
         ))

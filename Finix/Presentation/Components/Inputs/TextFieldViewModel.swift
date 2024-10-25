@@ -3,9 +3,10 @@
 import Foundation
 import SwiftUI
 
-class InputViewModel: ObservableObject {
+class TextFieldViewModel: ObservableObject {
     @Published var value: String = ""
     @Published var borderColor: Color = .borderStroke
+    @Published var text: String = ""
     
     func changeBorderColor(_ isChanged: Bool) {
         borderColor = isChanged ? .customPrimary : .borderStroke
