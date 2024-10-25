@@ -9,10 +9,13 @@ struct SecureFieldView: View {
     
     var body: some View {
         HStack {
-            SecureField(
-                model.defaultValue,
-                text: $viewModel.value
-            )
+            Group {
+                if viewModel.isSecureMode {
+                    SecureField(model.defaultValue, text: $viewModel.value)
+                } else {
+                    TextField(model.defaultValue, text: $viewModel.value)
+                }
+            }
             .disabled(model.isDisabled)
             .focused($isFocused)
             .tint(Color.customPrimary)

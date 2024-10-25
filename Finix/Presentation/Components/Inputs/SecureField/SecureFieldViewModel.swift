@@ -3,5 +3,5 @@
 import Foundation
 
 class SecureFieldViewModel: BaseInputViewModel {
-    var isSecureMode: Bool = true
+    @Published var isSecureMode: Bool = true
 }
