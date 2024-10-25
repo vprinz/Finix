@@ -17,6 +17,13 @@ struct SecureFieldView: View {
             .focused($isFocused)
             .tint(Color.customPrimary)
             .padding(12)
+            .onChange(of: isFocused) { _, newValue in
+                withAnimation {
+                    viewModel.changeBorderColor(
+                        borderColorType: newValue ? .focused : .plain
+                    )
+                }
+            }
             
             Spacer()
             
