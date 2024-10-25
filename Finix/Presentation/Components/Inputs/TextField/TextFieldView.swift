@@ -2,19 +2,8 @@
 
 import SwiftUI
 
-extension TextFieldView {
-    struct Model {
-        let defaultValue: String
-        let isDisabled: Bool
-        
-        var backgroundColor: Color {
-            isDisabled == true ? Color.disabledBackground : Color.white
-        }
-    }
-}
-
 struct TextFieldView: View {
-    let model: Model
+    let model: BaseInputModel
     @StateObject private var viewModel = BaseInputViewModel()
     
     var body: some View {
@@ -47,15 +36,17 @@ struct TextFieldView: View {
 
 #Preview {
     VStack {
-        TextFieldView(model: TextFieldView.Model(
+        TextFieldView(model: BaseInputModel(
             defaultValue: "Input",
-            isDisabled: false
+            isDisabled: false,
+            backgroundColorType: .white
         ))
-        TextFieldView(model: TextFieldView.Model(
+        TextFieldView(model: BaseInputModel(
             defaultValue: "Input",
-            isDisabled: false
+            isDisabled: false,
+            backgroundColorType: .gray
         ))
-        TextFieldView(model: TextFieldView.Model(
+        TextFieldView(model: BaseInputModel(
             defaultValue: "Input",
             isDisabled: true
         ))

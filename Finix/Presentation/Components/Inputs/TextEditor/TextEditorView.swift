@@ -2,19 +2,8 @@
 
 import SwiftUI
 
-extension TextEditorView {
-    struct Model {
-        let defaultValue: String
-        let isDisabled: Bool
-        
-        var backgroundColor: Color {
-            isDisabled == true ? Color.disabledBackground : Color.white
-        }
-    }
-}
-
 struct TextEditorView: View {
-    var model: Model
+    var model: BaseInputModel
     @StateObject private var viewModel = BaseInputViewModel()
     @FocusState private var isFocused: Bool
     
@@ -53,15 +42,16 @@ struct TextEditorView: View {
 
 #Preview {
     VStack {
-        TextEditorView(model: TextEditorView.Model(
+        TextEditorView(model: BaseInputModel(
             defaultValue: "Input",
             isDisabled: false
         ))
-        TextEditorView(model: TextEditorView.Model(
+        TextEditorView(model: BaseInputModel(
             defaultValue: "Input",
-            isDisabled: false
+            isDisabled: false,
+            backgroundColorType: .gray
         ))
-        TextEditorView(model: TextEditorView.Model(
+        TextEditorView(model: BaseInputModel(
             defaultValue: "Input",
             isDisabled: true
         ))
