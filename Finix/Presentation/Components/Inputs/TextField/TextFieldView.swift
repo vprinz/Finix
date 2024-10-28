@@ -3,30 +3,27 @@
 import SwiftUI
 
 struct TextFieldView: View {
-    let model: BaseInputModel
-    @StateObject private var viewModel = BaseInputViewModel()
+    @StateObject var viewModel: BaseInputViewModel
     @FocusState private var isFocused: Bool
     
     var body: some View {
         HStack {
             TextField(
-                model.defaultValue,
+                viewModel.placeholder,
                 text: $viewModel.value
             )
             .focused($isFocused)
-            .disabled(model.isDisabled)
+            .disabled(viewModel.state == .disabled)
             .tint(Color.customPrimary)
             .padding(12)
             .onChange(of: isFocused) { _, newValue in
                 withAnimation {
-                    viewModel.changeBorderColor(
-                        borderColorType: newValue ? .focused : .plain
-                    )
+                    viewModel.state = newValue ? .focused : .inactive
                 }
             }
         }
         .frame(height: 48)
-        .background(model.backgroundColor)
+        .background(viewModel.backgroundColor)
         .clipShape(.rect(cornerRadius: 12))
         .overlay(
             RoundedRectangle(cornerRadius: 12)
@@ -37,20 +34,42 @@ struct TextFieldView: View {
 }
 
 #Preview {
+    @Previewable @State var tf2: String = ""
+    var tf1: String = ""
     VStack {
-        TextFieldView(model: BaseInputModel(
-            defaultValue: "Input",
-            isDisabled: false,
-            backgroundColorType: .white
+        TextFieldView(viewModel: BaseInputViewModel(
+            value: .init(get: {
+                tf1
+            }, set: { newValue in
+                tf1 = newValue
+            }),
+            placeholder: "Enter text",
+            disabled: false
         ))
-        TextFieldView(model: BaseInputModel(
-            defaultValue: "Input",
-            isDisabled: false,
-            backgroundColorType: .gray
+        .frame(width: 200)
+        TextFieldView(viewModel: BaseInputViewModel(
+            value: $tf2,
+            placeholder: "Enter text",
+            style: .gray,
+            disabled: false
         ))
-        TextFieldView(model: BaseInputModel(
-            defaultValue: "Input",
-            isDisabled: true
+        TextFieldView(viewModel: BaseInputViewModel(
+            value: .init(get: {
+                ""
+            }, set: { _ in
+                
+            }),
+            placeholder: "Enter text",
+            disabled: true
+        ))
+        TextFieldView(viewModel: BaseInputViewModel(
+            value: .init(get: {
+                "Some text"
+            }, set: { _ in
+                
+            }),
+            placeholder: "Enter text",
+            disabled: true
         ))
     }
     .padding()
