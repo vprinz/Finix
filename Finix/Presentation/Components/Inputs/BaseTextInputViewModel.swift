@@ -3,7 +3,7 @@
 import Foundation
 import SwiftUI
 
-class BaseInputViewModel: ObservableObject {
+class BaseTextInputViewModel: ObservableObject {
     enum Style {
         case white
         case gray

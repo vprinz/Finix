@@ -2,6 +2,6 @@
 
 import Foundation
 
-class SecureFieldViewModel: BaseInputViewModel {
+class SecureFieldViewModel: BaseTextInputViewModel {
     @Published var isSecureMode: Bool = true
 }

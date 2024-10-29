@@ -4,6 +4,9 @@
     "Account" : {
 
     },
+    "Add" : {
+
+    },
     "Add Expense" : {
 
     },
@@ -44,9 +47,6 @@
           }
         }
       }
-    },
-    "Input" : {
-
     },
     "Not implemented yet" : {
 

@@ -3,7 +3,7 @@
 import SwiftUI
 
 struct TextFieldView: View {
-    @StateObject var viewModel: BaseInputViewModel
+    @StateObject var viewModel: BaseTextInputViewModel
     @FocusState private var isFocused: Bool
     
     var body: some View {
@@ -37,7 +37,7 @@ struct TextFieldView: View {
     @Previewable @State var tf2: String = ""
     var tf1: String = ""
     VStack {
-        TextFieldView(viewModel: BaseInputViewModel(
+        TextFieldView(viewModel: BaseTextInputViewModel(
             value: .init(get: {
                 tf1
             }, set: { newValue in
@@ -47,13 +47,13 @@ struct TextFieldView: View {
             disabled: false
         ))
         .frame(width: 200)
-        TextFieldView(viewModel: BaseInputViewModel(
+        TextFieldView(viewModel: BaseTextInputViewModel(
             value: $tf2,
             placeholder: "Enter text",
             style: .gray,
             disabled: false
         ))
-        TextFieldView(viewModel: BaseInputViewModel(
+        TextFieldView(viewModel: BaseTextInputViewModel(
             value: .init(get: {
                 ""
             }, set: { _ in
@@ -62,7 +62,7 @@ struct TextFieldView: View {
             placeholder: "Enter text",
             disabled: true
         ))
-        TextFieldView(viewModel: BaseInputViewModel(
+        TextFieldView(viewModel: BaseTextInputViewModel(
             value: .init(get: {
                 "Some text"
             }, set: { _ in
