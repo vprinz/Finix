@@ -3,7 +3,8 @@
 import SwiftUI
 
 extension TransactionExpenseCardView {
-    struct Model {
+    struct Model: Identifiable {
+        let id: UUID
         let categoryIconName: String
         let transactionName: String
         let amountWithCurrency: String
@@ -13,6 +14,7 @@ extension TransactionExpenseCardView {
         let walletName: String?
         
         init(
+            id: UUID = UUID(),
             categoryIconName: String,
             transactionName: String,
             amountWithCurrency: String,
@@ -20,6 +22,7 @@ extension TransactionExpenseCardView {
             categoryName: String? = nil,
             walletName: String? = nil
         ) {
+            self.id = id
             self.categoryIconName = categoryIconName
             self.transactionName = transactionName
             self.amountWithCurrency = amountWithCurrency
@@ -75,47 +78,51 @@ struct TransactionExpenseCardView: View {
         }
         .padding(.horizontal, 20)
         .padding(.vertical, 4)
-        .frame(maxHeight: 52)
+        .frame(height: 52)
+        .listRowSeparator(.hidden)
     }
 }
 
 #Preview {
+    var models: [TransactionExpenseCardView.Model] = [
+        TransactionExpenseCardView.Model(
+            categoryIconName: "bank",
+            transactionName: "ATM",
+            amountWithCurrency: "$25.00"
+        ),
+        TransactionExpenseCardView.Model(
+            categoryIconName: "bank",
+            transactionName: "ATM",
+            amountWithCurrency: "$25.00",
+            categoryName: "Banking",
+            walletName: "Cash"
+        ),
+        TransactionExpenseCardView.Model(
+            categoryIconName: "bank",
+            transactionName: "ATM",
+            amountWithCurrency: "$25.00",
+            exchangedAmountWithCurrency: "€22.00"
+        ),
+        TransactionExpenseCardView.Model(
+            categoryIconName: "bank",
+            transactionName: "ATM",
+            amountWithCurrency: "$25.00",
+            exchangedAmountWithCurrency: "€22.00",
+            categoryName: "Banking",
+            walletName: "Cash"
+        )
+    ]
+    
     VStack {
-        TransactionExpenseCardView(
-            model: TransactionExpenseCardView.Model(
-                categoryIconName: "bank",
-                transactionName: "ATM",
-                amountWithCurrency: "$25.00"
-            ))
-            .frame(width: 361)
-        
-        TransactionExpenseCardView(
-            model: TransactionExpenseCardView.Model(
-                categoryIconName: "bank",
-                transactionName: "ATM",
-                amountWithCurrency: "$25.00",
-                categoryName: "Banking",
-                walletName: "Cash"
-            ))
-            .frame(width: 361)
-        TransactionExpenseCardView(
-            model: TransactionExpenseCardView.Model(
-                categoryIconName: "bank",
-                transactionName: "ATM",
-                amountWithCurrency: "$25.00",
-                exchangedAmountWithCurrency: "€22.00"
-            ))
-            .frame(width: 361)
-        TransactionExpenseCardView(
-            model: TransactionExpenseCardView.Model(
-                categoryIconName: "bank",
-                transactionName: "ATM",
-                amountWithCurrency: "$25.00",
-                exchangedAmountWithCurrency: "€22.00",
-                categoryName: "Banking",
-                walletName: "Cash"
-            ))
-            .frame(width: 361)
+        List(models) { model in
+            TransactionExpenseCardView(
+                model: model)
+            .background(Color.figmaBackground)
+        }
+        .frame(width: 361)
+        .background(Color.green)
+        .scrollContentBackground(.hidden)
     }
+    .clipShape(.rect(cornerRadius: 12))
     .background(Color.figmaBackground)
 }
