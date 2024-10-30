@@ -4,6 +4,9 @@
     "- %@" : {
 
     },
+    "+ %@" : {
+
+    },
     "Account" : {
 
     },
@@ -47,6 +50,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Доходы"
+          }
+        }
+      }
+    },
+    "incomeText" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Income"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Доход"
           }
         }
       }
