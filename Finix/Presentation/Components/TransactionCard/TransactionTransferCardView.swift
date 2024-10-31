@@ -3,7 +3,8 @@
 import SwiftUI
 
 extension TransactionTransferCardView {
-    struct Model {
+    struct Model: Identifiable {
+        let id: UUID
         let transactionName: String
         let amountWithCurrency: String
         let fromWalletName: String
@@ -11,12 +12,14 @@ extension TransactionTransferCardView {
         let exchangedAmountWithCurrency: String?
         
         init(
+            id: UUID = UUID(),
             transactionName: String,
             amountWithCurrency: String,
             fromWalletName: String,
             toWalletName: String,
             exchangedAmountWithCurrency: String? = nil
         ) {
+            self.id = id
             self.transactionName = transactionName
             self.amountWithCurrency = amountWithCurrency
             self.fromWalletName = fromWalletName
@@ -76,23 +79,32 @@ struct TransactionTransferCardView: View {
 }
 
 #Preview {
-    VStack(spacing: 10) {
-        TransactionTransferCardView(
-            model: TransactionTransferCardView.Model(
-                transactionName: "Transfer",
-                amountWithCurrency: "$25.00",
-                fromWalletName: "Cash",
-                toWalletName: "Neobank"
-            )
+    let models: [TransactionTransferCardView.Model] = [
+        TransactionTransferCardView.Model(
+            transactionName: "Transfer",
+            amountWithCurrency: "$25.00",
+            fromWalletName: "Cash",
+            toWalletName: "Neobank"
+        ),
+        TransactionTransferCardView.Model(
+            transactionName: "Transfer",
+            amountWithCurrency: "$25.00",
+            fromWalletName: "Cash",
+            toWalletName: "Neobank",
+            exchangedAmountWithCurrency: "€22.00"
         )
-        TransactionTransferCardView(
-            model: TransactionTransferCardView.Model(
-                transactionName: "Transfer",
-                amountWithCurrency: "$25.00",
-                fromWalletName: "Cash",
-                toWalletName: "Neobank",
-                exchangedAmountWithCurrency: "€22.00"
-            )
-        )
+    ]
+    
+    VStack {
+        List(models) { model in
+            TransactionTransferCardView(
+                model: model)
+            .background(Color.figmaBackground)
+        }
+        .frame(width: 361)
+        .background(Color.green)
+        .scrollContentBackground(.hidden)
     }
+    .clipShape(.rect(cornerRadius: 12))
+    .background(Color.figmaBackground)
 }

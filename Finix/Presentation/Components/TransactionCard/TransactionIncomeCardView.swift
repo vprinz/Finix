@@ -3,18 +3,21 @@
 import SwiftUI
 
 extension TransactionIncomeCardView {
-    struct Model {
+    struct Model: Identifiable {
+        let id: UUID
         let transactionName: String
         let amountWithCurrency: String
         let walletName: String
         let exchangedAmountWithCurrency: String?
         
         init(
+            id: UUID = UUID(),
             transactionName: String,
             amountWithCurrency: String,
             walletName: String,
             exchangedAmountWithCurrency: String? = nil
         ) {
+            self.id = id
             self.transactionName = transactionName
             self.amountWithCurrency = amountWithCurrency
             self.walletName = walletName
@@ -73,21 +76,30 @@ struct TransactionIncomeCardView: View {
 }
 
 #Preview {
-    VStack(spacing: 10) {
-        TransactionIncomeCardView(
-            model: TransactionIncomeCardView.Model(
-                transactionName: "Salary",
-                amountWithCurrency: "$25.00",
-                walletName: "Cash"
-            )
+    let models: [TransactionIncomeCardView.Model] = [
+        TransactionIncomeCardView.Model(
+            transactionName: "Salary",
+            amountWithCurrency: "$25.00",
+            walletName: "Cash"
+        ),
+        TransactionIncomeCardView.Model(
+            transactionName: "Salary",
+            amountWithCurrency: "$25.00",
+            walletName: "Cash",
+            exchangedAmountWithCurrency: "€22.00"
         )
-        TransactionIncomeCardView(
-            model: TransactionIncomeCardView.Model(
-                transactionName: "Salary",
-                amountWithCurrency: "$25.00",
-                walletName: "Cash",
-                exchangedAmountWithCurrency: "€22.00"
-            )
-        )
+    ]
+    
+    VStack {
+        List(models) { model in
+            TransactionIncomeCardView(
+                model: model)
+            .background(Color.figmaBackground)
+        }
+        .frame(width: 361)
+        .background(Color.green)
+        .scrollContentBackground(.hidden)
     }
+    .clipShape(.rect(cornerRadius: 12))
+    .background(Color.figmaBackground)
 }

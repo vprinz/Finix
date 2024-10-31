@@ -84,7 +84,7 @@ struct TransactionExpenseCardView: View {
 }
 
 #Preview {
-    var models: [TransactionExpenseCardView.Model] = [
+    let models: [TransactionExpenseCardView.Model] = [
         TransactionExpenseCardView.Model(
             categoryIconName: "bank",
             transactionName: "ATM",
