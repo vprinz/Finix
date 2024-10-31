@@ -4,19 +4,9 @@ import SwiftUI
 
 extension SmallWalletCardView {
     struct Model: Identifiable {
-        let id: UUID
+        let id: UUID = UUID()
         let currencyIsoCode: String
         let style: Color
-        
-        init(
-            id: UUID = UUID(),
-            currencyIsoCode: String,
-            style: Color
-        ) {
-            self.id = id
-            self.currencyIsoCode = currencyIsoCode
-            self.style = style
-        }
     }
 }
 
@@ -26,11 +16,13 @@ struct SmallWalletCardView: View {
     var body: some View {
         HStack {
             Spacer()
-            Text(model.currencyIsoCode)
-                .font(.titleSmall)
-                .foregroundStyle(model.style)
-                .padding(.trailing, 6)
-                .padding(.top)
+            VStack {
+                Spacer()
+                Text(model.currencyIsoCode)
+                    .font(.titleSmall)
+                    .foregroundStyle(model.style)
+                    .padding(.trailing, 6)
+            }
         }
         .frame(height: 40)
         .background(Color.foreground)
