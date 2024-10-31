@@ -14,9 +14,9 @@ struct SmallWalletCardView: View {
     let model: Model
     
     var body: some View {
-        HStack {
+        VStack {
             Spacer()
-            VStack {
+            HStack {
                 Spacer()
                 Text(model.currencyIsoCode)
                     .font(.titleSmall)
