@@ -56,21 +56,16 @@ struct WalletCardView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            if let walletName = viewModel.walletName,
-               let totalAmount = viewModel.totalAmountWithCurrency {
-                VStack(alignment: .leading) {
-                    Text(walletName)
-                    Text(totalAmount)
-                }
-                .font(.microTextMedium)
-                .foregroundStyle(viewModel.textColor)
-                .padding(.top, 8)
-                .padding(.leading, 8)
+            VStack(alignment: .leading) {
+                Text(viewModel.walletName ?? "")
+                Text(viewModel.totalAmountWithCurrency ?? "")
             }
-            Spacer()
-            HStack {
+            .font(.microTextMedium)
+            .foregroundStyle(viewModel.textColor)
+            .padding(.top, 8)
+            .padding(.leading, 8)
+            HStack(alignment: .bottom) {
                 Spacer()
-                // TODO: check size of icon and position
                 if viewModel.state == .inactive {
                     Text(viewModel.currencyIsoCode)
                         .font(.titleSmall)
@@ -80,7 +75,7 @@ struct WalletCardView: View {
                 } else {
                     Image("check-circle")
                         .resizable()
-                        .aspectRatio(contentMode: .fit)
+                        .aspectRatio(contentMode: .fill)
                         .frame(width: 30, height: 30)
                         .foregroundStyle(Color.textWhite)
                         .offset(x: 3, y: 0)
