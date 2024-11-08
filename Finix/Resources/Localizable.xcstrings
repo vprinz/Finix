@@ -17,7 +17,20 @@
 
     },
     "addTransactionBtnText" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add transaction"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Добавить транзакцию"
+          }
+        }
+      }
     },
     "body" : {
 
@@ -28,6 +41,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Set a monthly limit to track remaining funds daily and monthly, helping you spending effectively"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Установите месячный лимит для ежедневного и ежемесячного отслеживания остатков средств, что поможет вам эффективно расходовать средства"
           }
         }
       }
@@ -63,9 +82,6 @@
           }
         }
       }
-    },
-    "Hello, World!" : {
-
     },
     "Home" : {
 
@@ -108,7 +124,26 @@
     "Not inplemented" : {
 
     },
+    "setLimitBtnText" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Set limit"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Установить лимит"
+          }
+        }
+      }
+    },
     "Tap to open history" : {
+
+    },
+    "Test text" : {
 
     }
   },
