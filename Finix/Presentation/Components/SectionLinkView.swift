@@ -18,10 +18,10 @@ struct SectionLinkView: View {
                 .font(.smallTextMedium)
         }
         .foregroundStyle(Color.textSecondary)
-        .padding()
     }
 }
 
 #Preview {
     SectionLinkView(sectionTitle: "Upcoming payments")
+        .padding()
 }
