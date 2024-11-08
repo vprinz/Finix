@@ -49,7 +49,6 @@ struct ChartSegmentView: View {
             }
             .frame(height: 16)
         }
-        .padding()
     }
 }
 
