@@ -30,7 +30,7 @@ struct PeriodBudgetView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             Text(model.periodText)
-                .font(.CaptionNarrowRegular)
+                .font(.captionNarrowRegular)
                 .foregroundStyle(Color.textSecondary)
                 .padding(.top, 16)
                 .padding(.bottom, 8)

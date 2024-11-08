@@ -18,7 +18,7 @@ struct ExpenseSummaryView: View {
             HStack {
                 VStack(alignment: .leading) {
                     Text("expensesText")
-                        .font(.CaptionNarrowRegular)
+                        .font(.captionNarrowRegular)
                         .foregroundStyle(Color.textSecondary)
                         .padding(.bottom, 8)
                     Text(model.expensesAmountWithCurrency)
@@ -28,7 +28,7 @@ struct ExpenseSummaryView: View {
                 Spacer()
                 VStack(alignment: .trailing) {
                     Text("monthlyBudgetText")
-                        .font(.CaptionNarrowRegular)
+                        .font(.captionNarrowRegular)
                         .foregroundStyle(Color.textSecondary)
                         .padding(.bottom, 8)
                     Text(model.monthlyBudgetAmountWithCurrency)
