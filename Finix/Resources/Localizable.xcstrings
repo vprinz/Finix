@@ -16,8 +16,37 @@
     "Add Expense" : {
 
     },
+    "addTransactionBtnText" : {
+
+    },
     "body" : {
 
+    },
+    "emptyLimitText" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Set a monthly limit to track remaining funds daily and monthly, helping you spending effectively"
+          }
+        }
+      }
+    },
+    "emptyTransactionText" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Here you’ll see your upcoming transactions. Add future expenses or income to stay prepared"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Последних транзакций обнаружено не было. Добавьте свои расходы или доходы, чтобы просмотреть их здесь"
+          }
+        }
+      }
     },
     "expensesText" : {
       "localizations" : {
@@ -34,6 +63,9 @@
           }
         }
       }
+    },
+    "Hello, World!" : {
+
     },
     "Home" : {
 
