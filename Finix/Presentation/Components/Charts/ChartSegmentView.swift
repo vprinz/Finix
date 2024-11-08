@@ -38,9 +38,11 @@ struct ChartSegmentView: View {
                 
                 HStack(spacing: 0) {
                     ForEach(model.segments) { segment in
+                        let isLast = segment.id == model.segments.last?.id
                         Rectangle()
                             .fill(segment.color)
                             .frame(width: segment.percentage * totalWidth)
+                            .clipShape(isLast ? .rect(bottomTrailingRadius: 50, topTrailingRadius: 50) : .rect())
                     }
                 }
                 .frame(maxWidth: totalWidth, alignment: .leading)
