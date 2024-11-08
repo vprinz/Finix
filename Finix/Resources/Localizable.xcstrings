@@ -48,6 +48,38 @@
         }
       }
     },
+    "leftThisMonthText" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Left this month"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Остаток на месяц"
+          }
+        }
+      }
+    },
+    "leftTodayText" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Left today"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Остаток на сегодня"
+          }
+        }
+      }
+    },
     "monthlyBudgetText" : {
       "localizations" : {
         "en" : {
