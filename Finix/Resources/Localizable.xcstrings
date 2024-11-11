@@ -1,6 +1,12 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "- %@" : {
+
+    },
+    "+ %@" : {
+
+    },
     "Account" : {
       "localizations" : {
         "ru" : {
@@ -147,6 +153,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Not implemneted"
+          }
+        }
+      }
+    },
+    "seeAllButton" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "See all"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Показать все"
           }
         }
       }
