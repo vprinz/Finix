@@ -2,16 +2,44 @@
   "sourceLanguage" : "en",
   "strings" : {
     "Account" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Account"
+          }
+        }
+      }
     },
     "Add" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add"
+          }
+        }
+      }
     },
     "Add Expense" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add Expense"
+          }
+        }
+      }
     },
     "body" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "body"
+          }
+        }
+      }
     },
     "expensesText" : {
       "localizations" : {
@@ -30,7 +58,14 @@
       }
     },
     "Home" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Home"
+          }
+        }
+      }
     },
     "incomesText" : {
       "localizations" : {
@@ -97,13 +132,34 @@
       }
     },
     "Not implemented yet" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Not implemented yet"
+          }
+        }
+      }
     },
     "Not inplemented" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Not implemneted"
+          }
+        }
+      }
     },
     "Tap to open history" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tap to open history"
+          }
+        }
+      }
     }
   },
   "version" : "1.0"

@@ -42,7 +42,9 @@ struct ChartSegmentView: View {
                         Rectangle()
                             .fill(segment.color)
                             .frame(width: segment.percentage * totalWidth)
-                            .clipShape(isLast ? .rect(bottomTrailingRadius: 50, topTrailingRadius: 50) : .rect())
+                            .clipShape(isLast ? .rect(
+                                bottomTrailingRadius: 50,
+                                topTrailingRadius: 50) : .rect())
                     }
                 }
                 .frame(maxWidth: totalWidth, alignment: .leading)
@@ -72,5 +74,6 @@ struct ChartSegmentView: View {
     
     VStack {
         ChartSegmentView(model: model)
+            .padding()
     }
 }
