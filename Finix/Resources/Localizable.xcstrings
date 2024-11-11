@@ -2,30 +2,44 @@
   "sourceLanguage" : "en",
   "strings" : {
     "- %@" : {
-
+      "shouldTranslate" : false
     },
     "+ %@" : {
-
+      "shouldTranslate" : false
     },
     "Account" : {
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Account"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Account"
           }
         }
-      }
+      },
+      "shouldTranslate" : false
     },
     "Add" : {
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Add"
           }
         }
-      }
+      },
+      "shouldTranslate" : false
     },
     "Add Expense" : {
       "localizations" : {
@@ -35,17 +49,25 @@
             "value" : "Add Expense"
           }
         }
-      }
+      },
+      "shouldTranslate" : false
     },
     "body" : {
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "body"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "body"
           }
         }
-      }
+      },
+      "shouldTranslate" : false
     },
     "expensesText" : {
       "localizations" : {
@@ -71,7 +93,8 @@
             "value" : "Home"
           }
         }
-      }
+      },
+      "shouldTranslate" : false
     },
     "incomesText" : {
       "localizations" : {
@@ -85,6 +108,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Доходы"
+          }
+        }
+      }
+    },
+    "incomeText" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Income"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Доход"
           }
         }
       }
@@ -145,7 +184,8 @@
             "value" : "Not implemented yet"
           }
         }
-      }
+      },
+      "shouldTranslate" : false
     },
     "Not inplemented" : {
       "localizations" : {
@@ -155,7 +195,8 @@
             "value" : "Not implemneted"
           }
         }
-      }
+      },
+      "shouldTranslate" : false
     },
     "seeAllButton" : {
       "localizations" : {
@@ -181,7 +222,8 @@
             "value" : "Tap to open history"
           }
         }
-      }
+      },
+      "shouldTranslate" : false
     }
   },
   "version" : "1.0"
