@@ -9,7 +9,7 @@ struct SectionLinkView: View {
         HStack {
             Text(sectionTitle)
                 .font(.buttonMedium)
-            Image("arrow-right")
+            Image("chevron-right")
                 .resizable()
                 .aspectRatio(contentMode: .fill)
                 .frame(width: 8, height: 8)
