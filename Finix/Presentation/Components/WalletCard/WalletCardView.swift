@@ -184,25 +184,60 @@ struct WalletCardView: View {
 }
 
 #Preview {
-    let model1 = WalletCardView.Model(
+    let model1usd = WalletCardView.Model(
         size: .extraSmall,
         styleColor: Color.customPrimary,
         currencyIsoCode: "USD"
     )
-    let model2 = WalletCardView.Model(
+    let model1eur = WalletCardView.Model(
+        size: .extraSmall,
+        styleColor: Color.ocean,
+        currencyIsoCode: "EUR"
+    )
+    
+    let model1rub = WalletCardView.Model(
+        size: .extraSmall,
+        styleColor: Color.rose,
+        currencyIsoCode: "RUB"
+    )
+    
+    let model2usd = WalletCardView.Model(
         size: .small,
         styleColor: Color.customPrimary,
         walletName: "Cash",
         totalAmountWithCurrency: "$750",
         currencyIsoCode: "USD"
     )
-    let model3 = WalletCardView.Model(
+    let model2eur = WalletCardView.Model(
+        size: .small,
+        styleColor: Color.ocean,
+        walletName: "NeoBank",
+        totalAmountWithCurrency: "€1 560",
+        currencyIsoCode: "EUR"
+    )
+    let model2rub = WalletCardView.Model(
+        size: .small,
+        styleColor: Color.rose,
+        walletName: "Favourite Card",
+        totalAmountWithCurrency: "₽350 059 865",
+        currencyIsoCode: "RUB"
+    )
+    
+    let model3usd = WalletCardView.Model(
         size: .medium,
         styleColor: Color.customPrimary,
         walletName: "Cash",
         totalAmountWithCurrency: "$750",
         currencyIsoCode: "USD"
     )
+    let model3rub = WalletCardView.Model(
+        size: .medium,
+        styleColor: Color.rose,
+        walletName: "Favourite Card",
+        totalAmountWithCurrency: "₽350 059 865",
+        currencyIsoCode: "RUB"
+    )
+    
     let model4 = WalletCardView.Model(
         size: .large,
         styleColor: Color.customPrimary,
@@ -212,12 +247,28 @@ struct WalletCardView: View {
     )
     
     VStack(alignment: .leading) {
-        WalletCardView(model: model1)
-            .frame(width: 60)
-        WalletCardView(model: model2)
-            .frame(width: 90)
-        WalletCardView(model: model3)
-            .frame(width: 132)
+        HStack {
+            WalletCardView(model: model1usd)
+                .frame(width: 60)
+            WalletCardView(model: model1eur)
+                .frame(width: 60)
+            WalletCardView(model: model1rub)
+                .frame(width: 60)
+        }
+        HStack {
+            WalletCardView(model: model2usd)
+                .frame(width: 90)
+            WalletCardView(model: model2eur)
+                .frame(width: 90)
+            WalletCardView(model: model2rub)
+                .frame(width: 90)
+        }
+        HStack {
+            WalletCardView(model: model3usd)
+                .frame(width: 132)
+            WalletCardView(model: model3rub)
+                .frame(width: 132)
+        }
         WalletCardView(model: model4)
             .frame(width: 280)
     }
