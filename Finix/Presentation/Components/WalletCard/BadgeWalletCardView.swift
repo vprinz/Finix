@@ -2,15 +2,15 @@
 
 import SwiftUI
 
-extension SmallWalletCardView {
+extension BadgeWalletCardView {
     struct Model: Identifiable {
         let id: UUID = UUID()
         let currencyIsoCode: String
-        let style: Color
+        let styleColor: Color
     }
 }
 
-struct SmallWalletCardView: View {
+struct BadgeWalletCardView: View {
     let model: Model
     
     var body: some View {
@@ -20,7 +20,7 @@ struct SmallWalletCardView: View {
                 Spacer()
                 Text(model.currencyIsoCode)
                     .font(.titleSmall)
-                    .foregroundStyle(model.style)
+                    .foregroundStyle(model.styleColor)
                     .padding(.trailing, 6)
             }
         }
@@ -30,29 +30,29 @@ struct SmallWalletCardView: View {
         .overlay(
           RoundedRectangle(cornerRadius: 6)
             .inset(by: 0.25)
-            .stroke(model.style, lineWidth: 0.5)
+            .stroke(model.styleColor, lineWidth: 0.5)
         )
     }
 }
 
 #Preview {
-    let models: [SmallWalletCardView.Model] = [
-        SmallWalletCardView.Model(
+    let models: [BadgeWalletCardView.Model] = [
+        BadgeWalletCardView.Model(
             currencyIsoCode: "USD",
-            style: Color.lavender
+            styleColor: Color.lavender
         ),
-        SmallWalletCardView.Model(
+        BadgeWalletCardView.Model(
             currencyIsoCode: "EUR",
-            style: Color.ocean
+            styleColor: Color.ocean
         ),
-        SmallWalletCardView.Model(
+        BadgeWalletCardView.Model(
             currencyIsoCode: "RUB",
-            style: Color.rose
+            styleColor: Color.rose
         )
     ]
     HStack {
         ForEach(models) { model in
-            SmallWalletCardView(model: model)
+            BadgeWalletCardView(model: model)
                 .frame(width: 60)
         }
         .scrollContentBackground(.hidden)

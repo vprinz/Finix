@@ -1,155 +1,226 @@
-// Created by Valerie N. Prinz on 31/10/2024.
+// Created by Valerie N. Prinz on 11/11/2024.
 
 import SwiftUI
 
 extension WalletCardView {
-    class ViewModel: ObservableObject, Identifiable {
-        enum State {
-            case inactive
-            case focused
+    struct Model {
+        enum Size {
+            case extraSmall
+            case small
+            case medium
+            case large
         }
         
-        let id: UUID
+        struct AmountLayerStyle {
+            let font: Font
+            let color: Color
+            let padding: EdgeInsets
+            let spacing: CGFloat
+        }
+        
+        struct LabelLayerStyle {
+            let font: Font
+            let color: Color
+            let padding: EdgeInsets
+        }
+        
+        let size: Size
+        let styleColor: Color
         let walletName: String?
         let totalAmountWithCurrency: String?
         let currencyIsoCode: String
-        let style: Color
+        
+        var amountLayerStyle: AmountLayerStyle {
+            .init(
+                font: {
+                    switch size {
+                    case .extraSmall, .small: .microTextMedium
+                    case .medium: .helperTextMedium
+                    case .large: .titleSmall
+                    }
+                }(),
+                color: {
+                    switch size {
+                    case .large: Color.textWhite
+                    default: Color.textSecondary
+                    }
+                }(),
+                padding: {
+                    switch size {
+                    case .extraSmall:
+                        .init(top: 0, leading: 0, bottom: 0, trailing: 0)
+                    case .small:
+                        .init(top: 8, leading: 8, bottom: 0, trailing: 0)
+                    case .medium:
+                        .init(top: 8, leading: 10, bottom: 0, trailing: 0)
+                    case .large:
+                        .init(top: 16, leading: 16, bottom: 0, trailing: 0)
+                    }
+                }(),
+                spacing:  {
+                    switch size {
+                    case .extraSmall: 0
+                    case .small: 4
+                    case .medium: 8
+                    case .large: 16
+                    }
+                }()
+            )
+        }
+        
+        var labelLayerStyle: LabelLayerStyle {
+            .init(
+                font: {
+                    switch size {
+                    case .extraSmall: .titleSmall
+                    case .small: .buttonMedium
+                    case .medium: .titleMedium
+                    case .large: .titleLargeSemibold
+                    }
+                }(),
+                color: {
+                    switch size {
+                    case .large: Color.textWhite
+                    default: styleColor
+                    }
+                }(),
+                padding: {
+                    switch size {
+                    case .extraSmall:
+                        .init(top: 0, leading: 0, bottom: 0, trailing: 4)
+                    case .small:
+                        .init(top: 0, leading: 0, bottom: 5, trailing: 5)
+                    case .medium:
+                        .init(top: 0, leading: 0, bottom: 1, trailing: 7)
+                    case .large:
+                        .init(top: 0, leading: 0, bottom: 0, trailing: 8)
+                    }
+                }()
+            )
+        }
         
         var backgroundColor: Color {
-            switch state {
-            case .inactive:
-                Color.foreground
-            case .focused:
-                self.style
+            switch size {
+            case .large: styleColor
+            default: Color.foreground
             }
         }
         
-        var textColor: Color {
-            switch state {
-            case .inactive:
-                Color.textSecondary
-            case .focused:
-                Color.textWhite
+        var borderColor: Color {
+            switch size {
+            case .extraSmall, .small: styleColor
+            case .medium, .large: Color.clear
             }
         }
         
-        @Published var state: State = .inactive
+        var height: CGFloat {
+            switch size {
+            case .extraSmall: 40
+            case .small: 60
+            case .medium: 88
+            case .large: 160
+            }
+        }
+        
+        var cornerRadius: CGFloat {
+            switch size {
+            case .extraSmall: 6
+            case .small: 10
+            case .medium: 12
+            case .large: 20
+            }
+        }
         
         init(
-            id: UUID = UUID(),
+            size: Size,
+            styleColor: Color,
             walletName: String? = nil,
             totalAmountWithCurrency: String? = nil,
-            currencyIsoCode: String,
-            style: Color
+            currencyIsoCode: String
         ) {
-            self.id = id
+            self.size = size
+            self.styleColor = styleColor
             self.walletName = walletName
             self.totalAmountWithCurrency = totalAmountWithCurrency
             self.currencyIsoCode = currencyIsoCode
-            self.style = style
         }
+        
     }
 }
 
 struct WalletCardView: View {
-    @StateObject var viewModel: ViewModel
+    let model: Model
     
     var body: some View {
         VStack(alignment: .leading) {
-            VStack(alignment: .leading) {
-                Text(viewModel.walletName ?? "")
-                Text(viewModel.totalAmountWithCurrency ?? "")
-            }
-            .font(.microTextMedium)
-            .foregroundStyle(viewModel.textColor)
-            .padding(.top, 8)
-            .padding(.leading, 8)
-            HStack(alignment: .bottom) {
-                Spacer()
-                if viewModel.state == .inactive {
-                    Text(viewModel.currencyIsoCode)
-                        .font(.titleSmall)
-                        .foregroundStyle(viewModel.style)
-                        .padding(.trailing, 8)
-                        .padding(.bottom, 4)
-                } else {
-                    Image("check-circle")
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .frame(width: 30, height: 30)
-                        .foregroundStyle(Color.textWhite)
-                        .offset(x: 3, y: 0)
+            if let walletName = model.walletName,
+               let totalAmount = model.totalAmountWithCurrency {
+                VStack(alignment: .leading, spacing: model.amountLayerStyle.spacing) {
+                    Text(walletName)
+                    Text(totalAmount)
                 }
+                .font(model.amountLayerStyle.font)
+                .foregroundStyle(model.amountLayerStyle.color)
+                .padding(model.amountLayerStyle.padding)
             }
-            
+            Spacer()
+            HStack {
+                Spacer()
+                Text(model.currencyIsoCode)
+                    .font(model.labelLayerStyle.font)
+                    .foregroundStyle(model.labelLayerStyle.color)
+            }
+            .padding(model.labelLayerStyle.padding)
         }
-        .frame(height: 60)
-        .background(viewModel.backgroundColor)
-        .clipShape(.rect(cornerRadius: 10))
+        .frame(height: model.height)
+        .background(model.backgroundColor)
+        .clipShape(.rect(cornerRadius: model.cornerRadius))
         .overlay(
-          RoundedRectangle(cornerRadius: 10)
+            RoundedRectangle(cornerRadius: model.cornerRadius)
             .inset(by: 0.25)
-            .stroke(viewModel.style, lineWidth: 0.5)
+            .stroke(model.borderColor, lineWidth: 0.5)
         )
-        .onTapGesture {
-            withAnimation {
-                viewModel.state = viewModel.state == .inactive ? .focused : .inactive
-            }
-        }
     }
 }
 
 #Preview {
-    let models1: [WalletCardView.ViewModel] = [
-        WalletCardView.ViewModel(
-            walletName: "Cash",
-            totalAmountWithCurrency: "$750",
-            currencyIsoCode: "USD",
-            style: Color.lavender
-        ),
-        WalletCardView.ViewModel(
-            walletName: "NeoBank",
-            totalAmountWithCurrency: "€1 560",
-            currencyIsoCode: "EUR",
-            style: Color.ocean
-        ),
-        WalletCardView.ViewModel(
-            walletName: "Favourite Card",
-            totalAmountWithCurrency: "₽350 059 865",
-            currencyIsoCode: "RUB",
-            style: Color.rose
-        )
-    ]
+    let model1 = WalletCardView.Model(
+        size: .extraSmall,
+        styleColor: Color.customPrimary,
+        currencyIsoCode: "USD"
+    )
+    let model2 = WalletCardView.Model(
+        size: .small,
+        styleColor: Color.customPrimary,
+        walletName: "Cash",
+        totalAmountWithCurrency: "$750",
+        currencyIsoCode: "USD"
+    )
+    let model3 = WalletCardView.Model(
+        size: .medium,
+        styleColor: Color.customPrimary,
+        walletName: "Cash",
+        totalAmountWithCurrency: "$750",
+        currencyIsoCode: "USD"
+    )
+    let model4 = WalletCardView.Model(
+        size: .large,
+        styleColor: Color.customPrimary,
+        walletName: "Cash",
+        totalAmountWithCurrency: "$750",
+        currencyIsoCode: "USD"
+    )
     
-    let models2: [WalletCardView.ViewModel] = [
-        WalletCardView.ViewModel(
-            currencyIsoCode: "USD",
-            style: Color.lavender
-        ),
-        WalletCardView.ViewModel(
-            currencyIsoCode: "EUR",
-            style: Color.ocean
-        ),
-        WalletCardView.ViewModel(
-            currencyIsoCode: "RUB",
-            style: Color.rose
-        )
-    ]
-    
-    VStack {
-        HStack {
-            ForEach(models1) { model in
-                WalletCardView(viewModel: model)
-                    .frame(width: 90)
-            }
-        }
-        HStack {
-            ForEach(models2) { model in
-                WalletCardView(viewModel: model)
-                    .frame(width: 90)
-            }
-        }
+    VStack(alignment: .leading) {
+        WalletCardView(model: model1)
+            .frame(width: 60)
+        WalletCardView(model: model2)
+            .frame(width: 90)
+        WalletCardView(model: model3)
+            .frame(width: 132)
+        WalletCardView(model: model4)
+            .frame(width: 280)
     }
-    .frame(width: 400, height: 400)
+    .frame(width: 800, height: 800)
     .background(Color.figmaBackground)
 }
