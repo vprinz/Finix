@@ -62,7 +62,7 @@ struct ChartSegmentView: View {
             percentage: 0.2, color: Color.lavender
         ),
         ChartSegmentView.Model.SegmentItem(
-            percentage: 0.1, color: Color.turquise
+            percentage: 0.1, color: Color.turquoise
         ),
         ChartSegmentView.Model.SegmentItem(
             percentage: 0.26, color: Color.lemon

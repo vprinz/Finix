@@ -82,5 +82,5 @@ struct PeriodSummaryView: View {
         ))
     }
     .padding()
-    .background(.figmaBackground)
+    .background(.finixBackground)
 }

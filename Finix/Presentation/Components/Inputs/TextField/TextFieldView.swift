@@ -89,5 +89,5 @@ struct TextFieldView: View {
         ))
     }
     .padding()
-    .background(Color.figmaBackground)
+    .background(Color.finixBackground)
 }

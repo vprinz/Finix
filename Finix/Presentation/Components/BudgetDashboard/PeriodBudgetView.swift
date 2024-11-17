@@ -9,8 +9,9 @@ extension PeriodBudgetView {
             case monthly
         }
         
-        var periodType: PeriodType = .daily
+        var periodType: PeriodType
         let budgetAmountWithCurrency: String
+        let chartSegmentModel: ChartSegmentView.Model
         
         var periodText: String  {
             switch periodType {
@@ -25,7 +26,6 @@ extension PeriodBudgetView {
 
 struct PeriodBudgetView: View {
     let model: Model
-    let chartSegmentModel: ChartSegmentView.Model
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
@@ -37,7 +37,7 @@ struct PeriodBudgetView: View {
             Text(model.budgetAmountWithCurrency)
                 .font(.buttonMedium)
                 .foregroundStyle(Color.textPrimary)
-            ChartSegmentView(model: chartSegmentModel)
+            ChartSegmentView(model: model.chartSegmentModel)
                 .padding(.vertical, 16)
         }
         .padding(.horizontal, 20)
@@ -56,12 +56,13 @@ struct PeriodBudgetView: View {
 #Preview {
     let chartSegmentModelToday: ChartSegmentView.Model = ChartSegmentView.Model(segments: [
         ChartSegmentView.Model.SegmentItem(
-            percentage: 0.75, color: Color.turquise
+            percentage: 0.75, color: Color.turquoise
         )
     ])
     let modelToday: PeriodBudgetView.Model = PeriodBudgetView.Model(
         periodType: .daily,
-        budgetAmountWithCurrency: "$69.77"
+        budgetAmountWithCurrency: "$69.77",
+        chartSegmentModel: chartSegmentModelToday
     )
     
     let chartSegmentModelMonth: ChartSegmentView.Model = ChartSegmentView.Model(segments: [
@@ -71,21 +72,16 @@ struct PeriodBudgetView: View {
     ])
     let modelMonth: PeriodBudgetView.Model = PeriodBudgetView.Model(
         periodType: .monthly,
-        budgetAmountWithCurrency: "$799.33"
+        budgetAmountWithCurrency: "$799.33",
+        chartSegmentModel: chartSegmentModelMonth
     )
     
     HStack {
-        PeriodBudgetView(
-            model: modelToday,
-            chartSegmentModel: chartSegmentModelToday
-        )
+        PeriodBudgetView(model: modelToday)
         .frame(width: 177)
-        PeriodBudgetView(
-            model: modelMonth,
-            chartSegmentModel: chartSegmentModelMonth
-        )
+        PeriodBudgetView(model: modelMonth)
         .frame(width: 177)
     }
     .frame(width: 400, height: 400)
-    .background(Color.figmaBackground)
+    .background(Color.finixBackground)
 }

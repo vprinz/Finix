@@ -117,12 +117,12 @@ struct TransactionExpenseCardView: View {
         List(models) { model in
             TransactionExpenseCardView(
                 model: model)
-            .background(Color.figmaBackground)
+            .background(Color.finixBackground)
         }
         .frame(width: 361)
         .background(Color.green)
         .scrollContentBackground(.hidden)
     }
     .clipShape(.rect(cornerRadius: 12))
-    .background(Color.figmaBackground)
+    .background(Color.finixBackground)
 }
