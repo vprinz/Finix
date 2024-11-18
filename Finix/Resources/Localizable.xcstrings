@@ -219,18 +219,6 @@
           }
         }
       }
-    },
-    "Tap to open history" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Tap to open history"
-          }
-        }
-      },
-      "shouldTranslate" : false
     }
   },
   "version" : "1.0"

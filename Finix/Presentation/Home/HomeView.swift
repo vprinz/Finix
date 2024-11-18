@@ -1,15 +1,9 @@
-//
-//  HomeView.swift
-//  Finix
-//
 //  Created by Valerie N. Prinz on 09/10/2024.
-//
 
 import SwiftUI
 
 struct HomeView: View {
-    
-    @StateObject var viewModel: HomeView.ViewModel
+    @StateObject var viewModel: HomeViewModel
     
     var body: some View {
         NavigationLink(value: HomeRoute.history) {
