@@ -2,54 +2,8 @@
 
 import SwiftUI
 
-extension SmallWalletCardView {
-    class ViewModel: ObservableObject {
-        enum State {
-            case plain
-            case selected
-        }
-        
-        let walletName: String
-        let walletBalance: String
-        let styleColor: Color
-        let currencyIsoCode: String
-        
-        var backgroundColor: Color {
-            switch state {
-            case .plain:
-                Color.textWhite
-            case .selected:
-                styleColor
-            }
-        }
-        
-        var textColor: Color {
-            switch state {
-            case .plain:
-                Color.textSecondary
-            case .selected:
-                Color.textWhite
-            }
-        }
-        
-        @Published var state: State = .plain
-        
-        init(
-            walletName: String = "",
-            walletBalance: String = "",
-            styleColor: Color,
-            currencyIsoCode: String
-        ) {
-            self.walletName = walletName
-            self.walletBalance = walletBalance
-            self.styleColor = styleColor
-            self.currencyIsoCode = currencyIsoCode
-        }
-    }
-}
-
 struct SmallWalletCardView: View {
-    @StateObject var viewModel: ViewModel
+    @StateObject var viewModel: WalletCardViewModel
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
@@ -104,35 +58,35 @@ struct SmallWalletCardView: View {
 }
 
 #Preview {
-    let modelUsd = SmallWalletCardView.ViewModel(
+    let modelUsd = WalletCardViewModel(
         walletName: "Cash",
         walletBalance: "$750",
         styleColor: Color.customPrimary,
         currencyIsoCode: "USD"
     )
-    let modelUsdEmpty = SmallWalletCardView.ViewModel(
+    let modelUsdEmpty = WalletCardViewModel(
         styleColor: Color.customPrimary,
         currencyIsoCode: "USD"
     )
     
-    let modelEur = SmallWalletCardView.ViewModel(
+    let modelEur = WalletCardViewModel(
         walletName: "NeoBank",
         walletBalance: "€1 560",
         styleColor: Color.ocean,
         currencyIsoCode: "EUR"
     )
-    let modelEurEmpty = SmallWalletCardView.ViewModel(
+    let modelEurEmpty = WalletCardViewModel(
         styleColor: Color.ocean,
         currencyIsoCode: "EUR"
     )
     
-    let modelRub = SmallWalletCardView.ViewModel(
+    let modelRub = WalletCardViewModel(
         walletName: "Favourite Card",
         walletBalance: "₽350 059 865",
         styleColor: Color.rose,
         currencyIsoCode: "RUB"
     )
-    let modelRubEmpty = SmallWalletCardView.ViewModel(
+    let modelRubEmpty = WalletCardViewModel(
         styleColor: Color.rose,
         currencyIsoCode: "RUB"
     )
