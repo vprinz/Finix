@@ -14,7 +14,7 @@ extension EmptyStateView {
             case emptyLimit
         }
         
-        var state: State = .emptyTransaction
+        var state: State
         
         var imageName: String {
             switch state {
@@ -55,47 +55,49 @@ struct EmptyStateView: View {
     let model: Model
     
     var body: some View {
-        HStack {
-            Image(model.imageName)
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(height: 105)
-                .padding(.trailing, 30)
-            VStack(alignment: .leading) {
-                Text(model.text)
-                    .font(.smallTextTallRegular)
-                    .foregroundStyle(Color.textSecondary)
-                    .padding(.bottom, 22)
-                Button {
-                    model.buttonConfig.action()
-                } label: {
-                    HStack(alignment: .center) {
-                        Text(model.buttonConfig.text)
-                            .font(.bodyTextNarrowRegular)
-                            .foregroundStyle(Color.customPrimary)
-                    }
-                    .padding(.horizontal, 16)
-                    .padding(.vertical, 8)
-                    .frame(maxWidth: .infinity)
-                    .cornerRadius(10)
-                    .overlay(
-                      RoundedRectangle(cornerRadius: 10)
-                        .inset(by: 0.5)
-                        .stroke(Color.customPrimary)
-                    )
-                }
-            }
-            .frame(maxWidth: UIScreen.main.bounds.width * 0.5)
-        }
-        .padding(16)
-        .frame(minHeight: 152)
-        .background(Color.white)
-        .cornerRadius(12)
-        .overlay(
-          RoundedRectangle(cornerRadius: 12)
-            .inset(by: 0.25)
-            .stroke(Color.borderStroke, lineWidth: 0.5)
-        )
+        
+        
+//        HStack {
+//            Image(model.imageName)
+//                .resizable()
+//                .aspectRatio(contentMode: .fit)
+//                .frame(height: 105)
+//                .padding(.trailing, 30)
+//            VStack(alignment: .leading) {
+//                Text(model.text)
+//                    .font(.smallTextTallRegular)
+//                    .foregroundStyle(Color.textSecondary)
+//                    .padding(.bottom, 22)
+//                Button {
+//                    model.buttonConfig.action()
+//                } label: {
+//                    HStack(alignment: .center) {
+//                        Text(model.buttonConfig.text)
+//                            .font(.bodyTextNarrowRegular)
+//                            .foregroundStyle(Color.customPrimary)
+//                    }
+//                    .padding(.horizontal, 16)
+//                    .padding(.vertical, 8)
+//                    .frame(maxWidth: .infinity)
+//                    .cornerRadius(10)
+//                    .overlay(
+//                      RoundedRectangle(cornerRadius: 10)
+//                        .inset(by: 0.5)
+//                        .stroke(Color.customPrimary)
+//                    )
+//                }
+//            }
+//            .frame(maxWidth: UIScreen.main.bounds.width * 0.5)
+//        }
+//        .padding(16)
+//        .frame(minHeight: 152)
+//        .background(Color.white)
+//        .cornerRadius(12)
+//        .overlay(
+//          RoundedRectangle(cornerRadius: 12)
+//            .inset(by: 0.25)
+//            .stroke(Color.borderStroke, lineWidth: 0.5)
+//        )
     }
 }
 
@@ -114,5 +116,5 @@ struct EmptyStateView: View {
             .frame(maxWidth: 360)
     }
     .frame(width: 600, height: 600)
-    .background(Color.figmaBackground)
+    .background(Color.finixBackground)
 }
