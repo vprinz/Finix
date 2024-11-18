@@ -18,7 +18,7 @@ struct BadgeWalletCardView: View {
             HStack {
                 Spacer()
                 Text(model.currencyIsoCode)
-                    .font(Font.titleSmall)
+                    .font(.titleSmall)
                     .foregroundStyle(model.styleColor)
                     .padding(.trailing, 4)
             }
