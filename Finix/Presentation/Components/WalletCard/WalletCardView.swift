@@ -273,5 +273,5 @@ struct WalletCardView: View {
             .frame(width: 280)
     }
     .frame(width: 800, height: 800)
-    .background(Color.figmaBackground)
+    .background(Color.finixBackground)
 }

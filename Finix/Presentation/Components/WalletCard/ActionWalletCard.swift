@@ -118,5 +118,5 @@ struct ActionWalletCard: View {
         }
     }
     .frame(width: 800, height: 800)
-    .background(Color.figmaBackground)
+    .background(Color.finixBackground)
 }

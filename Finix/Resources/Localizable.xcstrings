@@ -7,6 +7,9 @@
     "+ %@" : {
       "shouldTranslate" : false
     },
+    "$1,000.00" : {
+
+    },
     "Account" : {
       "localizations" : {
         "en" : {
@@ -40,6 +43,9 @@
         }
       },
       "shouldTranslate" : false
+    },
+    "Add account" : {
+
     },
     "Add Expense" : {
       "localizations" : {
@@ -84,6 +90,9 @@
           }
         }
       }
+    },
+    "Hi, Valerie N. Prinz" : {
+
     },
     "Home" : {
       "localizations" : {
@@ -198,6 +207,9 @@
       },
       "shouldTranslate" : false
     },
+    "Saa all" : {
+
+    },
     "seeAllButton" : {
       "localizations" : {
         "en" : {
@@ -215,6 +227,7 @@
       }
     },
     "Tap to open history" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ru" : {
           "stringUnit" : {
