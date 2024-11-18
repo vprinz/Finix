@@ -8,7 +8,7 @@
       "shouldTranslate" : false
     },
     "$1,000.00" : {
-
+      "shouldTranslate" : false
     },
     "Account" : {
       "localizations" : {
@@ -44,9 +44,6 @@
       },
       "shouldTranslate" : false
     },
-    "Add account" : {
-
-    },
     "Add Expense" : {
       "localizations" : {
         "ru" : {
@@ -57,6 +54,22 @@
         }
       },
       "shouldTranslate" : false
+    },
+    "addAccountText" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add account"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Добавить счёт"
+          }
+        }
+      }
     },
     "body" : {
       "localizations" : {
@@ -92,7 +105,14 @@
       }
     },
     "Hi, Valerie N. Prinz" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Привет, Valerie N. Prinz"
+          }
+        }
+      }
     },
     "Home" : {
       "localizations" : {
@@ -207,9 +227,6 @@
       },
       "shouldTranslate" : false
     },
-    "Saa all" : {
-
-    },
     "seeAllButton" : {
       "localizations" : {
         "en" : {
@@ -226,17 +243,15 @@
         }
       }
     },
-    "Tap to open history" : {
-      "extractionState" : "stale",
+    "seeAllText" : {
       "localizations" : {
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Tap to open history"
+            "value" : "Смотреть все"
           }
         }
-      },
-      "shouldTranslate" : false
+      }
     }
   },
   "version" : "1.0"
