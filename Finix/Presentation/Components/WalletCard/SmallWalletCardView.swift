@@ -69,23 +69,51 @@ struct SmallWalletCardView: View {
         styleColor: Color.customPrimary,
         currencyIsoCode: "USD"
     )
+    let modelUsdEmpty = SmallWalletCardView.Model(
+        styleColor: Color.customPrimary,
+        currencyIsoCode: "USD"
+    )
+    
     let modelEur = SmallWalletCardView.Model(
+        walletName: "NeoBank",
+        walletBalance: "€1 560",
         styleColor: Color.ocean,
         currencyIsoCode: "EUR"
     )
+    let modelEurEmpty = SmallWalletCardView.Model(
+        styleColor: Color.ocean,
+        currencyIsoCode: "EUR"
+    )
+    
     let modelRub = SmallWalletCardView.Model(
         walletName: "Favourite Card",
         walletBalance: "₽350 059 865",
         styleColor: Color.rose,
         currencyIsoCode: "RUB"
     )
+    let modelRubEmpty = SmallWalletCardView.Model(
+        styleColor: Color.rose,
+        currencyIsoCode: "RUB"
+    )
     
-    HStack {
-        SmallWalletCardView(model: modelUsd)
-            .frame(width: 90)
-        SmallWalletCardView(model: modelEur)
-            .frame(width: 90)
-        SmallWalletCardView(model: modelRub)
-            .frame(width: 90)
+    VStack {
+        HStack {
+            SmallWalletCardView(model: modelUsd)
+                .frame(width: 90)
+            SmallWalletCardView(model: modelUsdEmpty)
+                .frame(width: 90)
+        }
+        HStack {
+            SmallWalletCardView(model: modelEur)
+                .frame(width: 90)
+            SmallWalletCardView(model: modelEurEmpty)
+                .frame(width: 90)
+        }
+        HStack {
+            SmallWalletCardView(model: modelRub)
+                .frame(width: 90)
+            SmallWalletCardView(model: modelRubEmpty)
+                .frame(width: 90)
+        }
     }
 }
