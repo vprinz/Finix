@@ -7,7 +7,7 @@
     "+ %@" : {
       "shouldTranslate" : false
     },
-    "$1,000.00" : {
+    "$%lld" : {
 
     },
     "Account" : {
@@ -181,6 +181,9 @@
           }
         }
       }
+    },
+    "My wallet" : {
+
     },
     "Not implemented yet" : {
       "localizations" : {

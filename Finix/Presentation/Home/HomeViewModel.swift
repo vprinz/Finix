@@ -16,10 +16,6 @@ class HomeViewModel: ObservableObject {
     // FIXME: Should not be stored here
     private var monthlySpending: CurrencyValue = .init(currency: .usd, value: 2750.67)
     
-    var walletCarouselTitle: String {
-        "My wallet"
-    }
-    
     private var leftForToday: CurrencyValue {
         CurrencyValue(
             currency: .usd,

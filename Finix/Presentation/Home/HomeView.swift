@@ -6,16 +6,14 @@ struct HomeView: View {
     @StateObject var viewModel: HomeViewModel
     
     var body: some View {
-        NavigationLink(value: HomeRoute.history) {
-            VStack(spacing: 24) {
-                header
-                upcomingPayments
-                recentTransactions
-                Spacer()
-            }
-            .padding(.horizontal, 16)
-            .background(Color.finixBackground)
+        VStack(spacing: 24) {
+            header
+            upcomingPayments
+            recentTransactions
+            Spacer()
         }
+        .padding(.horizontal, 16)
+        .background(Color.finixBackground)
     }
     
     var header: some View {
@@ -32,19 +30,22 @@ struct HomeView: View {
             }
             .padding(.bottom, 20)
             .padding(.top, 16)
-            SectionLinkView(sectionTitle: viewModel.walletCarouselTitle)
-            ScrollView(.horizontal) {
+            SectionLinkView(sectionTitle: String(localized: "My wallet"))
+            ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 8) {
-                    Group {
-                        Text("$1,000.00")
-                        Text("$1,000.00")
-                        Text("$1,000.00")
-                        Text("$1,000.00")
+                    ForEach(0..<5) {
+                        Text("$\($0+1 * 1000)")
                     }
-                    .frame(width: 132, height: 88)
-//                    .card()
+                    .frame(width: 132)
+                    .walletCardFrame(
+                        height: 88,
+                        backgroundColor: Color.textWhite,
+                        cornerRadius: 10,
+                        strokeColor: Color.borderStroke
+                    )
                 }
             }
+            .padding(.trailing, -16)
             // TODO: Wallets
             ExpenseSummaryView(model: viewModel.expensesModel)
             HStack(spacing: 8) {
