@@ -48,7 +48,7 @@ struct HomeView: View {
                         Text("$1,000.00")
                     }
                     .frame(width: 132, height: 88)
-                    .card()
+//                    .card()
                 }
             }
             // TODO: Wallets

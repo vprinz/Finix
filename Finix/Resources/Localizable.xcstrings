@@ -7,6 +7,9 @@
     "+ %@" : {
       "shouldTranslate" : false
     },
+    "$1,000.00" : {
+
+    },
     "Account" : {
       "localizations" : {
         "en" : {
@@ -84,6 +87,9 @@
           }
         }
       }
+    },
+    "Hi, Valerie N. Prinz" : {
+
     },
     "Home" : {
       "localizations" : {
@@ -215,6 +221,7 @@
       }
     },
     "Tap to open history" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ru" : {
           "stringUnit" : {

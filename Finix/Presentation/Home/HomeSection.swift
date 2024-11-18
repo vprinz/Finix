@@ -17,7 +17,7 @@ struct HomeSection: View {
                 .foregroundStyle(Color.finixPurple)
                 .frame(height: 48)
                 .frame(maxWidth: .infinity)
-                .card()
+//                .card()
         }
     }
 }
