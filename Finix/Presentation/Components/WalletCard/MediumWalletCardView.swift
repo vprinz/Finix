@@ -2,7 +2,7 @@
 
 import SwiftUI
 
-extension SmallWalletCardView {
+extension MediumWalletCardView {
     class ViewModel: ObservableObject {
         enum State {
             case plain
@@ -48,7 +48,7 @@ extension SmallWalletCardView {
     }
 }
 
-struct SmallWalletCardView: View {
+struct MediumWalletCardView: View {
     @StateObject var viewModel: ViewModel
     
     var body: some View {
@@ -57,10 +57,10 @@ struct SmallWalletCardView: View {
             bottomLayer
         }
         .walletCardFrame(
-            height: 60,
+            height: 88,
             backgroundColor: viewModel.backgroundColor,
-            cornerRadius: 10,
-            strokeColor: viewModel.styleColor
+            cornerRadius: 12,
+            strokeColor: Color.textWhite
         )
         .onTapGesture {
             withAnimation {
@@ -74,10 +74,10 @@ struct SmallWalletCardView: View {
             Text(viewModel.walletName)
                 .padding(.top, 8)
             Text(viewModel.walletBalance)
-                .padding(.top, 4)
+                .padding(.top, 8)
         }
-        .padding(.leading, 8)
-        .font(.microTextMedium)
+        .padding(.leading, 10)
+        .font(.helperTextMedium)
         .foregroundStyle(viewModel.textColor)
     }
     
@@ -86,75 +86,75 @@ struct SmallWalletCardView: View {
             Spacer()
             if viewModel.state == .plain {
                 Text(viewModel.currencyIsoCode)
-                    .font(.buttonMedium)
+                    .font(.titleMedium)
                     .foregroundStyle(viewModel.styleColor)
-                    .padding(.trailing, 5)
+                    .padding(.trailing, 7)
                     .padding(.bottom, 1)
             } else {
                 Image("check-circle")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .frame(width: 30)
+                    .frame(width: 40)
                     .foregroundStyle(Color.textWhite)
-                    .offset(x: 3, y: 1)
+                    .offset(x: 6, y: 6)
             }
         }
-        .frame(height: 30)
+        .frame(height: 40)
     }
 }
 
 #Preview {
-    let modelUsd = SmallWalletCardView.ViewModel(
+    let modelUsd = MediumWalletCardView.ViewModel(
         walletName: "Cash",
         walletBalance: "$750",
         styleColor: Color.customPrimary,
         currencyIsoCode: "USD"
     )
-    let modelUsdEmpty = SmallWalletCardView.ViewModel(
+    let modelUsdEmpty = MediumWalletCardView.ViewModel(
         styleColor: Color.customPrimary,
         currencyIsoCode: "USD"
     )
     
-    let modelEur = SmallWalletCardView.ViewModel(
+    let modelEur = MediumWalletCardView.ViewModel(
         walletName: "NeoBank",
         walletBalance: "€1 560",
         styleColor: Color.ocean,
         currencyIsoCode: "EUR"
     )
-    let modelEurEmpty = SmallWalletCardView.ViewModel(
+    let modelEurEmpty = MediumWalletCardView.ViewModel(
         styleColor: Color.ocean,
         currencyIsoCode: "EUR"
     )
     
-    let modelRub = SmallWalletCardView.ViewModel(
+    let modelRub = MediumWalletCardView.ViewModel(
         walletName: "Favourite Card",
         walletBalance: "₽350 059 865",
         styleColor: Color.rose,
         currencyIsoCode: "RUB"
     )
-    let modelRubEmpty = SmallWalletCardView.ViewModel(
+    let modelRubEmpty = MediumWalletCardView.ViewModel(
         styleColor: Color.rose,
         currencyIsoCode: "RUB"
     )
     
     VStack {
         HStack {
-            SmallWalletCardView(viewModel: modelUsd)
-                .frame(width: 90)
-            SmallWalletCardView(viewModel: modelUsdEmpty)
-                .frame(width: 90)
+            MediumWalletCardView(viewModel: modelUsd)
+                .frame(width: 132)
+            MediumWalletCardView(viewModel: modelUsdEmpty)
+                .frame(width: 132)
         }
         HStack {
-            SmallWalletCardView(viewModel: modelEur)
-                .frame(width: 90)
-            SmallWalletCardView(viewModel: modelEurEmpty)
-                .frame(width: 90)
+            MediumWalletCardView(viewModel: modelEur)
+                .frame(width: 132)
+            MediumWalletCardView(viewModel: modelEurEmpty)
+                .frame(width: 132)
         }
         HStack {
-            SmallWalletCardView(viewModel: modelRub)
-                .frame(width: 90)
-            SmallWalletCardView(viewModel: modelRubEmpty)
-                .frame(width: 90)
+            MediumWalletCardView(viewModel: modelRub)
+                .frame(width: 132)
+            MediumWalletCardView(viewModel: modelRubEmpty)
+                .frame(width: 132)
         }
     }
     .frame(width: 800, height: 800)
