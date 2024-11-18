@@ -10,7 +10,7 @@ enum HomeRoute: Route {
     func view() -> some View {
         switch self {
         case .home:
-            HomeView()
+            HomeView(viewModel: .init())
         case .history:
             TransactioonHistoryView()
         case .upcomingPayments:
@@ -23,7 +23,7 @@ struct HomeRouter: View {
     
     var body: some View {
         NavigationStack() {
-            HomeView()
+            HomeView(viewModel: .init())
                 .navigationDestination(for: HomeRoute.self) { homeRoute in
                     homeRoute.view()
                 }

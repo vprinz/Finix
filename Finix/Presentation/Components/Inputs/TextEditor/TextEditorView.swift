@@ -64,5 +64,5 @@ struct TextEditorView: View {
         ))
     }
     .padding()
-    .background(Color.figmaBackground)
+    .background(Color.finixBackground)
 }

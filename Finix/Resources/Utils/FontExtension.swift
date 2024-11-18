@@ -20,7 +20,7 @@ extension Font {
     static let captionTallRegular = Font.system(size: 14, weight: .regular)
     static let captionSemiTallRegular = Font.system(size: 14, weight: .regular)
     static let captionRegular = Font.system(size: 14, weight: .regular)
-    static let CaptionNarrowRegular = Font.system(size: 14, weight: .regular)
+    static let captionNarrowRegular = Font.system(size: 14, weight: .regular)
     
     static let helperTextMedium = Font.system(size: 13, weight: .medium)
     static let helperTextRegular = Font.system(size: 13, weight: .regular)

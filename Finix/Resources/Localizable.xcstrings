@@ -2,19 +2,55 @@
   "sourceLanguage" : "en",
   "strings" : {
     "- %@" : {
-
+      "shouldTranslate" : false
     },
     "+ %@" : {
-
+      "shouldTranslate" : false
     },
     "Account" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Account"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Account"
+          }
+        }
+      },
+      "shouldTranslate" : false
     },
     "Add" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add"
+          }
+        }
+      },
+      "shouldTranslate" : false
     },
     "Add Expense" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add Expense"
+          }
+        }
+      },
+      "shouldTranslate" : false
     },
     "addTransactionBtnText" : {
       "localizations" : {
@@ -33,7 +69,21 @@
       }
     },
     "body" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "body"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "body"
+          }
+        }
+      },
+      "shouldTranslate" : false
     },
     "emptyLimitText" : {
       "localizations" : {
@@ -84,7 +134,15 @@
       }
     },
     "Home" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Home"
+          }
+        }
+      },
+      "shouldTranslate" : false
     },
     "incomesText" : {
       "localizations" : {
@@ -118,11 +176,91 @@
         }
       }
     },
+    "leftThisMonthText" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Left this month"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Остаток на месяц"
+          }
+        }
+      }
+    },
+    "leftTodayText" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Left today"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Остаток на сегодня"
+          }
+        }
+      }
+    },
+    "monthlyBudgetText" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Monthly budget"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Бюджет на месяц"
+          }
+        }
+      }
+    },
     "Not implemented yet" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Not implemented yet"
+          }
+        }
+      },
+      "shouldTranslate" : false
     },
     "Not inplemented" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Not implemneted"
+          }
+        }
+      },
+      "shouldTranslate" : false
+    },
+    "seeAllButton" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "See all"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Показать все"
+          }
+        }
+      }
     },
     "setLimitBtnText" : {
       "localizations" : {
@@ -141,10 +279,15 @@
       }
     },
     "Tap to open history" : {
-
-    },
-    "Test text" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tap to open history"
+          }
+        }
+      },
+      "shouldTranslate" : false
     }
   },
   "version" : "1.0"
