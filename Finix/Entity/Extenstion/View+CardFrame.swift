@@ -24,9 +24,9 @@ struct CardFrameWrapper: ViewModifier {
 extension View {
     func cardFrame(
         height: CGFloat? = nil,
-        backgroundColor: Color,
-        cornerRadius: CGFloat,
-        strokeColor: Color
+        backgroundColor: Color = Color.foreground,
+        cornerRadius: CGFloat = 12,
+        strokeColor: Color = Color.borderStroke
     ) -> some View {
         modifier(CardFrameWrapper(
             height: height,

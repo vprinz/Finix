@@ -41,15 +41,7 @@ struct PeriodBudgetView: View {
                 .padding(.vertical, 16)
         }
         .padding(.horizontal, 20)
-        .frame(minHeight: 106)
-        .background(Color.white)
-        .cornerRadius(12)
-        .clipShape(.rect(cornerRadius: 12))
-        .overlay(
-          RoundedRectangle(cornerRadius: 12)
-            .inset(by: 0.25)
-            .stroke(Color.borderStroke, lineWidth: 0.5)
-        )
+        .cardFrame()
     }
 }
 

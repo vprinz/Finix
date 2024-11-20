@@ -79,7 +79,6 @@ struct TransactionExpenseCardView: View {
                 .foregroundStyle(Color.textTertiary)
             }
         }
-//        .padding(.vertical, 4)
         .frame(height: 52)
         .listRowSeparator(.hidden)
     }
@@ -121,9 +120,7 @@ struct TransactionExpenseCardView: View {
     
     VStack {
         List(models) { model in
-            TransactionExpenseCardView(
-                model: model)
-//            .background(Color.finixBackground)
+            TransactionExpenseCardView(model: model)
         }
         .listStyle(.plain)
     }

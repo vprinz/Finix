@@ -18,11 +18,7 @@ struct HomeSection: View {
                 }
                 .padding(.vertical, 8)
             }
-            .cardFrame(
-                backgroundColor: Color.foreground,
-                cornerRadius: 12,
-                strokeColor: Color.borderStroke
-            )
+            .cardFrame()
         }
     }
 }
