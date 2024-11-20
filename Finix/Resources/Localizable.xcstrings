@@ -8,7 +8,7 @@
       "shouldTranslate" : false
     },
     "$1,000.00" : {
-
+      "shouldTranslate" : false
     },
     "Account" : {
       "localizations" : {
@@ -88,8 +88,24 @@
         }
       }
     },
+    "greetingText, %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hi, %@"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Привет, %@"
+          }
+        }
+      }
+    },
     "Hi, Valerie N. Prinz" : {
-
+      "shouldTranslate" : false
     },
     "Home" : {
       "localizations" : {
@@ -220,17 +236,21 @@
         }
       }
     },
-    "Tap to open history" : {
-      "extractionState" : "stale",
+    "tapToEditProfileText" : {
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tap to edit profile"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Tap to open history"
+            "value" : "Нажмите, чтобы отредактировать"
           }
         }
-      },
-      "shouldTranslate" : false
+      }
     }
   },
   "version" : "1.0"
