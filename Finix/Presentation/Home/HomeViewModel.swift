@@ -59,16 +59,19 @@ class HomeViewModel: ObservableObject {
         [
             .init(
                 categoryIconName: "buildings",
+                categoryIconColor: Color.midnight,
                 transactionName: "Rent",
                 amountWithCurrency: CurrencyValue(currency: .usd, value: 1050).toString()
             ),
             .init(
                 categoryIconName: "bank",
+                categoryIconColor: Color.customPrimary,
                 transactionName: "Installment",
                 amountWithCurrency: CurrencyValue(currency: .usd, value: 125).toString()
             ),
             .init(
                 categoryIconName: "player",
+                categoryIconColor: Color.aquamarine,
                 transactionName: "Netflix",
                 amountWithCurrency: CurrencyValue(currency: .usd, value: 18.99).toString()
             )
@@ -80,16 +83,19 @@ class HomeViewModel: ObservableObject {
         [
             .init(
                 categoryIconName: "apple",
+                categoryIconColor: Color.finixGreen,
                 transactionName: "Lidl",
                 amountWithCurrency: CurrencyValue(currency: .usd, value: 16.89).toString()
             ),
             .init(
                 categoryIconName: "cup",
+                categoryIconColor: Color.finixOrange,
                 transactionName: "Starbucks",
                 amountWithCurrency: CurrencyValue(currency: .usd, value: 4.49).toString()
             ),
             .init(
                 categoryIconName: "lamp",
+                categoryIconColor: Color.finixYellow,
                 transactionName: "Electicity",
                 amountWithCurrency: CurrencyValue(currency: .usd, value: 40).toString()
             )

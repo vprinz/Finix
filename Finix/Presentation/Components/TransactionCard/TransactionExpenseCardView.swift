@@ -6,6 +6,7 @@ extension TransactionExpenseCardView {
     struct Model: Identifiable {
         let id: UUID
         let categoryIconName: String
+        let categoryIconColor: Color
         let transactionName: String
         let amountWithCurrency: String
         
@@ -16,6 +17,7 @@ extension TransactionExpenseCardView {
         init(
             id: UUID = UUID(),
             categoryIconName: String,
+            categoryIconColor: Color,
             transactionName: String,
             amountWithCurrency: String,
             exchangedAmountWithCurrency: String? = nil,
@@ -24,6 +26,7 @@ extension TransactionExpenseCardView {
         ) {
             self.id = id
             self.categoryIconName = categoryIconName
+            self.categoryIconColor = categoryIconColor
             self.transactionName = transactionName
             self.amountWithCurrency = amountWithCurrency
             self.exchangedAmountWithCurrency = exchangedAmountWithCurrency
@@ -45,9 +48,9 @@ struct TransactionExpenseCardView: View {
                     .opacity(0.2)
                 Image(model.categoryIconName)
                     .resizable()
-                    .aspectRatio(contentMode: .fill)
+                    .aspectRatio(contentMode: .fit)
                     .frame(width: 20, height: 20)
-                    .foregroundStyle(Color.midnight)
+                    .foregroundStyle(model.categoryIconColor)
             }
             VStack(alignment: .leading) {
                 Text(model.transactionName)
@@ -86,28 +89,32 @@ struct TransactionExpenseCardView: View {
     let models: [TransactionExpenseCardView.Model] = [
         TransactionExpenseCardView.Model(
             categoryIconName: "bank",
+            categoryIconColor: Color.midnight,
             transactionName: "ATM",
             amountWithCurrency: "$25.00"
         ),
         TransactionExpenseCardView.Model(
-            categoryIconName: "bank",
-            transactionName: "ATM",
-            amountWithCurrency: "$25.00",
-            categoryName: "Banking",
+            categoryIconName: "buildings",
+            categoryIconColor: Color.customPrimary,
+            transactionName: "Rent",
+            amountWithCurrency: "$1 050.00",
+            categoryName: "Housing",
             walletName: "Cash"
         ),
         TransactionExpenseCardView.Model(
-            categoryIconName: "bank",
-            transactionName: "ATM",
-            amountWithCurrency: "$25.00",
+            categoryIconName: "player",
+            categoryIconColor: Color.aquamarine,
+            transactionName: "Netflix",
+            amountWithCurrency: "$18.99",
             exchangedAmountWithCurrency: "€22.00"
         ),
         TransactionExpenseCardView.Model(
-            categoryIconName: "bank",
-            transactionName: "ATM",
-            amountWithCurrency: "$25.00",
-            exchangedAmountWithCurrency: "€22.00",
-            categoryName: "Banking",
+            categoryIconName: "lamp",
+            categoryIconColor: Color.finixYellow,
+            transactionName: "Electicity",
+            amountWithCurrency: "$40.00",
+            exchangedAmountWithCurrency: "€38.00",
+            categoryName: "Utilities",
             walletName: "Cash"
         )
     ]
@@ -116,13 +123,9 @@ struct TransactionExpenseCardView: View {
         List(models) { model in
             TransactionExpenseCardView(
                 model: model)
-            .background(Color.finixBackground)
+//            .background(Color.finixBackground)
         }
         .listStyle(.plain)
-        .frame(width: 361)
-        .background(Color.green)
-        .scrollContentBackground(.hidden)
     }
-    .clipShape(.rect(cornerRadius: 12))
     .background(Color.finixBackground)
 }
