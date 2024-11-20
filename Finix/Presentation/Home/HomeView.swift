@@ -34,8 +34,10 @@ struct HomeView: View {
             }
             .padding(.bottom, 20)
             .padding(.top, 70)
-            SectionLinkView(sectionTitle: String(localized: "My wallet"))
-                .padding(.horizontal, 8)
+            SectionLinkView(
+                sectionTitle: String(localized: "myWalletText")
+            )
+            .padding(.horizontal, 8)
             ScrollView(.horizontal) {
                 HStack(spacing: 8) {
                     ForEach(0..<5) {
@@ -70,14 +72,14 @@ struct HomeView: View {
     
     var upcomingPayments: some View {
         HomeSection(
-            title: String(localized: "Upcoming payments"),
+            title: String(localized: "upcomingPaymentsText"),
             trasnactionModels: viewModel.upcomingPaymentModels
         )
     }
     
     var recentTransactions: some View {
         HomeSection(
-            title: String(localized: "Recent transactions"),
+            title: String(localized: "recentTransactionsText"),
             trasnactionModels: viewModel.recentTransactionModels
         )
     }

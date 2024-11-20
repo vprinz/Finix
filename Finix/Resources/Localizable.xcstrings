@@ -8,7 +8,7 @@
       "shouldTranslate" : false
     },
     "$%lld" : {
-
+      "shouldTranslate" : false
     },
     "Account" : {
       "localizations" : {
@@ -89,7 +89,7 @@
       }
     },
     "Hi, Valerie N. Prinz" : {
-
+      "shouldTranslate" : false
     },
     "Home" : {
       "localizations" : {
@@ -182,8 +182,21 @@
         }
       }
     },
-    "My wallet" : {
-
+    "myWalletText" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "My wallet"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Мой кошелек"
+          }
+        }
+      }
     },
     "Not implemented yet" : {
       "localizations" : {
@@ -207,6 +220,22 @@
       },
       "shouldTranslate" : false
     },
+    "recentTransactionsText" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Recent transactions"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Недавние транзакции"
+          }
+        }
+      }
+    },
     "seeAllButton" : {
       "localizations" : {
         "en" : {
@@ -223,8 +252,21 @@
         }
       }
     },
-    "Upcoming payments" : {
-
+    "upcomingPaymentsText" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Upcoming payments"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Будущие платежи"
+          }
+        }
+      }
     }
   },
   "version" : "1.0"
