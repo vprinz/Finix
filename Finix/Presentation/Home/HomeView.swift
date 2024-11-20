@@ -6,14 +6,18 @@ struct HomeView: View {
     @StateObject var viewModel: HomeViewModel
     
     var body: some View {
-        VStack(spacing: 24) {
-            header
-            upcomingPayments
-            recentTransactions
-            Spacer()
+        ScrollView {
+            VStack(spacing: 24) {
+                header
+                upcomingPayments
+                recentTransactions
+                Spacer()
+            }
+            .padding(.horizontal, 16)
         }
-        .padding(.horizontal, 16)
+        .scrollIndicators(.hidden)
         .background(Color.finixBackground)
+        .ignoresSafeArea()
     }
     
     var header: some View {
@@ -29,9 +33,10 @@ struct HomeView: View {
                     .foregroundStyle(Color.textPrimary)
             }
             .padding(.bottom, 20)
-            .padding(.top, 16)
+            .padding(.top, 70)
             SectionLinkView(sectionTitle: String(localized: "My wallet"))
-            ScrollView(.horizontal, showsIndicators: false) {
+                .padding(.horizontal, 8)
+            ScrollView(.horizontal) {
                 HStack(spacing: 8) {
                     ForEach(0..<5) {
                         Text("$\($0+1 * 1000)")
@@ -45,6 +50,7 @@ struct HomeView: View {
                     )
                 }
             }
+            .scrollIndicators(.hidden)
             .padding(.trailing, -16)
             // TODO: Wallets
             ExpenseSummaryView(model: viewModel.expensesModel)
@@ -63,11 +69,17 @@ struct HomeView: View {
     }
     
     var upcomingPayments: some View {
-        HomeSection(title: "Upcoming payments", showButton: true)
+        HomeSection(
+            title: String(localized: "Upcoming payments"),
+            trasnactionModels: viewModel.upcomingPaymentModels
+        )
     }
     
     var recentTransactions: some View {
-        HomeSection(title: "Recent transactions", showButton: true)
+        HomeSection(
+            title: String(localized: "Recent transactions"),
+            trasnactionModels: viewModel.recentTransactionModels
+        )
     }
 }
 

@@ -5,19 +5,26 @@ import SwiftUI
 struct HomeSection: View {
     
     var title: String
-    @State var showButton: Bool
+    var trasnactionModels: [TransactionExpenseCardView.Model]
     
     var body: some View {
         VStack(spacing: 8) {
             SectionLinkView(sectionTitle: title)
-            // TODO: Add transactions
-            Image(systemName: "bag.badge.minus")
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .foregroundStyle(Color.finixPurple)
-                .frame(height: 48)
-                .frame(maxWidth: .infinity)
-//                .card()
+                .padding(.horizontal, 8)
+            VStack(spacing: 0) {
+                ForEach(trasnactionModels) { model in
+                    TransactionExpenseCardView(model: model)
+                    .padding(.horizontal, 20)
+                }
+                .padding(.vertical, 8)
+            }
+            .background(Color.foreground)
+            .clipShape(.rect(cornerRadius: 12))
+            .overlay(
+                RoundedRectangle(cornerRadius: 12)
+                .inset(by: 0.25)
+                .stroke(Color.borderStroke, lineWidth: 0.5)
+            )
         }
     }
 }

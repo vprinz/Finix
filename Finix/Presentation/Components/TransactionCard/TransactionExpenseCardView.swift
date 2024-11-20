@@ -46,7 +46,7 @@ struct TransactionExpenseCardView: View {
                 Image(model.categoryIconName)
                     .resizable()
                     .aspectRatio(contentMode: .fill)
-                    .frame(width: 24, height: 24)
+                    .frame(width: 20, height: 20)
                     .foregroundStyle(Color.midnight)
             }
             VStack(alignment: .leading) {
@@ -76,8 +76,7 @@ struct TransactionExpenseCardView: View {
                 .foregroundStyle(Color.textTertiary)
             }
         }
-        .padding(.horizontal, 20)
-        .padding(.vertical, 4)
+//        .padding(.vertical, 4)
         .frame(height: 52)
         .listRowSeparator(.hidden)
     }
@@ -119,6 +118,7 @@ struct TransactionExpenseCardView: View {
                 model: model)
             .background(Color.finixBackground)
         }
+        .listStyle(.plain)
         .frame(width: 361)
         .background(Color.green)
         .scrollContentBackground(.hidden)

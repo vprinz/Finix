@@ -54,9 +54,51 @@ class HomeViewModel: ObservableObject {
         )
     }
     
+    // TODO: Get data from a corresponding service
+    var upcomingPaymentModels: [TransactionExpenseCardView.Model] {
+        [
+            .init(
+                categoryIconName: "buildings",
+                transactionName: "Rent",
+                amountWithCurrency: CurrencyValue(currency: .usd, value: 1050).toString()
+            ),
+            .init(
+                categoryIconName: "bank",
+                transactionName: "Installment",
+                amountWithCurrency: CurrencyValue(currency: .usd, value: 125).toString()
+            ),
+            .init(
+                categoryIconName: "player",
+                transactionName: "Netflix",
+                amountWithCurrency: CurrencyValue(currency: .usd, value: 18.99).toString()
+            )
+        ]
+    }
+    
+    // TODO: Get data from a corresponding service
+    var recentTransactionModels: [TransactionExpenseCardView.Model] {
+        [
+            .init(
+                categoryIconName: "apple",
+                transactionName: "Lidl",
+                amountWithCurrency: CurrencyValue(currency: .usd, value: 16.89).toString()
+            ),
+            .init(
+                categoryIconName: "cup",
+                transactionName: "Starbucks",
+                amountWithCurrency: CurrencyValue(currency: .usd, value: 4.49).toString()
+            ),
+            .init(
+                categoryIconName: "lamp",
+                transactionName: "Electicity",
+                amountWithCurrency: CurrencyValue(currency: .usd, value: 40).toString()
+            )
+        ]
+    }
+    
     // MARK: - Private methods
     
-    func expensesChartSegmentModel() -> ChartSegmentView.Model {
+    private func expensesChartSegmentModel() -> ChartSegmentView.Model {
         // FIXME: replace with real values
         let segments = [
             ChartSegmentView.Model.SegmentItem(
@@ -76,7 +118,7 @@ class HomeViewModel: ObservableObject {
         return ChartSegmentView.Model(segments: segments)
     }
     
-    func dailyChartSegmentModel() -> ChartSegmentView.Model {
+    private func dailyChartSegmentModel() -> ChartSegmentView.Model {
         let percentage = leftForToday.value / dailyBudget.value
         
         return ChartSegmentView.Model(segments: [
@@ -84,7 +126,7 @@ class HomeViewModel: ObservableObject {
         ])
     }
     
-    func monthlyChartSegmentModel() -> ChartSegmentView.Model {
+    private func monthlyChartSegmentModel() -> ChartSegmentView.Model {
         let percentage = leftForTheMonth.value / monthlyBudget.value
         
         return ChartSegmentView.Model(segments: [
