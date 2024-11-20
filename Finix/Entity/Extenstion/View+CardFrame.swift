@@ -2,8 +2,8 @@
 
 import SwiftUI
 
-struct WalletCardFrameWrapper: ViewModifier {
-    let height: CGFloat
+struct CardFrameWrapper: ViewModifier {
+    let height: CGFloat?
     let backgroundColor: Color
     let cornerRadius: CGFloat
     let strokeColor: Color
@@ -22,13 +22,13 @@ struct WalletCardFrameWrapper: ViewModifier {
 }
 
 extension View {
-    func walletCardFrame(
-        height: CGFloat,
+    func cardFrame(
+        height: CGFloat? = nil,
         backgroundColor: Color,
         cornerRadius: CGFloat,
         strokeColor: Color
     ) -> some View {
-        modifier(WalletCardFrameWrapper(
+        modifier(CardFrameWrapper(
             height: height,
             backgroundColor: backgroundColor,
             cornerRadius: cornerRadius,

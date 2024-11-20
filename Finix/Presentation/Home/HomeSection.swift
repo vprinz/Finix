@@ -18,12 +18,10 @@ struct HomeSection: View {
                 }
                 .padding(.vertical, 8)
             }
-            .background(Color.foreground)
-            .clipShape(.rect(cornerRadius: 12))
-            .overlay(
-                RoundedRectangle(cornerRadius: 12)
-                .inset(by: 0.25)
-                .stroke(Color.borderStroke, lineWidth: 0.5)
+            .cardFrame(
+                backgroundColor: Color.foreground,
+                cornerRadius: 12,
+                strokeColor: Color.borderStroke
             )
         }
     }

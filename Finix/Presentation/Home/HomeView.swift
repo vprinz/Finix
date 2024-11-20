@@ -42,7 +42,7 @@ struct HomeView: View {
                         Text("$\($0+1 * 1000)")
                     }
                     .frame(width: 132)
-                    .walletCardFrame(
+                    .cardFrame(
                         height: 88,
                         backgroundColor: Color.textWhite,
                         cornerRadius: 10,
