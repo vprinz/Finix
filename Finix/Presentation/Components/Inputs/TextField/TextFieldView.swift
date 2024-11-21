@@ -51,7 +51,6 @@ struct TextFieldView: View {
 #Preview {
     @Previewable @State var tf1: String = ""
     @Previewable @State var tf3: String = "Current value"
-    var tf2: String = ""
     
     let buttonConfig1 = TextFieldViewModel.ButtonConfiguration(
         imageName: "clear-circle") {
