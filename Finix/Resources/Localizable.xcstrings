@@ -220,17 +220,15 @@
         }
       }
     },
-    "Tap to open history" : {
-      "extractionState" : "stale",
+    "textFieldPlaceholder" : {
       "localizations" : {
-        "ru" : {
+        "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Tap to open history"
+            "value" : "Enter text"
           }
         }
-      },
-      "shouldTranslate" : false
+      }
     }
   },
   "version" : "1.0"

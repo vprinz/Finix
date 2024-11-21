@@ -13,7 +13,7 @@ class TextFieldViewModel: BaseTextInputViewModel {
     
     init(
         value: Binding<String>,
-        placeholder: String = "",
+        placeholder: String = String(localized: "textFieldPlaceholder"),
         style: BaseTextInputViewModel.Style = .white,
         disabled: Bool = false,
         buttonConfig: ButtonConfiguration? = nil
