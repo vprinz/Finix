@@ -69,7 +69,6 @@ struct TextFieldView: View {
         ))
         TextFieldView(viewModel: TextFieldViewModel(
             value: $tf3,
-            style: .primary,
             disabled: true,
             buttonConfig: buttonConfig2
         ))
@@ -87,11 +86,6 @@ struct TextFieldView: View {
                 
             }),
             disabled: true
-        ))
-        // TextField with primary background
-        TextFieldView(viewModel: TextFieldViewModel(
-            value: $tf1,
-            style: .primary
         ))
     }
     .padding()

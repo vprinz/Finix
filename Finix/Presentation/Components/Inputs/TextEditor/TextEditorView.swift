@@ -3,7 +3,7 @@
 import SwiftUI
 
 struct TextEditorView: View {
-    @StateObject var viewModel: BaseTextInputViewModel
+    @StateObject var viewModel: TextEditorViewModel
     @FocusState private var isFocused: Bool
     
     var body: some View {
@@ -51,7 +51,7 @@ struct TextEditorView: View {
                 value2 = newValue
             })
         ))
-        TextEditorView(viewModel: BaseTextInputViewModel(
+        TextEditorView(viewModel: .init(
             value: .init(get: {
                 ""
             }, set: { _ in
