@@ -9,29 +9,30 @@ extension ButtonView {
         }
         
         enum Style {
-            case primary
-            case primaryOutlined
-            case dark
-            case secondary
-            case plain
-            case disabled
+            case primary, primaryOutlined, dark, secondary, plain
         }
         
         let size: Size
         let style: Style
         let buttonText: String
+        let disabled: Bool
         let iconNameLeft: String?
         let iconNameRight: String?
         let action: () -> Void
         
         var textColor: Color {
+            if disabled {
+                return Color.textDisabled
+            }
             switch style {
-            case .primary: Color.textWhite
-            case .primaryOutlined: Color.customPrimary
-            case .dark: Color.textSecondary
-            case .secondary: Color.textTertiary
-            case .plain: Color.textTertiary
-            case .disabled: Color.textDisabled
+            case .primary:
+                return Color.textWhite
+            case .primaryOutlined:
+                return Color.customPrimary
+            case .dark:
+                return Color.textSecondary
+            default:
+                return Color.textTertiary
             }
         }
         
@@ -43,30 +44,42 @@ extension ButtonView {
         }
         
         var backgroundColor: Color {
+            if disabled {
+                return style == .plain ? .clear : .disabledBackground
+            }
             switch style {
-            case .primary: Color.customPrimary
-            case .plain: Color.clear
-            case .disabled: Color.disabledBackground
-            default: Color.foreground
+            case .primary:
+                return Color.customPrimary
+            case .plain:
+                return Color.clear
+            default:
+                return Color.foreground
             }
         }
         
         var borderColor: Color {
+            if disabled {
+                return Color.clear
+            }
             switch style {
-            case .primary: Color.customPrimary
-            case .primaryOutlined: Color.customPrimary
-            case .dark: Color.borderStroke
-            case .secondary: Color.borderStroke
-            case .plain: Color.clear
-            case .disabled: Color.clear
+            case .primary, .primaryOutlined:
+                return Color.customPrimary
+            case .dark, .secondary:
+                return Color.borderStroke
+            case .plain:
+                return Color.clear
             }
         }
         
         var iconColor: Color {
+            if disabled {
+                return Color.textDisabled
+            }
             switch style {
-            case .primary: Color.textWhite
-            case .disabled: Color.textDisabled
-            default: Color.customPrimary
+            case .primary:
+                return Color.textWhite
+            default:
+                return Color.customPrimary
             }
         }
         
@@ -95,6 +108,7 @@ extension ButtonView {
             size: Size,
             style: Style,
             buttonText: String = "Button",
+            disabled: Bool = false,
             iconNameLeft: String? = nil,
             iconNameRight: String? = nil,
             action: @escaping () -> Void
@@ -102,6 +116,7 @@ extension ButtonView {
             self.size = size
             self.style = style
             self.buttonText = buttonText
+            self.disabled = disabled
             self.iconNameLeft = iconNameLeft
             self.iconNameRight = iconNameRight
             self.action = action
@@ -134,7 +149,7 @@ struct ButtonView: View {
                 strokeColor: model.borderColor
             )
         }
-        .disabled(model.style == .disabled)
+        .disabled(model.disabled)
     }
     
     @ViewBuilder
@@ -166,7 +181,8 @@ struct ButtonView: View {
         }
     let bigButtonDisabled = ButtonView.Model(
         size: .big,
-        style: .disabled) {
+        style: .primary,
+        disabled: true) {
             
         }
     
@@ -185,7 +201,8 @@ struct ButtonView: View {
         }
     let bigButtonDisabledWithIcon = ButtonView.Model(
         size: .big,
-        style: .disabled,
+        style: .primary,
+        disabled: true,
         iconNameRight: "check-mark") {
             
         }
@@ -203,7 +220,8 @@ struct ButtonView: View {
         }
     let smallButtonDisabled = ButtonView.Model(
         size: .small,
-        style: .disabled) {
+        style: .primary,
+        disabled: true) {
             
         }
     
@@ -222,7 +240,8 @@ struct ButtonView: View {
         }
     let smallButtonDisabledWithIcon = ButtonView.Model(
         size: .small,
-        style: .disabled,
+        style: .primary,
+        disabled: true,
         iconNameRight: "check-mark") {
             
         }
@@ -243,6 +262,13 @@ struct ButtonView: View {
     let smallButtonPlainWithIcon = ButtonView.Model(
         size: .small,
         style: .plain,
+        iconNameLeft: "circle-plus") {
+            
+        }
+    let smallButtonPlainWithIconDisabled = ButtonView.Model(
+        size: .small,
+        style: .plain,
+        disabled: true,
         iconNameLeft: "circle-plus") {
             
         }
@@ -296,6 +322,8 @@ struct ButtonView: View {
                 ButtonView(model: smallButtonSecondaryWithIcon)
                     .frame(width: 100)
                 ButtonView(model: smallButtonPlainWithIcon)
+                    .frame(width: 100)
+                ButtonView(model: smallButtonPlainWithIconDisabled)
                     .frame(width: 100)
             }
         }
