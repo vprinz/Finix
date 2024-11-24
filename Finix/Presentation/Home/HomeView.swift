@@ -10,10 +10,11 @@ struct HomeView: View {
             VStack(spacing: 24) {
                 header
                 upcomingPayments
+                    .padding(.horizontal, 16)
                 recentTransactions
+                    .padding(.horizontal, 16)
                 Spacer()
             }
-            .padding(.horizontal, 16)
         }
         .scrollIndicators(.hidden)
         .background(Color.finixBackground)
@@ -34,10 +35,11 @@ struct HomeView: View {
             }
             .padding(.bottom, 20)
             .padding(.top, 70)
+            .padding(.horizontal, 16)
             SectionLinkView(
                 sectionTitle: String(localized: "myWalletText")
             )
-            .padding(.horizontal, 8)
+            .padding(.horizontal, 24)
             ScrollView(.horizontal) {
                 HStack(spacing: 8) {
                     ForEach(0..<5) {
@@ -51,15 +53,17 @@ struct HomeView: View {
                         strokeColor: Color.borderStroke
                     )
                 }
+                .padding(.horizontal, 16)
             }
             .scrollIndicators(.hidden)
-            .padding(.trailing, -16)
             // TODO: Wallets
             ExpenseSummaryView(model: viewModel.expensesModel)
+                .padding(.horizontal, 16)
             HStack(spacing: 8) {
                 PeriodBudgetView(model: viewModel.dailyBudgetModel)
                 PeriodBudgetView(model: viewModel.monthlyBudgetModel)
             }
+            .padding(.horizontal, 16)
         }
         .background {
             VStack {
