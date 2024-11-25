@@ -32,7 +32,7 @@ struct AvatarView: View {
     let model: Model
     
     var body: some View {
-        Image(model.imageName ?? "avatar")
+        Image(model.imageName ?? "default-avatar")
             .resizable()
             .aspectRatio(contentMode: .fit)
             .frame(width: model.imageSize, height: model.imageSize)

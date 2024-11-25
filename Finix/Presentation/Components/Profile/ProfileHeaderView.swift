@@ -14,25 +14,14 @@ extension ProfileHeaderView {
         
         @ViewBuilder
         var avatar: some View {
-            if let imageName = imageName {
-                AvatarView(
-                    model: .init(imageName: imageName, size: avatarSize)
+            AvatarView(
+                model: .init(
+                    imageName: imageName, size: avatarSize
                 )
-            } else {
-                DefaultAvatarView(
-                    model: .init(size: defaultAvatarSize)
-                )
-            }
+            )
         }
         
         private var avatarSize: AvatarView.Model.Size {
-            switch size {
-            case .small: .small
-            case .big: .big
-            }
-        }
-        
-        private var defaultAvatarSize: DefaultAvatarView.Model.Size {
             switch size {
             case .small: .small
             case .big: .big
