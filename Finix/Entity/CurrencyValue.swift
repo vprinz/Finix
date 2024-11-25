@@ -10,4 +10,8 @@ struct CurrencyValue {
         let formattedCurrency = value.formatted(.currency(code: currency.isoCode))
         return formattedCurrency
     }
+    
+    func toCurrencyName() -> String? {
+        return Locale.current.localizedString(forCurrencyCode: currency.isoCode)
+    }
 }

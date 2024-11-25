@@ -44,6 +44,7 @@ struct PeriodSummaryView: View {
                 Text(model.title)
                     .font(.system(size: 12, weight: .regular)) // TODO: replace by Font extension
                 Spacer()
+                Text(model.value.toCurrencyName() ?? "")
                 Text(model.value.toString())
                     .font(.system(size: 16, weight: .medium)) // TODO: replace by Font extension
                     .foregroundStyle(model.color)

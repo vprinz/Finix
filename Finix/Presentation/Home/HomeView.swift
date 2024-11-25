@@ -21,6 +21,9 @@ struct HomeView: View {
             }
             .padding(.horizontal, 16)
             .background(Color.finixBackground)
+            .onAppear {
+                
+            }
         }
     }
     
