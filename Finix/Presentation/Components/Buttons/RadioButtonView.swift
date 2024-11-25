@@ -3,8 +3,8 @@
 import SwiftUI
 
 extension RadioButtonView {
-    class ViewModel: ObservableObject {
-        @Published var selected: Bool
+    struct Model {
+        let selected: Bool
         let disabled: Bool
         
         var styleColor: Color {
@@ -34,7 +34,7 @@ extension RadioButtonView {
 }
 
 struct RadioButtonView: View {
-    let model: ViewModel
+    let model: Model
     
     var body: some View {
         Circle()
@@ -50,14 +50,14 @@ struct RadioButtonView: View {
 }
 
 #Preview {
-    let modelNotSelected: RadioButtonView.ViewModel = .init()
-    let modelSelected: RadioButtonView.ViewModel = .init(
+    let modelNotSelected: RadioButtonView.Model = .init()
+    let modelSelected: RadioButtonView.Model = .init(
         selected: true
     )
-    let modelDisabled: RadioButtonView.ViewModel = .init(
+    let modelDisabled: RadioButtonView.Model = .init(
         disabled: true
     )
-    let modelSelectedDisabled: RadioButtonView.ViewModel = .init(
+    let modelSelectedDisabled: RadioButtonView.Model = .init(
         selected: true,
         disabled: true
     )
