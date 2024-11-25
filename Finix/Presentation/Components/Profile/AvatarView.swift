@@ -8,7 +8,7 @@ extension AvatarView {
             case small, big
         }
         
-        let imageName: String
+        let imageName: String?
         let size: Size
         
         var imageSize: CGFloat {
@@ -17,6 +17,14 @@ extension AvatarView {
             case .big: 64
             }
         }
+        
+        init(
+            imageName: String? = nil,
+            size: Size
+        ) {
+            self.imageName = imageName
+            self.size = size
+        }
     }
 }
 
@@ -24,7 +32,7 @@ struct AvatarView: View {
     let model: Model
     
     var body: some View {
-        Image(model.imageName)
+        Image(model.imageName ?? "avatar")
             .resizable()
             .aspectRatio(contentMode: .fit)
             .frame(width: model.imageSize, height: model.imageSize)
@@ -32,11 +40,20 @@ struct AvatarView: View {
 }
 
 #Preview {
+    let modelSmallDefault = AvatarView.Model(size: .small)
+    let modelBigDefault = AvatarView.Model(size: .big)
+    
     let modelSmall = AvatarView.Model(imageName: "angelica", size: .small)
     let modelBig = AvatarView.Model(imageName: "angelica", size: .big)
     
-    HStack {
-        AvatarView(model: modelSmall)
-        AvatarView(model: modelBig)
+    VStack {
+        HStack {
+            AvatarView(model: modelSmallDefault)
+            AvatarView(model: modelBigDefault)
+        }
+        HStack {
+            AvatarView(model: modelSmall)
+            AvatarView(model: modelBig)
+        }
     }
 }
