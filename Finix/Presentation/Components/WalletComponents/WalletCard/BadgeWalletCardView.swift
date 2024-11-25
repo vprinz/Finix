@@ -46,13 +46,13 @@ struct BadgeWalletCardView: View {
     )
     
     HStack {
-        BadgeWalletCardView(model: modelUsd)
-            .frame(width: 60)
-        BadgeWalletCardView(model: modelEur)
-            .frame(width: 60)
-        BadgeWalletCardView(model: modelRub)
-            .frame(width: 60)
+        Group {
+            BadgeWalletCardView(model: modelUsd)
+            BadgeWalletCardView(model: modelEur)
+            BadgeWalletCardView(model: modelRub)
+        }
+        .frame(width: 60)
     }
-    .frame(width: 800, height: 800)
+    .frame(maxWidth: .infinity, maxHeight: .infinity)
     .background(Color.finixBackground)
 }

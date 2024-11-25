@@ -40,11 +40,12 @@ struct ActionMediumWalletCardView: View {
     )
     
     VStack {
-        ActionMediumWalletCardView(model: addAccountModel)
-            .frame(width: 132)
-        ActionMediumWalletCardView(model: seeAllModel)
-            .frame(width: 132)
+        Group {
+            ActionMediumWalletCardView(model: addAccountModel)
+            ActionMediumWalletCardView(model: seeAllModel)
+        }
+        .frame(width: 132)
     }
-    .frame(width: 800, height: 800)
+    .frame(maxWidth: .infinity, maxHeight: .infinity)
     .background(Color.finixBackground)
 }

@@ -61,13 +61,13 @@ struct LargeWalletCardView: View {
     )
     
     VStack {
-        LargeWalletCardView(model: modelUsd)
-            .frame(width: 280)
-        LargeWalletCardView(model: modelEur)
-            .frame(width: 280)
-        LargeWalletCardView(model: modelRub)
-            .frame(width: 280)
+        Group {
+            LargeWalletCardView(model: modelUsd)
+            LargeWalletCardView(model: modelEur)
+            LargeWalletCardView(model: modelRub)
+        }
+        .frame(width: 280)
     }
-    .frame(width: 800, height: 800)
+    .frame(maxWidth: .infinity, maxHeight: .infinity)
     .background(Color.finixBackground)
 }

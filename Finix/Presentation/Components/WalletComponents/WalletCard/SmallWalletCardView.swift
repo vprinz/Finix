@@ -111,6 +111,6 @@ struct SmallWalletCardView: View {
                 .frame(width: 90)
         }
     }
-    .frame(width: 800, height: 800)
+    .frame(maxWidth: .infinity, maxHeight: .infinity)
     .background(Color.finixBackground)
 }
