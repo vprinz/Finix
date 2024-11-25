@@ -1,6 +1,9 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "" : {
+
+    },
     "- %@" : {
       "shouldTranslate" : false
     },
@@ -264,6 +267,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Будущие платежи"
+    "textFieldPlaceholder" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enter text"
           }
         }
       }
