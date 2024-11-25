@@ -2,12 +2,45 @@
 
 import SwiftUI
 
+extension CurrencyListView {
+    class ViewModel: ObservableObject {
+        @Published var selectedCurency: Currency?
+        var currencies: [Currency] = Currency.allCases
+    }
+}
+
 struct CurrencyListView: View {
+    let viewModel: ViewModel
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ForEach(viewModel.currencies) { currency in
+            HStack(spacing: 0) {
+                Image(currency.isoCode)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 32, height: 32)
+                Group {
+                    Text(currency.fullName ?? "")
+                    Text("(\(currency.isoCode))")
+                }
+                .foregroundStyle(Color.textSecondary)
+                .font(.bodyTextNarrowRegular)
+                .padding(.leading, 8)
+                Spacer()
+                RadioButtonView(model: .init())
+                    .padding(.trailing, 10)
+            }
+            .padding(.vertical, 8)
+            .padding(.leading, 20)
+            .padding(.trailing, 12)
+        }
     }
 }
 
 #Preview {
-    CurrencyListView()
+    ScrollView {
+        CurrencyListView(viewModel: .init())
+    }
+    .scrollIndicators(.hidden)
+    .padding()
 }
