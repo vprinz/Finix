@@ -9,9 +9,12 @@ struct TextFieldView: View {
     var body: some View {
         HStack {
             TextField(
-                viewModel.placeholder,
-                text: $viewModel.value
+                "",
+                text: $viewModel.value,
+                prompt: Text(viewModel.placeholder)
+                    .foregroundColor(Color.textTertiary)
             )
+            .foregroundStyle(viewModel.textColor)
             .focused($isFocused)
             .disabled(viewModel.state == .disabled)
             .tint(Color.customPrimary)
@@ -36,20 +39,18 @@ struct TextFieldView: View {
             }
 
         }
-        .frame(height: 48)
-        .background(viewModel.backgroundColor)
-        .clipShape(.rect(cornerRadius: 12))
-        .overlay(
-            RoundedRectangle(cornerRadius: 12)
-                .inset(by: 0.5)
-                .stroke(viewModel.borderColor, lineWidth: 1)
+        .walletCardFrame(
+            height: 48,
+            backgroundColor: viewModel.backgroundColor,
+            cornerRadius: 12,
+            strokeColor: viewModel.borderColor
         )
     }
 }
 
 #Preview {
-    @Previewable @State var tf2: String = ""
-    var tf1: String = ""
+    @Previewable @State var tf1: String = ""
+    @Previewable @State var tf3: String = "Current value"
     
     let buttonConfig1 = TextFieldViewModel.ButtonConfiguration(
         imageName: "clear-circle") {
@@ -61,21 +62,14 @@ struct TextFieldView: View {
         }
 
     VStack {
-        TextFieldView(viewModel: TextFieldViewModel(
-            value: .init(get: {
-                tf1
-            }, set: { newValue in
-                tf1 = newValue
-            }),
-            placeholder: "Enter text",
-            disabled: false,
+        TextFieldView(viewModel: .init(value: $tf1))
+        TextFieldView(viewModel: .init(
+            value: $tf3,
             buttonConfig: buttonConfig1
         ))
         TextFieldView(viewModel: TextFieldViewModel(
-            value: $tf2,
-            placeholder: "Enter text",
-            style: .gray,
-            disabled: false,
+            value: $tf3,
+            disabled: true,
             buttonConfig: buttonConfig2
         ))
         TextFieldView(viewModel: TextFieldViewModel(
@@ -83,8 +77,14 @@ struct TextFieldView: View {
                 "Some text"
             }, set: { _ in
                 
+            })
+        ))
+        TextFieldView(viewModel: TextFieldViewModel(
+            value: .init(get: {
+                "Some text"
+            }, set: { _ in
+                
             }),
-            placeholder: "Enter text",
             disabled: true
         ))
     }
