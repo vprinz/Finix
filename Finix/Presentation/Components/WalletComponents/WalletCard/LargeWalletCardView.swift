@@ -15,7 +15,7 @@ struct LargeWalletCardView: View {
     let model: Model
     
     var body: some View {
-        VStack(alignment: .leading) {
+        VStack(alignment: .leading, spacing: 0) {
             Group {
                 Text(model.walletName)
                 Text(model.walletBalance)

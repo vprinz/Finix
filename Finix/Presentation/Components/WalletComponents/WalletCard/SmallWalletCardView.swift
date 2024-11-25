@@ -18,7 +18,7 @@ struct SmallWalletCardView: View {
         )
         .onTapGesture {
             withAnimation {
-                viewModel.state = viewModel.state == .plain ? .selected : .plain
+                // TODO: controll by parent component
             }
         }
     }
