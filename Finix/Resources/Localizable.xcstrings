@@ -1,6 +1,9 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "" : {
+
+    },
     "- %@" : {
       "shouldTranslate" : false
     },
@@ -227,7 +230,7 @@
       },
       "shouldTranslate" : false
     },
-    "seeAllButton" : {
+    "seeAllText" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -243,12 +246,12 @@
         }
       }
     },
-    "seeAllText" : {
+    "textFieldPlaceholder" : {
       "localizations" : {
-        "ru" : {
+        "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Смотреть все"
+            "value" : "Enter text"
           }
         }
       }
