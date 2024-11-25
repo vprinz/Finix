@@ -8,7 +8,7 @@
       "shouldTranslate" : false
     },
     "$1,000.00" : {
-
+      "shouldTranslate" : false
     },
     "Account" : {
       "localizations" : {
@@ -93,13 +93,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Monthly limit helps to track funds daily and monthly"
+            "value" : "Set monthly budget to track funds daily and monthly.  Tap here to start"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ежемесячный лимит помогает отслеживать денежные средства ежедневно и ежемесячно"
+            "value" : "Установите месячный бюджет, чтобы отслеживать денежные средства ежедневно и ежемесячно.  Нажмите здесь, чтобы начать"
           }
         }
       }
@@ -109,13 +109,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Here you’ll see your upcoming transactions. Add future expenses or income to stay prepared"
+            "value" : "Here you’ll see your upcoming transactions. Tap here to add future expenses"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Здесь вы увидите свои предстоящие транзакции. Добавьте будущие расходы или доходы, чтобы быть наготове"
+            "value" : "Здесь вы увидите свои предстоящие транзакции. Нажмите здесь, чтобы добавить будущие расходы"
           }
         }
       }
@@ -125,13 +125,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "No recent transactions found. Record your expenses or income to see them here"
+            "value" : "No recent transactions found. Tap to record your expenses or income to see them here"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Последние транзакции не найдены. Запишите свои расходы или доходы, чтобы просмотреть их здесь"
+            "value" : "Последние транзакции не найдены. Нажмите, чтобы записать свои расходы или доходы, чтобы просмотреть их здесь"
           }
         }
       }
@@ -153,7 +153,14 @@
       }
     },
     "Hi, Valerie N. Prinz" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Привет, Valerie N. Prinz"
+          }
+        }
+      }
     },
     "Home" : {
       "localizations" : {

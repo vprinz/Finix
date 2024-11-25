@@ -4,11 +4,6 @@ import SwiftUI
 
 extension EmptyStateView {
     struct Model {
-        struct ButtonConfiguration {
-            let text: String
-            let action: () -> Void
-        }
-        
         enum State {
             case upcomingTransaction
             case recentTransaction
@@ -16,7 +11,7 @@ extension EmptyStateView {
         }
         
         var state: State
-        let btnAction: () -> Void
+        let tapAction: () -> Void
         
         var imageName: String {
             switch state {
@@ -36,26 +31,6 @@ extension EmptyStateView {
                 String(localized: "emptyLimitText")
             }
         }
-        
-        var buttonConfig: ButtonConfiguration {
-            switch state {
-            case .upcomingTransaction:
-                return .init(
-                    text: String(localized: "addTransactionBtnText"),
-                    action: btnAction
-                )
-            case .recentTransaction:
-                return .init(
-                    text: String(localized: "addTransactionBtnText"),
-                    action: btnAction
-                )
-            case .limit:
-                return .init(
-                    text: String(localized: "setLimitBtnText"),
-                    action: btnAction
-                )
-            }
-        }
     }
 }
 
@@ -67,39 +42,21 @@ struct EmptyStateView: View {
             Image(model.imageName)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-                .frame(width: 120, height: 80)
-            VStack(alignment: .leading) {
-                Text(model.text)
-                    .font(.smallTextTallRegular)
-                    .foregroundStyle(Color.textSecondary)
-                    .padding(.bottom, 8)
-                Button {
-                    model.buttonConfig.action()
-                } label: {
-                    HStack(alignment: .center) {
-                        Text(model.buttonConfig.text)
-                            .font(.bodyTextNarrowRegular)
-                            .foregroundStyle(Color.customPrimary)
-                    }
-                    .padding(.vertical, 8)
-                    .frame(maxWidth: .infinity)
-                    .cornerRadius(10)
-                    .overlay(
-                      RoundedRectangle(cornerRadius: 10)
-                        .inset(by: 0.5)
-                        .stroke(Color.customPrimary)
-                    )
-                }
-            }
-            .padding(.horizontal, 16)
-            Spacer()
+                .frame(width: 95, height: 75)
+            Text(model.text)
+                .font(.smallTextTallRegular)
+                .foregroundStyle(Color.textSecondary)
+                .multilineTextAlignment(.leading)
         }
         .walletCardFrame(
-            height: 125,
+            height: 106,
             backgroundColor: Color.foreground,
             cornerRadius: 12,
             strokeColor: Color.borderStroke
         )
+        .onTapGesture {
+            model.tapAction()
+        }
     }
 }
 
