@@ -2,7 +2,7 @@
   "sourceLanguage" : "en",
   "strings" : {
     "" : {
-
+      "shouldTranslate" : false
     },
     "- %@" : {
       "shouldTranslate" : false
@@ -92,7 +92,20 @@
       }
     },
     "Hi, Valerie N. Prinz" : {
-      "shouldTranslate" : false
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hi, Valerie N. Prinz"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Привет, Valerie N. Prinz"
+          }
+        }
+      }
     },
     "Home" : {
       "localizations" : {
@@ -255,6 +268,22 @@
         }
       }
     },
+    "textFieldPlaceholder" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enter text"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Введите текст"
+          }
+        }
+      }
+    },
     "upcomingPaymentsText" : {
       "localizations" : {
         "en" : {
@@ -267,12 +296,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Будущие платежи"
-    "textFieldPlaceholder" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Enter text"
           }
         }
       }
