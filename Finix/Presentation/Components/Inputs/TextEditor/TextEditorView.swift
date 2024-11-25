@@ -28,7 +28,7 @@ struct TextEditorView: View {
                     .padding(.top, 20)
             }
         }
-        .walletCardFrame(
+        .cardFrame(
             height: 80,
             backgroundColor: viewModel.backgroundColor,
             cornerRadius: 12,
