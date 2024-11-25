@@ -16,7 +16,6 @@ struct HomeSection: View {
                     TransactionExpenseCardView(model: model)
                     .padding(.horizontal, 20)
                 }
-                .padding(.vertical, 8)
             }
             .cardFrame()
         }
