@@ -38,15 +38,18 @@ struct EmptyStateView: View {
     let model: Model
     
     var body: some View {
-        HStack {
+        HStack(spacing: .zero) {
             Image(model.imageName)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-                .frame(width: 95, height: 75)
+                .frame(width: 96, height: 72)
+                .padding(.leading, 16)
+                .padding(.trailing, 8)
             Text(model.text)
                 .font(.smallTextTallRegular)
                 .foregroundStyle(Color.textSecondary)
-                .multilineTextAlignment(.leading)
+                .frame(width: 205)
+                .padding(.trailing, 36)
         }
         .walletCardFrame(
             height: 106,
@@ -76,11 +79,11 @@ struct EmptyStateView: View {
     
     VStack {
         EmptyStateView(model: model1)
-            .frame(maxWidth: 360)
+            .frame(width: 360)
         EmptyStateView(model: model2)
-            .frame(maxWidth: 360)
+            .frame(width: 360)
         EmptyStateView(model: model3)
-            .frame(maxWidth: 360)
+            .frame(width: 360)
     }
     .frame(width: 600, height: 600)
     .background(Color.finixBackground)
