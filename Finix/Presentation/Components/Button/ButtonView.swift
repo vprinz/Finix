@@ -142,7 +142,7 @@ struct ButtonView: View {
                     .padding(.leading, 8)
                 Spacer()
             }
-            .walletCardFrame(
+            .cardFrame(
                 height: model.height,
                 backgroundColor: model.backgroundColor,
                 cornerRadius: model.cornerRadius,
@@ -274,60 +274,44 @@ struct ButtonView: View {
         }
     
     VStack(spacing: 20) {
-        HStack {
+        HStack(spacing: 5) {
             // Big buttons without icon
             VStack {
                 ButtonView(model: bigButtonPrimary)
-                    .frame(width: 124)
                 ButtonView(model: bigButtonPrimaryOutlined)
-                    .frame(width: 124)
                 ButtonView(model: bigButtonDisabled)
-                    .frame(width: 124)
             }
             // Big buttons with icon
             VStack {
                 ButtonView(model: bigButtonPrimaryWithIcon)
-                    .frame(width: 124)
                 ButtonView(model: bigButtonPrimaryOutlinedWithIcon)
-                    .frame(width: 124)
                 ButtonView(model: bigButtonDisabledWithIcon)
-                    .frame(width: 124)
             }
         }
-        HStack {
+        HStack(spacing: 5) {
             // Small buttons without icon
             VStack {
                 ButtonView(model: smallButtonPrimary)
-                    .frame(width: 80)
                 ButtonView(model: smallButtonPrimaryOutlined)
-                    .frame(width: 80)
                 ButtonView(model: smallButtonDisabled)
-                    .frame(width: 80)
             }
             // Small buttons with icon
             VStack {
                 ButtonView(model: smallButtonPrimaryWithIcon)
-                    .frame(width: 100)
                 ButtonView(model: smallButtonPrimaryOutlinedWithIcon)
-                    .frame(width: 100)
                 ButtonView(model: smallButtonDisabledWithIcon)
-                    .frame(width: 100)
             }
         }
-        HStack {
+        HStack(spacing: 5) {
             // Small buttons with left icon
             VStack {
                 ButtonView(model: smallButtonDarkWithIcon)
-                    .frame(width: 100)
                 ButtonView(model: smallButtonSecondaryWithIcon)
-                    .frame(width: 100)
                 ButtonView(model: smallButtonPlainWithIcon)
-                    .frame(width: 100)
                 ButtonView(model: smallButtonPlainWithIconDisabled)
-                    .frame(width: 100)
             }
         }
     }
-    .frame(width: 800, height: 800)
+    .padding()
     .background(Color.finixBackground)
 }
