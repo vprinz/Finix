@@ -5,7 +5,7 @@ import SwiftUI
 extension CurrencyListView {
     class ViewModel: ObservableObject {
         // TODO: add deafult value from user settings
-        @Published var selectedCurency: Currency?
+        @Published var selectedCurrency: Currency?
         var currencies: [Currency] = Currency.allCases
     }
 }
@@ -30,7 +30,7 @@ struct CurrencyListView: View {
                     .padding(.leading, 8)
                     Spacer()
                     RadioButtonView(model: .init(
-                        selected: viewModel.selectedCurency == currency)
+                        selected: viewModel.selectedCurrency == currency)
                     )
                     .padding(.trailing, 10)
                 }
@@ -39,7 +39,7 @@ struct CurrencyListView: View {
                 .padding(.trailing, 12)
                 .onTapGesture {
                     withAnimation {
-                        viewModel.selectedCurency = currency
+                        viewModel.selectedCurrency = currency
                     }
                 }
             }

@@ -37,8 +37,8 @@ enum Currency: String, Codable, Identifiable, CaseIterable {
     case thb
     case zar
     
-    var id: Self {
-        return self
+    var id: String {
+        return self.isoCode
     }
     
     var isoCode: String {

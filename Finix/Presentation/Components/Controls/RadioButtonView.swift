@@ -68,6 +68,6 @@ struct RadioButtonView: View {
         RadioButtonView(model: modelDisabled)
         RadioButtonView(model: modelSelectedDisabled)
     }
-    .frame(maxWidth: .infinity, maxHeight: .infinity)
+    .padding()
     .background(Color.finixBackground)
 }
