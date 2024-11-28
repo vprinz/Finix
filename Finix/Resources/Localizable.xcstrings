@@ -10,7 +10,6 @@
     "+ %@" : {
       "shouldTranslate" : false
     },
-    "$1,000.00" : {
     "$%lld" : {
       "shouldTranslate" : false
     },
@@ -88,22 +87,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Расходы"
-          }
-        }
-      }
-    },
-    "greetingText, %@" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Hi, %@"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Привет, %@"
           }
         }
       }
@@ -285,7 +268,6 @@
         }
       }
     },
-    "tapToEditProfileText" : {
     "textFieldPlaceholder" : {
       "localizations" : {
         "en" : {
@@ -313,7 +295,7 @@
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Нажмите, чтобы отредактировать"
+            "value" : "Будущие платежи"
           }
         }
       }
