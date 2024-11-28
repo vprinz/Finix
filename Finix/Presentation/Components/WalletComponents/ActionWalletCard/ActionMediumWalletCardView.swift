@@ -22,12 +22,7 @@ struct ActionMediumWalletCardView: View {
                     .offset(x: 7, y: 5)
             }
         }
-        .walletCardFrame(
-            height: 88,
-            backgroundColor: Color.foreground,
-            cornerRadius: 12,
-            strokeColor: Color.borderStroke
-        )
+        .cardFrame(width: 132, height: 88)
     }
 }
 
@@ -40,12 +35,9 @@ struct ActionMediumWalletCardView: View {
     )
     
     VStack {
-        Group {
-            ActionMediumWalletCardView(model: addAccountModel)
-            ActionMediumWalletCardView(model: seeAllModel)
-        }
-        .frame(width: 132)
+        ActionMediumWalletCardView(model: addAccountModel)
+        ActionMediumWalletCardView(model: seeAllModel)
     }
-    .frame(maxWidth: .infinity, maxHeight: .infinity)
+    .padding()
     .background(Color.finixBackground)
 }

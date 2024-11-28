@@ -10,10 +10,9 @@ struct MediumWalletCardView: View {
             topLayer
             bottomLayer
         }
-        .walletCardFrame(
-            height: 88,
+        .cardFrame(
+            width: 132, height: 88,
             backgroundColor: viewModel.backgroundColor,
-            cornerRadius: 12,
             strokeColor: Color.textWhite
         )
         .onTapGesture {
@@ -94,23 +93,17 @@ struct MediumWalletCardView: View {
     VStack {
         HStack {
             MediumWalletCardView(viewModel: modelUsd)
-                .frame(width: 132)
             MediumWalletCardView(viewModel: modelUsdEmpty)
-                .frame(width: 132)
         }
         HStack {
             MediumWalletCardView(viewModel: modelEur)
-                .frame(width: 132)
             MediumWalletCardView(viewModel: modelEurEmpty)
-                .frame(width: 132)
         }
         HStack {
             MediumWalletCardView(viewModel: modelRub)
-                .frame(width: 132)
             MediumWalletCardView(viewModel: modelRubEmpty)
-                .frame(width: 132)
         }
     }
-    .frame(maxWidth: .infinity, maxHeight: .infinity)
+    .padding()
     .background(Color.finixBackground)
 }

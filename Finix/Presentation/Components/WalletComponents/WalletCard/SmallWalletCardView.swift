@@ -10,8 +10,8 @@ struct SmallWalletCardView: View {
             topLayer
             bottomLayer
         }
-        .walletCardFrame(
-            height: 60,
+        .cardFrame(
+            width: 90, height: 60,
             backgroundColor: viewModel.backgroundColor,
             cornerRadius: 10,
             strokeColor: viewModel.styleColor
@@ -94,23 +94,17 @@ struct SmallWalletCardView: View {
     VStack {
         HStack {
             SmallWalletCardView(viewModel: modelUsd)
-                .frame(width: 90)
             SmallWalletCardView(viewModel: modelUsdEmpty)
-                .frame(width: 90)
         }
         HStack {
             SmallWalletCardView(viewModel: modelEur)
-                .frame(width: 90)
             SmallWalletCardView(viewModel: modelEurEmpty)
-                .frame(width: 90)
         }
         HStack {
             SmallWalletCardView(viewModel: modelRub)
-                .frame(width: 90)
             SmallWalletCardView(viewModel: modelRubEmpty)
-                .frame(width: 90)
         }
     }
-    .frame(maxWidth: .infinity, maxHeight: .infinity)
+    .padding()
     .background(Color.finixBackground)
 }

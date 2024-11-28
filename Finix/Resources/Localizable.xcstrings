@@ -11,7 +11,6 @@
       "shouldTranslate" : false
     },
     "$%lld" : {
-    "$1,000.00" : {
       "shouldTranslate" : false
     },
     "Account" : {
@@ -58,22 +57,6 @@
         }
       },
       "shouldTranslate" : false
-    },
-    "addAccountText" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Add account"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Добавить счёт"
-          }
-        }
-      }
     },
     "body" : {
       "localizations" : {

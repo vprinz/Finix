@@ -32,8 +32,8 @@ struct LargeWalletCardView: View {
             }
         }
         .foregroundStyle(Color.textWhite)
-        .walletCardFrame(
-            height: 160,
+        .cardFrame(
+            width: 280, height: 160,
             backgroundColor: model.styleColor,
             cornerRadius: 20, strokeColor: model.styleColor
         )
@@ -61,13 +61,10 @@ struct LargeWalletCardView: View {
     )
     
     VStack {
-        Group {
-            LargeWalletCardView(model: modelUsd)
-            LargeWalletCardView(model: modelEur)
-            LargeWalletCardView(model: modelRub)
-        }
-        .frame(width: 280)
+        LargeWalletCardView(model: modelUsd)
+        LargeWalletCardView(model: modelEur)
+        LargeWalletCardView(model: modelRub)
     }
-    .frame(maxWidth: .infinity, maxHeight: .infinity)
+    .padding()
     .background(Color.finixBackground)
 }

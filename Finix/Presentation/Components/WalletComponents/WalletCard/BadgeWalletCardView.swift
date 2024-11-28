@@ -23,8 +23,8 @@ struct BadgeWalletCardView: View {
                     .padding(.trailing, 4)
             }
         }
-        .walletCardFrame(
-            height: 40,
+        .cardFrame(
+            width: 60, height: 40,
             backgroundColor: Color.textWhite,
             cornerRadius: 6, strokeColor: model.styleColor
         )
@@ -46,13 +46,10 @@ struct BadgeWalletCardView: View {
     )
     
     HStack {
-        Group {
-            BadgeWalletCardView(model: modelUsd)
-            BadgeWalletCardView(model: modelEur)
-            BadgeWalletCardView(model: modelRub)
-        }
-        .frame(width: 60)
+        BadgeWalletCardView(model: modelUsd)
+        BadgeWalletCardView(model: modelEur)
+        BadgeWalletCardView(model: modelRub)
     }
-    .frame(maxWidth: .infinity, maxHeight: .infinity)
+    .padding()
     .background(Color.finixBackground)
 }
