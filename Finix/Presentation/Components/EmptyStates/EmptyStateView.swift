@@ -51,12 +51,7 @@ struct EmptyStateView: View {
                 .frame(width: 205)
                 .padding(.trailing, 36)
         }
-        .walletCardFrame(
-            height: 106,
-            backgroundColor: Color.foreground,
-            cornerRadius: 12,
-            strokeColor: Color.borderStroke
-        )
+        .cardFrame(height: 106)
         .onTapGesture {
             model.tapAction()
         }
@@ -79,12 +74,9 @@ struct EmptyStateView: View {
     
     VStack {
         EmptyStateView(model: model1)
-            .frame(width: 360)
         EmptyStateView(model: model2)
-            .frame(width: 360)
         EmptyStateView(model: model3)
-            .frame(width: 360)
     }
-    .frame(width: 600, height: 600)
+    .padding()
     .background(Color.finixBackground)
 }

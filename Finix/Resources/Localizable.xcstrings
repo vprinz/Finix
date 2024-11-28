@@ -11,7 +11,6 @@
       "shouldTranslate" : false
     },
     "$%lld" : {
-    "$1,000.00" : {
       "shouldTranslate" : false
     },
     "Account" : {
@@ -59,22 +58,6 @@
       },
       "shouldTranslate" : false
     },
-    "addTransactionBtnText" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Add transaction"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Добавить транзакцию"
-          }
-        }
-      }
-    },
     "body" : {
       "localizations" : {
         "en" : {
@@ -91,54 +74,6 @@
         }
       },
       "shouldTranslate" : false
-    },
-    "emptyLimitText" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Set monthly budget to track funds daily and monthly.  Tap here to start"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Установите месячный бюджет, чтобы отслеживать денежные средства ежедневно и ежемесячно.  Нажмите здесь, чтобы начать"
-          }
-        }
-      }
-    },
-    "emptyRecentTransactionText" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Here you’ll see your upcoming transactions. Tap here to add future expenses"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Здесь вы увидите свои предстоящие транзакции. Нажмите, чтобы добавить будущие расходы"
-          }
-        }
-      }
-    },
-    "emptyUpcomingTransactionText" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "No recent transactions found. Tap to record your expenses or income to see them here"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Последние транзакции не найдены. Нажмите, чтобы записать свои расходы или доходы"
-          }
-        }
-      }
     },
     "expensesText" : {
       "localizations" : {
@@ -333,18 +268,34 @@
         }
       }
     },
-    "setLimitBtnText" : {
+    "textFieldPlaceholder" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Set limit"
+            "value" : "Enter text"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Установить лимит"
+            "value" : "Введите текст"
+          }
+        }
+      }
+    },
+    "upcomingPaymentsText" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Upcoming payments"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Будущие платежи"
           }
         }
       }
