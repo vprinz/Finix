@@ -4,17 +4,6 @@ import Foundation
 import SwiftUI
 
 class BaseTextInputViewModel: ObservableObject {
-    enum Style {
-        case white, primary
-        
-        var color: Color {
-            switch self {
-            case .white: Color.foreground
-            case .primary: Color.customPrimary.opacity(0.1)
-            }
-        }
-    }
-    
     enum State {
         case inactive
         case focused
@@ -22,7 +11,6 @@ class BaseTextInputViewModel: ObservableObject {
     }
     
     var placeholder: String
-    var style: Style
     
     var textColor: Color {
         switch state {
@@ -35,10 +23,8 @@ class BaseTextInputViewModel: ObservableObject {
     
     var backgroundColor: Color {
         switch state {
-        case .disabled:
-            Color.disabledBackground
-        default:
-            style.color
+        case .disabled: Color.customPrimary.opacity(0.1)
+        default: Color.foreground
         }
     }
     
@@ -61,12 +47,10 @@ class BaseTextInputViewModel: ObservableObject {
     init(
         value: Binding<String>,
         placeholder: String = String(localized: "textFieldPlaceholder"),
-        style: Style = .white,
         disabled: Bool = false
     ) {
         self._value = value
         self.placeholder = placeholder
-        self.style = style
         if disabled {
             state = .disabled
         }

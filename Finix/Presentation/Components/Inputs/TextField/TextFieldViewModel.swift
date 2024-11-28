@@ -14,11 +14,10 @@ class TextFieldViewModel: BaseTextInputViewModel {
     init(
         value: Binding<String>,
         placeholder: String = String(localized: "textFieldPlaceholder"),
-        style: BaseTextInputViewModel.Style = .white,
         disabled: Bool = false,
         buttonConfig: ButtonConfiguration? = nil
     ) {
         self.buttonConfig = buttonConfig
-        super.init(value: value, placeholder: placeholder, style: style, disabled: disabled)
+        super.init(value: value, placeholder: placeholder, disabled: disabled)
     }
 }
