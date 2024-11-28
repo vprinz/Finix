@@ -59,14 +59,7 @@ struct PeriodSummaryView: View {
                 .foregroundStyle(model.color.opacity(0.2))
                 .offset(x: 11, y: 16)
         }
-        .frame(height: 60)
-        .background(.white)
-        .clipShape(.rect(cornerRadius: 12))
-        .overlay(
-            RoundedRectangle(cornerRadius: 12)
-                .inset(by: 0.5)
-                .stroke(.borderStroke, lineWidth: 1)
-        )
+        .cardFrame(height: 60)
     }
 }
 

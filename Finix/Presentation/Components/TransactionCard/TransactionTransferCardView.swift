@@ -97,8 +97,7 @@ struct TransactionTransferCardView: View {
     
     VStack {
         List(models) { model in
-            TransactionTransferCardView(
-                model: model)
+            TransactionTransferCardView(model: model)
             .background(Color.finixBackground)
         }
         .frame(width: 361)

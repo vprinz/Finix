@@ -3,12 +3,13 @@
 import SwiftUI
 
 struct TextEditorView: View {
-    @StateObject var viewModel: BaseTextInputViewModel
+    @StateObject var viewModel: TextEditorViewModel
     @FocusState private var isFocused: Bool
     
     var body: some View {
         ZStack(alignment: .topLeading) {
             TextEditor(text: $viewModel.value)
+                .foregroundStyle(viewModel.textColor)
                 .disabled(viewModel.state == .disabled)
                 .tint(Color.customPrimary)
                 .textEditorStyle(.plain)
@@ -21,45 +22,41 @@ struct TextEditorView: View {
                 }
             
             if viewModel.value.isEmpty && !isFocused {
-                Text(viewModel.placeholder) // TODO: add Font extension
+                Text(viewModel.placeholder)
+                    .foregroundStyle(Color.textTertiary)
                     .padding(.leading, 12)
                     .padding(.top, 20)
             }
         }
-        .frame(height: 80)
-        .background(viewModel.backgroundColor)
-        .clipShape(.rect(cornerRadius: 12))
-        .overlay(
-            RoundedRectangle(cornerRadius: 12)
-                .inset(by: 0.5)
-                .stroke(viewModel.borderColor, lineWidth: 1)
+        .cardFrame(
+            height: 80,
+            backgroundColor: viewModel.backgroundColor,
+            cornerRadius: 12,
+            strokeColor: viewModel.borderColor
         )
     }
 }
 
 #Preview {
     @Previewable @State var value1: String = ""
-    var value2: String = ""
+    var value2: String = "Some text"
     VStack {
-        TextEditorView(viewModel: BaseTextInputViewModel(
-            value: $value1,
-            placeholder: "Enter text"
+        TextEditorView(viewModel: .init(
+            value: $value1
         ))
-        TextEditorView(viewModel: BaseTextInputViewModel(
+        TextEditorView(viewModel: .init(
             value: .init(get: {
                 value2
             }, set: { newValue in
                 value2 = newValue
-            }),
-            placeholder: "Enter text"
+            })
         ))
-        TextEditorView(viewModel: BaseTextInputViewModel(
+        TextEditorView(viewModel: .init(
             value: .init(get: {
                 ""
             }, set: { _ in
                 
             }),
-            placeholder: "Enter text",
             disabled: true
         ))
     }

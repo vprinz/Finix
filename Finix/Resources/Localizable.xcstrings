@@ -1,6 +1,9 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "" : {
+      "shouldTranslate" : false
+    },
     "- %@" : {
       "shouldTranslate" : false
     },
@@ -8,6 +11,7 @@
       "shouldTranslate" : false
     },
     "$1,000.00" : {
+    "$%lld" : {
       "shouldTranslate" : false
     },
     "Account" : {
@@ -105,7 +109,20 @@
       }
     },
     "Hi, Valerie N. Prinz" : {
-      "shouldTranslate" : false
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hi, Valerie N. Prinz"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Привет, Valerie N. Prinz"
+          }
+        }
+      }
     },
     "Home" : {
       "localizations" : {
@@ -198,6 +215,22 @@
         }
       }
     },
+    "myWalletText" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "My wallet"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Мой кошелек"
+          }
+        }
+      }
+    },
     "Not implemented yet" : {
       "localizations" : {
         "ru" : {
@@ -220,6 +253,22 @@
       },
       "shouldTranslate" : false
     },
+    "recentTransactionsText" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Recent transactions"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Недавние транзакции"
+          }
+        }
+      }
+    },
     "seeAllButton" : {
       "localizations" : {
         "en" : {
@@ -237,11 +286,28 @@
       }
     },
     "tapToEditProfileText" : {
+    "textFieldPlaceholder" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Tap to edit profile"
+            "value" : "Enter text"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Введите текст"
+          }
+        }
+      }
+    },
+    "upcomingPaymentsText" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Upcoming payments"
           }
         },
         "ru" : {
