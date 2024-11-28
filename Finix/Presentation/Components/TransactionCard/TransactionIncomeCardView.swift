@@ -92,8 +92,7 @@ struct TransactionIncomeCardView: View {
     
     VStack {
         List(models) { model in
-            TransactionIncomeCardView(
-                model: model)
+            TransactionIncomeCardView(model: model)
             .background(Color.finixBackground)
         }
         .frame(width: 361)

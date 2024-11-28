@@ -39,7 +39,7 @@ struct TextFieldView: View {
             }
 
         }
-        .walletCardFrame(
+        .cardFrame(
             height: 48,
             backgroundColor: viewModel.backgroundColor,
             cornerRadius: 12,
