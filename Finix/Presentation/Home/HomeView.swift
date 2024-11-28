@@ -1,27 +1,24 @@
-//
-//  HomeView.swift
-//  Finix
-//
 //  Created by Valerie N. Prinz on 09/10/2024.
-//
 
 import SwiftUI
 
 struct HomeView: View {
-    
-    @StateObject var viewModel: HomeView.ViewModel
+    @StateObject var viewModel: HomeViewModel
     
     var body: some View {
-        NavigationLink(value: HomeRoute.history) {
+        ScrollView {
             VStack(spacing: 24) {
                 header
                 upcomingPayments
+                    .padding(.horizontal, 16)
                 recentTransactions
+                    .padding(.horizontal, 16)
                 Spacer()
             }
-            .padding(.horizontal, 16)
-            .background(Color.finixBackground)
         }
+        .scrollIndicators(.hidden)
+        .background(Color.finixBackground)
+        .ignoresSafeArea()
     }
     
     var header: some View {
@@ -37,26 +34,36 @@ struct HomeView: View {
                     .foregroundStyle(Color.textPrimary)
             }
             .padding(.bottom, 20)
-            .padding(.top, 16)
-            SectionLinkView(sectionTitle: viewModel.walletCarouselTitle)
+            .padding(.top, 70)
+            .padding(.horizontal, 16)
+            SectionLinkView(
+                sectionTitle: String(localized: "myWalletText")
+            )
+            .padding(.horizontal, 24)
             ScrollView(.horizontal) {
                 HStack(spacing: 8) {
-                    Group {
-                        Text("$1,000.00")
-                        Text("$1,000.00")
-                        Text("$1,000.00")
-                        Text("$1,000.00")
+                    ForEach(0..<5) {
+                        Text("$\($0+1 * 1000)")
                     }
-                    .frame(width: 132, height: 88)
-//                    .card()
+                    .frame(width: 132)
+                    .cardFrame(
+                        height: 88,
+                        backgroundColor: Color.textWhite,
+                        cornerRadius: 10,
+                        strokeColor: Color.borderStroke
+                    )
                 }
+                .padding(.horizontal, 16)
             }
+            .scrollIndicators(.hidden)
             // TODO: Wallets
             ExpenseSummaryView(model: viewModel.expensesModel)
+                .padding(.horizontal, 16)
             HStack(spacing: 8) {
                 PeriodBudgetView(model: viewModel.dailyBudgetModel)
                 PeriodBudgetView(model: viewModel.monthlyBudgetModel)
             }
+            .padding(.horizontal, 16)
         }
         .background {
             VStack {
@@ -68,11 +75,17 @@ struct HomeView: View {
     }
     
     var upcomingPayments: some View {
-        HomeSection(title: "Upcoming payments", showButton: true)
+        HomeSection(
+            title: String(localized: "upcomingPaymentsText"),
+            trasnactionModels: viewModel.upcomingPaymentModels
+        )
     }
     
     var recentTransactions: some View {
-        HomeSection(title: "Recent transactions", showButton: true)
+        HomeSection(
+            title: String(localized: "recentTransactionsText"),
+            trasnactionModels: viewModel.recentTransactionModels
+        )
     }
 }
 

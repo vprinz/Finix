@@ -11,7 +11,7 @@ struct SectionLinkView: View {
                 .font(.buttonMedium)
             Image("chevron-right")
                 .resizable()
-                .aspectRatio(contentMode: .fill)
+                .aspectRatio(contentMode: .fit)
                 .frame(width: 8, height: 8)
             Spacer()
             Text("seeAllButton")
