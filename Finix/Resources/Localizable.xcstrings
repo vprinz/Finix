@@ -2,7 +2,7 @@
   "sourceLanguage" : "en",
   "strings" : {
     "" : {
-
+      "shouldTranslate" : false
     },
     "- %@" : {
       "shouldTranslate" : false
@@ -10,6 +10,7 @@
     "+ %@" : {
       "shouldTranslate" : false
     },
+    "$%lld" : {
     "$1,000.00" : {
       "shouldTranslate" : false
     },
@@ -109,6 +110,12 @@
     },
     "Hi, Valerie N. Prinz" : {
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hi, Valerie N. Prinz"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -208,6 +215,22 @@
         }
       }
     },
+    "myWalletText" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "My wallet"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Мой кошелек"
+          }
+        }
+      }
+    },
     "Not implemented yet" : {
       "localizations" : {
         "ru" : {
@@ -230,7 +253,23 @@
       },
       "shouldTranslate" : false
     },
-    "seeAllText" : {
+    "recentTransactionsText" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Recent transactions"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Недавние транзакции"
+          }
+        }
+      }
+    },
+    "seeAllButton" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -252,6 +291,28 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Enter text"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Введите текст"
+          }
+        }
+      }
+    },
+    "upcomingPaymentsText" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Upcoming payments"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Будущие платежи"
           }
         }
       }
