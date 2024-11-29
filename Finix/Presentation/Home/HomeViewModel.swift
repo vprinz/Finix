@@ -110,6 +110,20 @@ class HomeViewModel: ObservableObject {
         ]
     }
     
+    // MARK: - EmptyState models
+    
+    var upcomingPaymentsEmptyStateModel: EmptyStateView.Model {
+        .init(state: .upcomingTransaction) {
+            // TODO: Add action
+        }
+    }
+    
+    var recentTrasnactionsEmptyStateModel: EmptyStateView.Model {
+        .init(state: .recentTransaction) {
+            // TODO: Add action
+        }
+    }
+    
     // MARK: - Private methods
     
     private func expensesChartSegmentModel() -> ChartSegmentView.Model {

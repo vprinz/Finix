@@ -27,6 +27,7 @@ struct HomeView: View {
             .padding(.bottom, 20)
             .padding(.top, 70)
             .padding(.horizontal, 16)
+            
             SectionLinkView(
                 sectionTitle: String(localized: "myWalletText")
             )
@@ -43,7 +44,7 @@ struct HomeView: View {
                 .padding(.horizontal, 16)
             }
             .scrollIndicators(.hidden)
-            // TODO: Wallets
+            
             ExpenseSummaryView(model: viewModel.expensesModel)
                 .padding(.horizontal, 16)
             HStack(spacing: 8) {
@@ -64,14 +65,16 @@ struct HomeView: View {
     var upcomingPayments: some View {
         HomeSection(
             title: String(localized: "upcomingPaymentsText"),
-            trasnactionModels: viewModel.upcomingPaymentModels
+            trasnactionModels: viewModel.upcomingPaymentModels,
+            emptyStateModel: viewModel.upcomingPaymentsEmptyStateModel
         )
     }
     
     var recentTransactions: some View {
         HomeSection(
             title: String(localized: "recentTransactionsText"),
-            trasnactionModels: viewModel.recentTransactionModels
+            trasnactionModels: viewModel.recentTransactionModels,
+            emptyStateModel: viewModel.recentTrasnactionsEmptyStateModel
         )
     }
 }
