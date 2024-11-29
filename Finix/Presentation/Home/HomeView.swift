@@ -33,16 +33,12 @@ struct HomeView: View {
             .padding(.horizontal, 24)
             ScrollView(.horizontal) {
                 HStack(spacing: 8) {
-                    ForEach(0..<5) {
-                        Text("$\($0+1 * 1000)")
+                    ForEach(viewModel.walletViewModels) { viewModel in
+                        MediumWalletCardView(viewModel: viewModel)
                     }
-                    .frame(width: 132)
-                    .cardFrame(
-                        height: 88,
-                        backgroundColor: Color.textWhite,
-                        cornerRadius: 10,
-                        strokeColor: Color.borderStroke
-                    )
+                    ForEach(viewModel.actionWalletModels) { model in
+                        ActionMediumWalletCardView(model: model)
+                    }
                 }
                 .padding(.horizontal, 16)
             }

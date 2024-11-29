@@ -2,13 +2,17 @@
 
 import SwiftUI
 
-struct ActionWalletCardModel {
+struct ActionWalletCardModel: Identifiable {
     enum ActionType {
         case addAccount
         case seeAll
     }
     
     let actionType: ActionType
+    
+    var id: String {
+        return UUID().uuidString
+    }
     
     var actionName: String {
         switch actionType {

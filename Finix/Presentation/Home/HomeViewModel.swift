@@ -4,31 +4,35 @@ import SwiftUI
 
 class HomeViewModel: ObservableObject {
     
-    // TODO: Get date from a corresponding service
-    private var dailyBudget: CurrencyValue = .init(currency: .usd, value: 100)
+    // MARK: - Profile Header
     
-    // TODO: Get date from a corresponding service
-    private var monthlyBudget: CurrencyValue = .init(currency: .usd, value: 3550)
-    
-    // FIXME: Should not be stored here
-    private var dailySpending: CurrencyValue = .init(currency: .usd, value: 20.11)
-    
-    // FIXME: Should not be stored here
-    private var monthlySpending: CurrencyValue = .init(currency: .usd, value: 2750.67)
-    
-    private var leftForToday: CurrencyValue {
-        CurrencyValue(
-            currency: .usd,
-            value: dailyBudget.value - dailySpending.value
-        )
+    var profileHeaderModel: ProfileHeaderView.Model {
+        // TODO: add real user
+        .init(size: .small, name: "Valerie N. Prinz")
     }
     
-    private var leftForTheMonth: CurrencyValue {
-        CurrencyValue(
-            currency: .usd,
-            value: monthlyBudget.value - monthlySpending.value
-        )
+    // MARK: - Wallets
+    
+    // TODO: Get real data
+    var walletViewModels: [WalletCardViewModel] {
+        [
+            .init(
+                walletName: "Cash",
+                walletBalance: "$750",
+                styleColor: Color.customPrimary,
+                currencyIsoCode: "USD"
+            )
+        ]
     }
+    
+    var actionWalletModels: [ActionWalletCardModel] {
+        [
+            .init(actionType: .addAccount),
+            .init(actionType: .seeAll)
+        ]
+    }
+    
+    // MARK: - Budget Dashboard
     
     var expensesModel: ExpenseSummaryView.Model {
         .init(
@@ -54,6 +58,8 @@ class HomeViewModel: ObservableObject {
         )
     }
     
+    // MARK: - Upcoming payments
+    
     // TODO: Get data from a corresponding service
     var upcomingPaymentModels: [TransactionExpenseCardView.Model] {
         [
@@ -78,6 +84,8 @@ class HomeViewModel: ObservableObject {
         ]
     }
     
+    // MARK: - Recent transactions
+    
     // TODO: Get data from a corresponding service
     var recentTransactionModels: [TransactionExpenseCardView.Model] {
         [
@@ -100,11 +108,6 @@ class HomeViewModel: ObservableObject {
                 amountWithCurrency: CurrencyValue(currency: .usd, value: 40).toString()
             )
         ]
-    }
-    
-    // TODO: add real user
-    var profileHeaderModel: ProfileHeaderView.Model {
-        .init(size: .small, name: "Valerie N. Prinz")
     }
     
     // MARK: - Private methods
@@ -143,5 +146,31 @@ class HomeViewModel: ObservableObject {
         return ChartSegmentView.Model(segments: [
             .init(percentage: percentage, color: .finixPink)
         ])
+    }
+    
+    // TODO: Get date from a corresponding service
+    private var dailyBudget: CurrencyValue = .init(currency: .usd, value: 100)
+    
+    // TODO: Get date from a corresponding service
+    private var monthlyBudget: CurrencyValue = .init(currency: .usd, value: 3550)
+    
+    // FIXME: Should not be stored here
+    private var dailySpending: CurrencyValue = .init(currency: .usd, value: 20.11)
+    
+    // FIXME: Should not be stored here
+    private var monthlySpending: CurrencyValue = .init(currency: .usd, value: 2750.67)
+    
+    private var leftForToday: CurrencyValue {
+        CurrencyValue(
+            currency: .usd,
+            value: dailyBudget.value - dailySpending.value
+        )
+    }
+    
+    private var leftForTheMonth: CurrencyValue {
+        CurrencyValue(
+            currency: .usd,
+            value: monthlyBudget.value - monthlySpending.value
+        )
     }
 }
