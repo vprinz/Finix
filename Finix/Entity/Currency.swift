@@ -1,6 +1,8 @@
 //  Created by Valerie N. Prinz on 16/10/2024.
 
-enum Currency: String, Codable {
+import SwiftUI
+
+enum Currency: String, Codable, Identifiable, CaseIterable {
     case eur
     case usd
     case jpy
@@ -35,7 +37,15 @@ enum Currency: String, Codable {
     case thb
     case zar
     
+    var id: String {
+        return self.isoCode
+    }
+    
     var isoCode: String {
         self.rawValue.uppercased()
+    }
+    
+    var fullName: String? {
+        Locale.current.localizedString(forCurrencyCode: isoCode)
     }
 }
