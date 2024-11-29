@@ -102,6 +102,11 @@ class HomeViewModel: ObservableObject {
         ]
     }
     
+    // TODO: add real user
+    var profileHeaderModel: ProfileHeaderView.Model {
+        .init(size: .small, name: "Valerie N. Prinz")
+    }
+    
     // MARK: - Private methods
     
     private func expensesChartSegmentModel() -> ChartSegmentView.Model {

@@ -23,16 +23,7 @@ struct HomeView: View {
     
     var header: some View {
         VStack(alignment: .leading, spacing: 16) {
-            // TODO: User info
-            HStack(spacing: 16) {
-                Image(systemName: "person.crop.circle.fill")
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(width: 48, height: 48)
-                Text("Hi, Valerie N. Prinz")
-                    .font(.titleMedium)
-                    .foregroundStyle(Color.textPrimary)
-            }
+            ProfileHeaderView(model: viewModel.profileHeaderModel)
             .padding(.bottom, 20)
             .padding(.top, 70)
             .padding(.horizontal, 16)
