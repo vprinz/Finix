@@ -63,24 +63,24 @@ class HomeViewModel: ObservableObject {
     // TODO: Get data from a corresponding service
     var upcomingPaymentModels: [TransactionExpenseCardView.Model] {
         [
-            .init(
-                categoryIconName: "buildings",
-                categoryIconColor: Color.midnight,
-                transactionName: "Rent",
-                amountWithCurrency: CurrencyValue(currency: .usd, value: 1050).toString()
-            ),
-            .init(
-                categoryIconName: "bank",
-                categoryIconColor: Color.customPrimary,
-                transactionName: "Installment",
-                amountWithCurrency: CurrencyValue(currency: .usd, value: 125).toString()
-            ),
-            .init(
-                categoryIconName: "player",
-                categoryIconColor: Color.aquamarine,
-                transactionName: "Netflix",
-                amountWithCurrency: CurrencyValue(currency: .usd, value: 18.99).toString()
-            )
+//            .init(
+//                categoryIconName: "buildings",
+//                categoryIconColor: Color.midnight,
+//                transactionName: "Rent",
+//                amountWithCurrency: CurrencyValue(currency: .usd, value: 1050).toString()
+//            ),
+//            .init(
+//                categoryIconName: "bank",
+//                categoryIconColor: Color.customPrimary,
+//                transactionName: "Installment",
+//                amountWithCurrency: CurrencyValue(currency: .usd, value: 125).toString()
+//            ),
+//            .init(
+//                categoryIconName: "player",
+//                categoryIconColor: Color.aquamarine,
+//                transactionName: "Netflix",
+//                amountWithCurrency: CurrencyValue(currency: .usd, value: 18.99).toString()
+//            )
         ]
     }
     

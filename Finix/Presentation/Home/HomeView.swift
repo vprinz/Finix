@@ -29,7 +29,8 @@ struct HomeView: View {
             .padding(.horizontal, 16)
             
             SectionLinkView(
-                sectionTitle: String(localized: "myWalletText")
+                sectionTitle: String(localized: "myWalletText"),
+                showSeeAllButton: false
             )
             .padding(.horizontal, 24)
             ScrollView(.horizontal) {

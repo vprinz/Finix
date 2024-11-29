@@ -10,7 +10,7 @@ struct HomeSection: View {
     
     var body: some View {
         VStack(spacing: 8) {
-            SectionLinkView(sectionTitle: title)
+            SectionLinkView(sectionTitle: title, showSeeAllButton: !trasnactionModels.isEmpty)
                 .padding(.horizontal, 8)
             if !trasnactionModels.isEmpty {
                 transactions
