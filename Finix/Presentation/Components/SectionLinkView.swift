@@ -14,7 +14,7 @@ struct SectionLinkView: View {
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 8, height: 8)
             Spacer()
-            Text("seeAllButton")
+            Text("seeAllText")
                 .font(.smallTextMedium)
         }
         .foregroundStyle(Color.textSecondary)
