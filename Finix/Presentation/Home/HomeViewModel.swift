@@ -58,6 +58,9 @@ class HomeViewModel: ObservableObject {
         )
     }
     
+    // TODO: Get date from a corresponding service
+    var monthlyBudget: CurrencyValue = .init(currency: .usd, value: 3550)
+    
     // MARK: - Upcoming payments
     
     // TODO: Get data from a corresponding service
@@ -112,6 +115,12 @@ class HomeViewModel: ObservableObject {
     
     // MARK: - EmptyState models
     
+    var limitEmptyStateModel: EmptyStateView.Model {
+        .init(state: .limit) {
+            // TODO: Add action
+        }
+    }
+    
     var upcomingPaymentsEmptyStateModel: EmptyStateView.Model {
         .init(state: .upcomingTransaction) {
             // TODO: Add action
@@ -164,9 +173,6 @@ class HomeViewModel: ObservableObject {
     
     // TODO: Get date from a corresponding service
     private var dailyBudget: CurrencyValue = .init(currency: .usd, value: 100)
-    
-    // TODO: Get date from a corresponding service
-    private var monthlyBudget: CurrencyValue = .init(currency: .usd, value: 3550)
     
     // FIXME: Should not be stored here
     private var dailySpending: CurrencyValue = .init(currency: .usd, value: 20.11)
