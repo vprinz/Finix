@@ -3,6 +3,7 @@
 import SwiftUI
 
 struct CardFrameWrapper: ViewModifier {
+    let width: CGFloat?
     let height: CGFloat?
     let backgroundColor: Color
     let cornerRadius: CGFloat
@@ -10,7 +11,7 @@ struct CardFrameWrapper: ViewModifier {
     
     func body(content: Content) -> some View {
         content
-            .frame(height: height)
+            .frame(width: width, height: height)
             .background(backgroundColor)
             .clipShape(.rect(cornerRadius: cornerRadius))
             .overlay(
@@ -23,12 +24,14 @@ struct CardFrameWrapper: ViewModifier {
 
 extension View {
     func cardFrame(
+        width: CGFloat? = nil,
         height: CGFloat? = nil,
         backgroundColor: Color = Color.foreground,
         cornerRadius: CGFloat = 12,
         strokeColor: Color = Color.borderStroke
     ) -> some View {
         modifier(CardFrameWrapper(
+            width: width,
             height: height,
             backgroundColor: backgroundColor,
             cornerRadius: cornerRadius,
