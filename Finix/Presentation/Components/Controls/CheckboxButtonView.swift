@@ -14,12 +14,14 @@ extension CheckboxButtonView {
         }
         
         var strokeColor: Color {
-            if disabled {
-                return selected ?
-                    .clear :
-                    .finixGray.opacity(disabledOpacity)
+            switch (disabled, selected) {
+            case (true, true):
+                return .clear
+            case (false, true):
+                return .customPrimary.opacity(disabledOpacity)
+            case (_, false):
+                return .finixGray.opacity(disabledOpacity)
             }
-            return selected ? .customPrimary.opacity(disabledOpacity) : .finixGray.opacity(disabledOpacity)
         }
         
         var overlayOpacity: Double {
