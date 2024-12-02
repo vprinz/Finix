@@ -54,7 +54,7 @@ struct CheckboxButtonView: View {
                     .fill(model.fillColor)
             )
             .overlay(
-                Image("check-mark")
+                Image("check-mark-bold")
                     .foregroundColor(.white)
                     .opacity(model.overlayOpacity)
             )
