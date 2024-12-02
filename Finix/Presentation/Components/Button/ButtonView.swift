@@ -107,7 +107,7 @@ extension ButtonView {
         init(
             size: Size,
             style: Style,
-            buttonText: String = "Button",
+            buttonText: String = "",
             disabled: Bool = false,
             iconNameLeft: String? = nil,
             iconNameRight: String? = nil,
@@ -171,107 +171,123 @@ struct ButtonView: View {
     // Big button models without icon
     let bigButtonPrimary = ButtonView.Model(
         size: .big,
-        style: .primary) {
-            
-        }
+        style: .primary,
+        buttonText: "Button",
+        action: {}
+    )
     let bigButtonPrimaryOutlined = ButtonView.Model(
         size: .big,
-        style: .primaryOutlined) {
-            
-        }
+        style: .primaryOutlined,
+        buttonText: "Button",
+        action: {}
+    )
     let bigButtonDisabled = ButtonView.Model(
         size: .big,
         style: .primary,
-        disabled: true) {
-            
-        }
+        buttonText: "Button",
+        disabled: true,
+        action: {}
+    )
     
     // Big button models with icon
     let bigButtonPrimaryWithIcon = ButtonView.Model(
         size: .big,
         style: .primary,
-        iconNameRight: "check-mark") {
-            
-        }
+        buttonText: "Button",
+        iconNameRight: "check-mark",
+        action: {}
+    )
     let bigButtonPrimaryOutlinedWithIcon = ButtonView.Model(
         size: .big,
         style: .primaryOutlined,
-        iconNameRight: "check-mark") {
-            
-        }
+        buttonText: "Button",
+        iconNameRight: "check-mark",
+        action: {}
+    )
     let bigButtonDisabledWithIcon = ButtonView.Model(
         size: .big,
         style: .primary,
+        buttonText: "Button",
         disabled: true,
-        iconNameRight: "check-mark") {
-            
-        }
+        iconNameRight: "check-mark",
+        action: {}
+    )
     
     // Small button models without icon
     let smallButtonPrimary = ButtonView.Model(
         size: .small,
-        style: .primary) {
-            
-        }
+        style: .primary,
+        buttonText: "Button",
+        action: {}
+    )
     let smallButtonPrimaryOutlined = ButtonView.Model(
         size: .small,
-        style: .primaryOutlined) {
-            
-        }
+        style: .primaryOutlined,
+        buttonText: "Button",
+        action: {}
+    )
     let smallButtonDisabled = ButtonView.Model(
         size: .small,
         style: .primary,
-        disabled: true) {
-            
-        }
+        buttonText: "Button",
+        disabled: true,
+        action: {}
+    )
     
     // Small button models with icon
     let smallButtonPrimaryWithIcon = ButtonView.Model(
         size: .small,
         style: .primary,
-        iconNameRight: "check-mark") {
-            
-        }
+        buttonText: "Button",
+        iconNameRight: "check-mark",
+        action: {}
+    )
     let smallButtonPrimaryOutlinedWithIcon = ButtonView.Model(
         size: .small,
         style: .primaryOutlined,
-        iconNameRight: "check-mark") {
-            
-        }
+        buttonText: "Button",
+        iconNameRight: "check-mark",
+        action: {}
+    )
     let smallButtonDisabledWithIcon = ButtonView.Model(
         size: .small,
         style: .primary,
+        buttonText: "Button",
         disabled: true,
-        iconNameRight: "check-mark") {
-            
-        }
+        iconNameRight: "check-mark",
+        action: {}
+    )
     
     // Small button models with icon
     let smallButtonDarkWithIcon = ButtonView.Model(
         size: .small,
         style: .dark,
-        iconNameLeft: "circle-plus") {
-            
-        }
+        buttonText: "Button",
+        iconNameLeft: "circle-plus",
+        action: {}
+    )
     let smallButtonSecondaryWithIcon = ButtonView.Model(
         size: .small,
         style: .secondary,
-        iconNameLeft: "circle-plus") {
-            
-        }
+        buttonText: "Button",
+        iconNameLeft: "circle-plus",
+        action: {}
+    )
     let smallButtonPlainWithIcon = ButtonView.Model(
         size: .small,
         style: .plain,
-        iconNameLeft: "circle-plus") {
-            
-        }
+        buttonText: "Button",
+        iconNameLeft: "circle-plus",
+        action: {}
+    )
     let smallButtonPlainWithIconDisabled = ButtonView.Model(
         size: .small,
         style: .plain,
+        buttonText: "Button",
         disabled: true,
-        iconNameLeft: "circle-plus") {
-            
-        }
+        iconNameLeft: "circle-plus",
+        action: {}
+    )
     
     VStack(spacing: 20) {
         HStack(spacing: 5) {
