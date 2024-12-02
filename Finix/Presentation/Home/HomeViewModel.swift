@@ -58,9 +58,6 @@ class HomeViewModel: ObservableObject {
         )
     }
     
-    // TODO: Get date from a corresponding service
-    var monthlyBudget: CurrencyValue = .init(currency: .usd, value: 3550)
-    
     // MARK: - Upcoming payments
     
     // TODO: Get data from a corresponding service
@@ -170,6 +167,9 @@ class HomeViewModel: ObservableObject {
             .init(percentage: percentage, color: .finixPink)
         ])
     }
+    
+    // TODO: Get date from a corresponding service
+    private var monthlyBudget: CurrencyValue = .init(currency: .usd, value: 3550)
     
     // TODO: Get date from a corresponding service
     private var dailyBudget: CurrencyValue = .init(currency: .usd, value: 100)

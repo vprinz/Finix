@@ -48,14 +48,7 @@ struct HomeView: View {
             
             ExpenseSummaryView(model: viewModel.expensesModel)
                 .padding(.horizontal, 16)
-            Group {
-                if !viewModel.monthlyBudget.value.isZero {
-                    limitWidgets
-                } else {
-                    limitEmptyState
-                }
-            }
-            .padding(.horizontal, 16)
+            limitWidgets
         }
         .background {
             VStack {
@@ -67,14 +60,21 @@ struct HomeView: View {
     }
     
     var limitWidgets: some View {
-        HStack(spacing: 8) {
-            PeriodBudgetView(model: viewModel.dailyBudgetModel)
-            PeriodBudgetView(model: viewModel.monthlyBudgetModel)
+        Group {
+            if viewModel.expensesModel.monthlyBudgetAmountWithCurrency != nil {
+                HStack(spacing: 8) {
+                    PeriodBudgetView(
+                        model: viewModel.dailyBudgetModel
+                    )
+                    PeriodBudgetView(
+                        model: viewModel.monthlyBudgetModel
+                    )
+                }
+            } else {
+                EmptyStateView(model: viewModel.limitEmptyStateModel)
+            }
         }
-    }
-    
-    var limitEmptyState: some View {
-        EmptyStateView(model: viewModel.limitEmptyStateModel)
+        .padding(.horizontal, 16)
     }
     
     var upcomingPayments: some View {
