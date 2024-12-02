@@ -38,7 +38,7 @@ struct EmptyStateView: View {
     let model: Model
     
     var body: some View {
-        HStack(spacing: .zero) {
+        HStack {
             Image(model.imageName)
                 .resizable()
                 .aspectRatio(contentMode: .fit)

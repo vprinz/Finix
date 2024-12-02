@@ -6,18 +6,31 @@ struct HomeSection: View {
     
     var title: String
     var trasnactionModels: [TransactionExpenseCardView.Model]
+    var emptyStateModel: EmptyStateView.Model
     
     var body: some View {
         VStack(spacing: 8) {
-            SectionLinkView(sectionTitle: title)
+            SectionLinkView(sectionTitle: title, showSeeAllButton: !trasnactionModels.isEmpty)
                 .padding(.horizontal, 8)
-            VStack(spacing: 0) {
-                ForEach(trasnactionModels) { model in
-                    TransactionExpenseCardView(model: model)
-                    .padding(.horizontal, 20)
-                }
+            if !trasnactionModels.isEmpty {
+                transactions
+            } else {
+                emptyState
             }
-            .cardFrame()
         }
+    }
+    
+    var transactions: some View {
+        VStack(spacing: 0) {
+            ForEach(trasnactionModels) { model in
+                TransactionExpenseCardView(model: model)
+                .padding(.horizontal, 20)
+            }
+        }
+        .cardFrame()
+    }
+    
+    var emptyState: some View {
+        EmptyStateView(model: emptyStateModel)
     }
 }

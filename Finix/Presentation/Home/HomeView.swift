@@ -23,47 +23,32 @@ struct HomeView: View {
     
     var header: some View {
         VStack(alignment: .leading, spacing: 16) {
-            // TODO: User info
-            HStack(spacing: 16) {
-                Image(systemName: "person.crop.circle.fill")
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(width: 48, height: 48)
-                Text("Hi, Valerie N. Prinz")
-                    .font(.titleMedium)
-                    .foregroundStyle(Color.textPrimary)
-            }
+            ProfileHeaderView(model: viewModel.profileHeaderModel)
             .padding(.bottom, 20)
             .padding(.top, 70)
             .padding(.horizontal, 16)
+            
             SectionLinkView(
-                sectionTitle: String(localized: "myWalletText")
+                sectionTitle: String(localized: "myWalletText"),
+                showSeeAllButton: false
             )
             .padding(.horizontal, 24)
             ScrollView(.horizontal) {
                 HStack(spacing: 8) {
-                    ForEach(0..<5) {
-                        Text("$\($0+1 * 1000)")
+                    ForEach(viewModel.walletViewModels) { viewModel in
+                        MediumWalletCardView(viewModel: viewModel)
                     }
-                    .frame(width: 132)
-                    .cardFrame(
-                        height: 88,
-                        backgroundColor: Color.textWhite,
-                        cornerRadius: 10,
-                        strokeColor: Color.borderStroke
-                    )
+                    ForEach(viewModel.actionWalletModels) { model in
+                        ActionMediumWalletCardView(model: model)
+                    }
                 }
                 .padding(.horizontal, 16)
             }
             .scrollIndicators(.hidden)
-            // TODO: Wallets
+            
             ExpenseSummaryView(model: viewModel.expensesModel)
                 .padding(.horizontal, 16)
-            HStack(spacing: 8) {
-                PeriodBudgetView(model: viewModel.dailyBudgetModel)
-                PeriodBudgetView(model: viewModel.monthlyBudgetModel)
-            }
-            .padding(.horizontal, 16)
+            limitWidgets
         }
         .background {
             VStack {
@@ -74,17 +59,37 @@ struct HomeView: View {
         }
     }
     
+    var limitWidgets: some View {
+        Group {
+            if viewModel.expensesModel.monthlyBudgetAmountWithCurrency != nil {
+                HStack(spacing: 8) {
+                    PeriodBudgetView(
+                        model: viewModel.dailyBudgetModel
+                    )
+                    PeriodBudgetView(
+                        model: viewModel.monthlyBudgetModel
+                    )
+                }
+            } else {
+                EmptyStateView(model: viewModel.limitEmptyStateModel)
+            }
+        }
+        .padding(.horizontal, 16)
+    }
+    
     var upcomingPayments: some View {
         HomeSection(
             title: String(localized: "upcomingPaymentsText"),
-            trasnactionModels: viewModel.upcomingPaymentModels
+            trasnactionModels: viewModel.upcomingPaymentModels,
+            emptyStateModel: viewModel.upcomingPaymentsEmptyStateModel
         )
     }
     
     var recentTransactions: some View {
         HomeSection(
             title: String(localized: "recentTransactionsText"),
-            trasnactionModels: viewModel.recentTransactionModels
+            trasnactionModels: viewModel.recentTransactionModels,
+            emptyStateModel: viewModel.recentTrasnactionsEmptyStateModel
         )
     }
 }

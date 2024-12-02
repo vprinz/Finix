@@ -2,7 +2,7 @@
 
 import SwiftUI
 
-class WalletCardViewModel: ObservableObject {
+class WalletCardViewModel: ObservableObject, Identifiable {
     enum State {
         case plain
         case selected

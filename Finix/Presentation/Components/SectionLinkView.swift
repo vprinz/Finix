@@ -4,6 +4,7 @@ import SwiftUI
 
 struct SectionLinkView: View {
     let sectionTitle: String
+    let showSeeAllButton: Bool
     
     var body: some View {
         HStack {
@@ -14,14 +15,25 @@ struct SectionLinkView: View {
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 8, height: 8)
             Spacer()
-            Text("seeAllText")
-                .font(.smallTextMedium)
+            if showSeeAllButton {
+                Text("seeAllText")
+                    .font(.smallTextMedium)
+            }
         }
         .foregroundStyle(Color.textSecondary)
     }
 }
 
 #Preview {
-    SectionLinkView(sectionTitle: "Upcoming payments")
-        .padding()
+    VStack(spacing: 40) {
+        SectionLinkView(
+            sectionTitle: "Wallets",
+            showSeeAllButton: false
+        )
+        SectionLinkView(
+            sectionTitle: "Upcoming payments",
+            showSeeAllButton: true
+        )
+    }
+    .padding()
 }
