@@ -351,6 +351,22 @@
         }
       }
     },
+    "setDateText" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Set date"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Установить дату"
+          }
+        }
+      }
+    },
     "tapToEditProfileText" : {
       "localizations" : {
         "en" : {

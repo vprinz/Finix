@@ -16,7 +16,7 @@ extension EmptyStateView {
         var imageName: String {
             switch state {
             case .upcomingTransaction: "shopping-bag"
-            case .recentTransaction: "calendar"
+            case .recentTransaction: "calendar-and-clock"
             case .limit: "target"
             }
         }
