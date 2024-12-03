@@ -17,8 +17,34 @@ struct CategoryListView: View {
             ForEach(viewModel.categories) { category in
                 categoryRow(category)
             }
+            addCategoryButton
         }
         .scrollIndicators(.hidden)
+    }
+    
+    var addCategoryButton: some View {
+        HStack(spacing: 0) {
+            ZStack {
+                RoundedRectangle(cornerRadius: 6)
+                    .frame(width: 32, height: 32)
+                    .opacity(0.2)
+                Image("plus-rectangle")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 20, height: 20)
+            }
+            .foregroundStyle(Color.customPrimary)
+            
+            Text("Add category")
+            .foregroundStyle(Color.textSecondary)
+            .font(.bodyTextNarrowRegular)
+            .padding(.leading, 8)
+            Spacer()
+        }
+        .padding(EdgeInsets(top: 8, leading: 20, bottom: 8, trailing: 12))
+        .onTapGesture {
+            // TODO: add logic
+        }
     }
     
     func categoryRow(_ category: Category) -> some View {
@@ -31,7 +57,7 @@ struct CategoryListView: View {
                 Image(category.iconName)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .frame(width: 24, height: 24)
+                    .frame(width: 20, height: 20)
                     .foregroundStyle(category.iconColor)
             }
             
@@ -47,9 +73,7 @@ struct CategoryListView: View {
             )
             .padding(.trailing, 10)
         }
-        .padding(.vertical, 8)
-        .padding(.leading, 20)
-        .padding(.trailing, 12)
+        .padding(EdgeInsets(top: 8, leading: 20, bottom: 8, trailing: 12))
         .onTapGesture {
             withAnimation {
                 viewModel.selectedCategory = category
