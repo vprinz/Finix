@@ -6,7 +6,7 @@ import SwiftData
 @main
 struct FinixApp: App {
     var sharedModelContainer: ModelContainer = {
-        let schema = Schema([Wallet.self, Transaction.self, Account.self])
+        let schema = Schema([Wallet.self, Transaction.self, Account.self, Category.self])
         let modelConfiguration = ModelConfiguration(schema: schema)
 
         do {
