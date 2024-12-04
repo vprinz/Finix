@@ -27,7 +27,7 @@ struct HomeView: View {
             HStack(spacing: 16) {
                 Image(systemName: "person.crop.circle.fill")
                     .resizable()
-                    .aspectRatio(contentMode: .fill)
+                    .aspectRatio(contentMode: .fit)
                     .frame(width: 48, height: 48)
                 Text("Hi, Valerie N. Prinz")
                     .font(.titleMedium)

@@ -53,7 +53,7 @@ struct TransactionTransferCardView: View {
                     Text(model.fromWalletName)
                     Image("arrow-right")
                         .resizable()
-                        .aspectRatio(contentMode: .fill)
+                        .aspectRatio(contentMode: .fit)
                         .frame(width: 8, height: 8)
                     Text(model.toWalletName)
                 }
