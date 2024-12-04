@@ -4,45 +4,84 @@ import SwiftUI
 
 extension CurrencyPicker {
     struct Model {
-        let currency: Currency
-        let disabled: Bool = false
-        let showCurrecnyImage: Bool = false
+        let currencyIsoCode: String
+        let disabled: Bool
+        let showCurrecnyImage: Bool
         
         var backgroundColor: Color {
             disabled ? .customPrimary.opacity(0.1) : .foreground
+        }
+        
+        init(
+            currencyIsoCode: String,
+            disabled: Bool = false,
+            showCurrecnyImage: Bool = false
+        ) {
+            self.currencyIsoCode = currencyIsoCode
+            self.disabled = disabled
+            self.showCurrecnyImage = showCurrecnyImage
         }
     }
 }
 
 struct CurrencyPicker: View {
+    let model: Model
+    
     var body: some View {
         HStack(spacing: .zero) {
-//            Image("USD")
-//                .resizable()
-//                .aspectRatio(contentMode: .fit)
-//                .frame(width: 24, height: 24)
-//                .padding(.leading, 12)
+            if model.showCurrecnyImage {
+                Image(model.currencyIsoCode)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 24, height: 24)
+                    .padding(.leading, 12)
+            }
+            
             Spacer()
-            Text("USD")
+            Text(model.currencyIsoCode)
                 .font(.bodyTextNarrowRegular)
                 .foregroundStyle(Color.textSecondary)
             Spacer()
-            Image("chevron-bottom")
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(width: 14, height: 7)
-                .foregroundStyle(Color.customPrimary)
-//                .padding(.leading, 20)
-                .padding(.trailing, 15)
+            
+            if !model.disabled {
+                Image("chevron-bottom")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 14, height: 7)
+                    .foregroundStyle(Color.customPrimary)
+                    .padding(.trailing, 15)
+            }
         }
-        .padding(.vertical, 12)
-        .cardFrame(height: 48)
+        .cardFrame(height: 48, backgroundColor: model.backgroundColor)
     }
 }
 
 #Preview {
-    HStack(spacing: 5) {
-        CurrencyPicker()
+    VStack {
+        HStack(spacing: 5) {
+            CurrencyPicker(
+                model: .init(currencyIsoCode: "USD")
+            )
+            CurrencyPicker(
+                model: .init(currencyIsoCode: "USD", disabled: true)
+            )
+        }
+        HStack(spacing: 5) {
+            CurrencyPicker(
+                model: .init(
+                    currencyIsoCode: "USD",
+                    showCurrecnyImage: true
+                )
+            )
+            CurrencyPicker(
+                model: .init(
+                    currencyIsoCode: "EUR",
+                    disabled: true,
+                    showCurrecnyImage: true
+                )
+            )
+        }
     }
     .padding()
+    .background(Color.finixBackground)
 }
