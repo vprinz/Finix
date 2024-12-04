@@ -56,7 +56,7 @@ class CategoryService: EntityService<Category> {
         Category(
             name: String(localized: "Fitness"),
             iconName: "human-body-in-circle",
-            iconColor: Color.mint,
+            iconColor: Color.finixMint,
             isDefault: true
         ),
         Category(
@@ -104,7 +104,7 @@ class CategoryService: EntityService<Category> {
         Category(
             name: String(localized: "Celebrations"),
             iconName: "giftbox",
-            iconColor: Color.lemon,
+            iconColor: Color.violet,
             isDefault: true
         ),
         Category(
@@ -116,7 +116,7 @@ class CategoryService: EntityService<Category> {
         Category(
             name: String(localized: "Insurance"),
             iconName: "security-badge",
-            iconColor: Color.violet,
+            iconColor: Color.emerald,
             isDefault: true
         ),
         Category(
@@ -140,7 +140,7 @@ class CategoryService: EntityService<Category> {
         Category(
             name: String(localized: "Children"),
             iconName: "horse-toy",
-            iconColor: Color.emerald,
+            iconColor: Color.lemon,
             isDefault: true
         ),
         Category(
