@@ -190,6 +190,22 @@
         }
       }
     },
+    "highlightedText" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Highlighted"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "В избранных"
+          }
+        }
+      }
+    },
     "Home" : {
       "localizations" : {
         "ru" : {
@@ -318,6 +334,22 @@
         }
       },
       "shouldTranslate" : false
+    },
+    "notHighlightedText" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tap to highlight transaction"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Нажмите, чтобы добавить в избранные"
+          }
+        }
+      }
     },
     "recentTransactionsText" : {
       "localizations" : {
