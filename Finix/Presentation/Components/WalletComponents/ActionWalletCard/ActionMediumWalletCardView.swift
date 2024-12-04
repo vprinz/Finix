@@ -16,7 +16,7 @@ struct ActionMediumWalletCardView: View {
                 Spacer()
                 Image(model.iconName)
                     .resizable()
-                    .aspectRatio(contentMode: .fill)
+                    .aspectRatio(contentMode: .fit)
                     .frame(width: 40, height: 40)
                     .foregroundStyle(Color.customPrimary)
                     .offset(x: 7, y: 5)

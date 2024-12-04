@@ -31,7 +31,7 @@ struct TextFieldView: View {
                 } label: {
                     Image(buttonConfig.imageName)
                         .resizable()
-                        .aspectRatio(contentMode: .fill)
+                        .aspectRatio(contentMode: .fit)
                         .frame(width: 24, height: 24)
                         .foregroundStyle(Color.customPrimary)
                         .padding(12)

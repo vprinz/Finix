@@ -53,7 +53,7 @@ struct PeriodSummaryView: View {
             Spacer()
             Image("link-circle")
                 .resizable()
-                .aspectRatio(contentMode: .fill)
+                .aspectRatio(contentMode: .fit)
                 .rotationEffect(model.iconAngelDegree)
                 .frame(width: 48, height: 48)
                 .foregroundStyle(model.color.opacity(0.2))
